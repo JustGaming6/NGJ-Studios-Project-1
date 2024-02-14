@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b6i1mhqmkaq0t"]
+[gd_scene load_steps=2 format=3 uid="uid://b6i1mhqmkaq0t"]
+
+[ext_resource type="Texture2D" uid="uid://bq012vqonh4sv" path="res://icon.svg" id="1_8iu6s"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,3 +12,8 @@ offset_bottom = 135.0
 text = "Its all Sh*t's and Giggles
 Till Somebody Giggles and Sh*t's
 - Bomb From Angry Bird"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(589, 333.5)
+scale = Vector2(3.59375, 0.867187)
+texture = ExtResource("1_8iu6s")
