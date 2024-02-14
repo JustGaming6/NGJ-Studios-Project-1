@@ -3,3 +3,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="Area2D"]
+offset_left = 61.0
+offset_top = 38.0
+offset_right = 191.0
+offset_bottom = 99.0
+text = "helloooo
+"
