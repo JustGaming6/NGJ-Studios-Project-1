@@ -1,13 +1,12 @@
-[gd_scene format=3 uid="uid://8r2y28v4tuit"]
+[gd_scene load_steps=2 format=3 uid="uid://8r2y28v4tuit"]
+
+[ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_k4b0p"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="TextEdit" type="TextEdit" parent="Area2D"]
-offset_left = 61.0
-offset_top = 38.0
-offset_right = 191.0
-offset_bottom = 99.0
-text = "helloooo
-"
+[node name="AiMainMenu" type="Sprite2D" parent="."]
+position = Vector2(579, 572)
+scale = Vector2(0.749145, 0.749145)
+texture = ExtResource("1_k4b0p")
