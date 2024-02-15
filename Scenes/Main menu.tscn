@@ -1,12 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://8r2y28v4tuit"]
+[gd_scene load_steps=4 format=3 uid="uid://8r2y28v4tuit"]
 
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_k4b0p"]
+[ext_resource type="Script" path="res://Scenes/Menu.gd" id="1_s6ipd"]
+[ext_resource type="Texture2D" uid="uid://830f628h3p6r" path="res://Assets/Images/Map/pixil-layer-Layer 1.png" id="1_vlkfw"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_s6ipd")
 
-[node name="AiMainMenu" type="Sprite2D" parent="."]
-position = Vector2(579, 572)
-scale = Vector2(0.749145, 0.749145)
+[node name="ColorRect" type="ColorRect" parent="Node"]
+offset_right = 1147.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="Map" type="Sprite2D" parent="Node"]
+position = Vector2(191, 593)
+scale = Vector2(0.210417, 0.210417)
+texture = ExtResource("1_vlkfw")
+
+[node name="AiMainMenu" type="Sprite2D" parent="Node"]
+position = Vector2(715, 383)
+scale = Vector2(0.573242, 0.497396)
 texture = ExtResource("1_k4b0p")
+
+[node name="Label" type="Label" parent="Node"]
+offset_left = 21.0
+offset_top = 12.0
+offset_right = 508.0
+offset_bottom = 204.0
+theme_override_font_sizes/font_size = 39
+text = "New Zealand 
+Conquest"
+
+[node name="play" type="Button" parent="Node"]
+offset_left = 52.0
+offset_top = 192.0
+offset_right = 185.0
+offset_bottom = 223.0
+text = "Play"
+
+[node name="options" type="Button" parent="Node"]
+offset_left = 51.0
+offset_top = 244.0
+offset_right = 184.0
+offset_bottom = 275.0
+text = "Options"
+
+[node name="quit" type="Button" parent="Node"]
+offset_left = 52.0
+offset_top = 298.0
+offset_right = 184.0
+offset_bottom = 329.0
+text = "Quit"
+
+[node name="Label2" type="Label" parent="Node"]
+offset_left = 15.0
+offset_top = 583.0
+offset_right = 147.0
+offset_bottom = 642.0
+text = "NGJ Studios 2024"
+
+[connection signal="pressed" from="Node/quit" to="Node" method="_on_quit_pressed"]
