@@ -66,4 +66,7 @@ offset_bottom = 1037.0
 theme_override_font_sizes/font_size = 19
 text = "NGJ Studios 2024"
 
+[node name="Camera2D" type="Camera2D" parent="Node"]
+position = Vector2(578, 321)
+
 [connection signal="pressed" from="Node/quit" to="Node" method="_on_quit_pressed"]
