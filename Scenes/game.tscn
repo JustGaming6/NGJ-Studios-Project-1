@@ -10,3 +10,5 @@ script = ExtResource("1_e67rb")
 position = Vector2(0, 3)
 texture = ExtResource("2_p5k3c")
 centered = false
+
+[node name="Regions" type="Node2D" parent="."]
