@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8r2y28v4tuit"]
 
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_k4b0p"]
-[ext_resource type="Script" path="res://Scenes/Menu.gd" id="1_s6ipd"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_s6ipd"]
 [ext_resource type="Texture2D" uid="uid://830f628h3p6r" path="res://Assets/Images/Map/pixil-layer-Layer 1.png" id="1_vlkfw"]
 
 [node name="Node2D" type="Node2D"]
