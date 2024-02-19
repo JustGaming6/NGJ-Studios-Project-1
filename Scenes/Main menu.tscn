@@ -70,4 +70,5 @@ text = "NGJ Studios 2024"
 position = Vector2(578, 321)
 
 [connection signal="pressed" from="Node/quit" to="Node" method="_on_quit_pressed"]
+[connection signal="pressed" from="Node/Options" to="Node" method="_on_options_pressed"]
 [connection signal="pressed" from="Node/Play" to="Node" method="_on_play_pressed"]
