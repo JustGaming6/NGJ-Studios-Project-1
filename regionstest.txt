@@ -1,30 +1,7 @@
 {
-	"#f0054f" : "Steward Island"
-	, "#990030" : "Invercargill"
-	, "#3d0013" : "Fiordland"
 	
-	, "#bd6af7" : "Queenstown"
-	, "#402652" : "Wanaka"
-	, "#9c45d6" : "Otago"
-	, "#522570" : "Dunedin" 
- 
-	, "#2c3a4d" : "Southern West Coast"
-	, "#546d8e" : "Hokitika"
-	, "#668bba" : "Greymouth"
 
-	, "#3951b3" : "Tasman"
-	, "#2e4085" : "Marlbrough"
-	, "#4d6df3" : "Nelson"
-	, "#0037ff" : "Kaikoura"
-
-	, "#394716" : "Hurunui"
-	, "#a8e61d" : "Christchurch"
-	, "#82ad1d" : "Waimakariri"
-	, "#99ba47" : "Selwyn"
-	, "#5d702c" : "Ashburton"
-	, "#5d6b36" : "Waitaki"
-
-	, "#ad8b2d" : "Wellington"
+	"#ad8b2d" : "Wellington"
 	, "#e0a709" : "South Wairarapa"
 	, "#dbb95c" : "Masteron"
 	, "#4d3d15" : "Tararua Region"

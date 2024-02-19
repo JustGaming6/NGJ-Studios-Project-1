@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	load_regions()
-
+	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
 	var pixel_color_dict = get_pixel_color_dict(image)
@@ -20,13 +20,13 @@ func load_regions():
 		
 		for polygon in polygons:
 			var region_collision = CollisionPolygon2D.new()
-			var region_polygon  = Polygon2D.new()
+			var region_polygon = Polygon2D.new()
 			
 			region_collision.polygon = polygon
 			region_polygon.polygon = polygon
 			
 			region.add_child(region_collision)
-			region.add_child(polygon)
+			region.add_child(region_polygon)
 
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}
@@ -46,6 +46,8 @@ func get_polygons(image, region_color, pixel_color_dict):
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(targetImage)
 	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2(0, 0), bitmap.get_size()), 0.1)
+	
+	return polygons
 	
 
 func import_file(filepath):
