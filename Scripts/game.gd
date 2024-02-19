@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var mapImage = $Sprite2D
 
+var zoom_min = Vector2(.1,.1)
+
 func _ready():
 	load_regions()
 	
