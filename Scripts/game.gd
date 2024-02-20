@@ -2,10 +2,48 @@ extends Node2D
 
 @onready var mapImage = $Sprite2D
 
-var zoom_min = Vector2(.1,.1)
+var camera_speed = 10
 
 func _ready():
 	load_regions()
+	
+func _physics_process(delta):
+	zoom()
+	camera_move()
+	
+func zoom():
+	if Input.is_action_just_released("wheel up"):
+		if $Regions/Camera2D.zoom.x < 6:
+			$Regions/Camera2D.zoom.x += 0.25
+			$Regions/Camera2D.zoom.y += 0.25
+	if Input.is_action_just_released("wheel down"):
+		if $Regions/Camera2D.zoom.x >0.5:
+			$Regions/Camera2D.zoom.x -= 0.25
+			$Regions/Camera2D.zoom.y -= 0.25
+
+func camera_move():
+	if $Regions/Camera2D.zoom.x > 1:
+		camera_speed = 5
+	elif $Regions/Camera2D.zoom.x <= 1:
+		camera_speed = 10
+	
+	if Input.is_action_pressed("right"):
+		$Regions/Camera2D.offset.x += camera_speed
+	if Input.is_action_pressed("left"):
+		$Regions/Camera2D.offset.x -= camera_speed
+	if Input.is_action_pressed("up"):
+		$Regions/Camera2D.offset.y-= camera_speed
+	if Input.is_action_pressed("down"):
+		$Regions/Camera2D.offset.y += camera_speed
+	
+	if $Regions/Camera2D.offset.x > 100:
+		$Regions/Camera2D.offset.x = 100
+	if $Regions/Camera2D.offset.x < -100:
+		$Regions/Camera2D.offset.x = -100
+	if $Regions/Camera2D.offset.y > 100:
+		$Regions/Camera2D.offset.y = 100
+	if $Regions/Camera2D.offset.y < -100:
+		$Regions/Camera2D.offset.y = -100
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
