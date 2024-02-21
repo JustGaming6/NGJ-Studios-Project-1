@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4xius3hcexg3"
-path="res://.godot/imported/maptest.png-390dab0bf89245efe4823dad1f56b4aa.ctex"
+uid="uid://6ywsh3rsyw6m"
+path="res://.godot/imported/Terretories.png-c7bb2a38e76a1129050b66ea38db03bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Map/maptest.png"
-dest_files=["res://.godot/imported/maptest.png-390dab0bf89245efe4823dad1f56b4aa.ctex"]
+source_file="res://Assets/Images/Map/Terretories.png"
+dest_files=["res://.godot/imported/Terretories.png-c7bb2a38e76a1129050b66ea38db03bd.ctex"]
 
 [params]
 

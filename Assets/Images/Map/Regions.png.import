@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ywsh3rsyw6m"
-path="res://.godot/imported/pixil-frame-0 (1).png-d95900f93a8fc5abda47036901673c15.ctex"
+uid="uid://830f628h3p6r"
+path="res://.godot/imported/Regions.png-a8cc0a1dc3acb8c34ae7ea332894834e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Map/pixil-frame-0 (1).png"
-dest_files=["res://.godot/imported/pixil-frame-0 (1).png-d95900f93a8fc5abda47036901673c15.ctex"]
+source_file="res://Assets/Images/Map/Regions.png"
+dest_files=["res://.godot/imported/Regions.png-a8cc0a1dc3acb8c34ae7ea332894834e.ctex"]
 
 [params]
 
