@@ -10,19 +10,20 @@
 script = ExtResource("1_s6ipd")
 
 [node name="ColorRect" type="ColorRect" parent="Node"]
-offset_top = -5.0
-offset_right = 1147.0
-offset_bottom = 1085.0
+offset_left = -25.0
+offset_top = -95.0
+offset_right = 1122.0
+offset_bottom = 784.0
 color = Color(0, 0, 0, 1)
 
 [node name="Map" type="Sprite2D" parent="Node"]
-position = Vector2(231, 1017)
+position = Vector2(255, 586)
 scale = Vector2(0.210417, 0.210417)
 texture = ExtResource("1_vlkfw")
 
 [node name="AiMainMenu" type="Sprite2D" parent="Node"]
-position = Vector2(1173, 606)
-scale = Vector2(0.972168, 0.84354)
+position = Vector2(807.187, 320.222)
+scale = Vector2(0.486735, 0.422335)
 texture = ExtResource("1_k4b0p")
 
 [node name="Label" type="Label" parent="Node"]
@@ -32,37 +33,37 @@ offset_right = 508.0
 offset_bottom = 204.0
 theme_override_font_sizes/font_size = 62
 text = "New Zealand 
-Conquest"
+   Conquest"
 
 [node name="quit" type="Button" parent="Node"]
-offset_left = 57.0
-offset_top = 453.0
-offset_right = 278.0
-offset_bottom = 505.0
+offset_left = 19.0
+offset_top = 365.0
+offset_right = 240.0
+offset_bottom = 417.0
 theme_override_font_sizes/font_size = 27
 text = "Quit"
 
 [node name="Options" type="Button" parent="Node"]
-offset_left = 57.0
-offset_top = 370.0
-offset_right = 278.0
-offset_bottom = 422.0
+offset_left = 19.0
+offset_top = 282.0
+offset_right = 240.0
+offset_bottom = 334.0
 theme_override_font_sizes/font_size = 27
 text = "Options"
 
 [node name="Play" type="Button" parent="Node"]
-offset_left = 58.0
-offset_top = 289.0
-offset_right = 279.0
-offset_bottom = 341.0
+offset_left = 20.0
+offset_top = 204.0
+offset_right = 241.0
+offset_bottom = 256.0
 theme_override_font_sizes/font_size = 27
 text = "Play"
 
 [node name="Label2" type="Label" parent="Node"]
-offset_left = 44.0
-offset_top = 989.0
-offset_right = 200.0
-offset_bottom = 1037.0
+offset_left = 58.0
+offset_top = 575.0
+offset_right = 214.0
+offset_bottom = 641.0
 theme_override_font_sizes/font_size = 19
 text = "NGJ Studios 2024"
 
