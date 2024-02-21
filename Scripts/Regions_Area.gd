@@ -1,6 +1,7 @@
 extends Area2D
 
 var region_name = ""
+var Owner = ""
 
 func _ready():
 	await timer()

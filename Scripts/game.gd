@@ -6,6 +6,7 @@ var camera_speed = 10
 
 func _ready():
 	load_regions()
+	change_owner("Steward Island", "Blue")
 	
 func _physics_process(delta):
 	zoom()
@@ -53,7 +54,8 @@ func load_regions():
 	for region_color in regions_dict:
 		var region = load("res://Scenes/Regions_Area.tscn").instantiate()
 		region.region_name = regions_dict[region_color]
-		region.set_name(region_color)
+		region.set_name(regions_dict[region_color])
+		region.Owner = "region_owner"
 		get_node("Regions").add_child(region)
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
@@ -96,3 +98,12 @@ func import_file(filepath):
 	else:
 		print("Faild to Open file: ", filepath)
 		return null
+		
+func change_owner(region_name: String, new_owner : String):
+	var region = get_node("Regions").get_node(region_name)
+	if region != null:
+		region.Owner = new_owner
+		print(region_name + ": " + region.Owner)
+	else:
+		print("Region not found: " + region_name)
+	
