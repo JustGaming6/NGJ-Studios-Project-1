@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dan3ho5qssm7m"]
 
-[ext_resource type="Script" path="res://Scenes/selection.gd" id="1_dlqva"]
+[ext_resource type="Script" path="res://Scripts/selection.gd" id="1_dlqva"]
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_vtl0l"]
 
 [node name="Selection" type="Node2D"]
@@ -18,6 +18,7 @@ scale = Vector2(0.0167962, 0.0258888)
 texture = ExtResource("1_vtl0l")
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 3.19241
 offset_top = 1.17202
 offset_right = 103.192
@@ -35,6 +36,7 @@ scale = Vector2(0.107109, 0.0817972)
 text = "2 Players"
 
 [node name="3p" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 3.08831
 offset_top = 12.7072
 offset_right = 81.0883
@@ -43,6 +45,7 @@ scale = Vector2(0.107109, 0.0817972)
 text = "3 Players"
 
 [node name="4p" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 3.15771
 offset_top = 17.827
 offset_right = 81.1577
@@ -87,6 +90,7 @@ offset_bottom = 23.0
 text = "Player 2:"
 
 [node name="menu_2p_2" type="OptionButton" parent="ColorRect/select_2p/Label2"]
+layout_mode = 0
 offset_left = 1.67078
 offset_top = 19.8173
 offset_right = 68.6708
@@ -104,6 +108,15 @@ offset_right = 76.4486
 offset_bottom = 64.9031
 scale = Vector2(0.244585, 0.126)
 text = "Done"
+
+[node name="Invalid" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 12.2145
+offset_top = 33.0017
+offset_right = 64.2145
+offset_bottom = 56.0017
+scale = Vector2(0.36454, 0.150659)
+text = "Invalid"
 
 [connection signal="pressed" from="ColorRect/2p" to="." method="_on_2p_pressed"]
 [connection signal="pressed" from="ColorRect/3p" to="." method="_on_3p_pressed"]

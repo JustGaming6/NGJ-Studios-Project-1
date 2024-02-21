@@ -106,4 +106,3 @@ func change_owner(region_name: String, new_owner : String):
 		print(region_name + ": " + region.Owner)
 	else:
 		print("Region not found: " + region_name)
-	
