@@ -2,6 +2,12 @@ extends Area2D
 
 var region_name = ""
 
+func _ready():
+	await timer()
+	if region_name == "Steward Island":
+		for node in get_children():
+			if node.is_class("Polygon2D"):
+				node.color = Color(0,0,255,1)
 
 func _on_child_entered_tree(node):
 	if node.is_class("Polygon2D"):
@@ -21,3 +27,6 @@ func _on_mouse_exited():
 	for node in get_children():
 		if node.is_class("Polygon2D"):
 			node.color = Color(1,1,1,0.5)
+			
+func timer():
+	await get_tree().create_timer(1.0).timeout

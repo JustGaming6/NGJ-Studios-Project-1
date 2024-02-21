@@ -36,14 +36,14 @@ func camera_move():
 	if Input.is_action_pressed("down"):
 		$Regions/Camera2D.offset.y += camera_speed
 	
-	if $Regions/Camera2D.offset.x > 100:
-		$Regions/Camera2D.offset.x = 100
-	if $Regions/Camera2D.offset.x < -100:
-		$Regions/Camera2D.offset.x = -100
-	if $Regions/Camera2D.offset.y > 100:
-		$Regions/Camera2D.offset.y = 100
-	if $Regions/Camera2D.offset.y < -100:
-		$Regions/Camera2D.offset.y = -100
+	if $Regions/Camera2D.offset.x > 150:
+		$Regions/Camera2D.offset.x = 150
+	if $Regions/Camera2D.offset.x < -150:
+		$Regions/Camera2D.offset.x = -150
+	if $Regions/Camera2D.offset.y > 150:
+		$Regions/Camera2D.offset.y = 150
+	if $Regions/Camera2D.offset.y < -150:
+		$Regions/Camera2D.offset.y = -150
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
@@ -89,7 +89,6 @@ func get_polygons(image, region_color, pixel_color_dict):
 	
 	return polygons
 	
-
 func import_file(filepath):
 	var file = FileAccess.open(filepath, FileAccess.READ)
 	if file != null:
