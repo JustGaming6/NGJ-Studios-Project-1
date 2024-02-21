@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=3 uid="uid://dan3ho5qssm7m"]
+
+[ext_resource type="Script" path="res://Scenes/selection.gd" id="1_dlqva"]
+[ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_vtl0l"]
+
+[node name="Selection" type="Node2D"]
+script = ExtResource("1_dlqva")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8183, 16.2113)
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="AiMainMenu" type="Sprite2D" parent="ColorRect"]
+position = Vector2(27.0314, 19.986)
+scale = Vector2(0.0167962, 0.0258888)
+texture = ExtResource("1_vtl0l")
+
+[node name="Label" type="Label" parent="ColorRect"]
+offset_left = 3.19241
+offset_top = 1.17202
+offset_right = 103.192
+offset_bottom = 24.172
+scale = Vector2(0.0712382, 0.155641)
+text = "Select Game:"
+
+[node name="2p" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 3.12301
+offset_top = 7.77235
+offset_right = 73.123
+offset_bottom = 48.7723
+scale = Vector2(0.107109, 0.0817972)
+text = "2 Players"
+
+[node name="3p" type="Button" parent="ColorRect"]
+offset_left = 3.08831
+offset_top = 12.7072
+offset_right = 81.0883
+offset_bottom = 53.7072
+scale = Vector2(0.107109, 0.0817972)
+text = "3 Players"
+
+[node name="4p" type="Button" parent="ColorRect"]
+offset_left = 3.15771
+offset_top = 17.827
+offset_right = 81.1577
+offset_bottom = 58.827
+scale = Vector2(0.107109, 0.0817972)
+text = "4 Players"
+
+[node name="select_2p" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.76653
+offset_top = 6.90875
+offset_right = 46.7665
+offset_bottom = 46.9088
+scale = Vector2(0.726908, 0.634991)
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Label" type="Label" parent="ColorRect/select_2p"]
+layout_mode = 0
+offset_left = 8.59259
+offset_top = 0.291431
+offset_right = 36.5926
+offset_bottom = 23.2914
+scale = Vector2(0.793262, 0.259363)
+theme_override_font_sizes/font_size = 0
+text = "Player 1:"
+
+[node name="menu_2p_1" type="OptionButton" parent="ColorRect/select_2p/Label"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 27.0
+offset_right = 59.0
+offset_bottom = 158.0
+scale = Vector2(0.545959, 0.179456)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
+
+[node name="Label2" type="Label" parent="ColorRect/select_2p"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player 2:"
+
+[node name="menu_2p_2" type="OptionButton" parent="ColorRect/select_2p/Label2"]
+offset_left = 1.67078
+offset_top = 19.8173
+offset_right = 68.6708
+offset_bottom = 50.8173
+scale = Vector2(0.545959, 0.179456)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
+
+[node name="done_2p" type="Button" parent="ColorRect/select_2p"]
+layout_mode = 0
+offset_left = 27.4486
+offset_top = 33.9031
+offset_right = 76.4486
+offset_bottom = 64.9031
+scale = Vector2(0.244585, 0.126)
+text = "Done"
+
+[connection signal="pressed" from="ColorRect/2p" to="." method="_on_2p_pressed"]
+[connection signal="pressed" from="ColorRect/3p" to="." method="_on_3p_pressed"]
+[connection signal="pressed" from="ColorRect/4p" to="." method="_on_4p_pressed"]
+[connection signal="pressed" from="ColorRect/select_2p/done_2p" to="." method="_on_done_2p_pressed"]
