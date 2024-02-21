@@ -16,8 +16,18 @@ func _on_4p_pressed():
 	print("hillo")
 
 func add_items(name):
-	name.add_item("Wellington")
+	name.add_item("Northland")
+	name.add_item("Auckland")
+	name.add_item("Bay of plenty")
 	name.add_item("Waikato")
+	name.add_item("Taranaki")
+	name.add_item("Hawkes Bay")
+	name.add_item("Wellington")
+	name.add_item("Marlbrough/Tasman")
+	name.add_item("West Coast")
+	name.add_item("Canterbury")
+	name.add_item("Otago")
+	name.add_item("Southland")
 
 func _on_done_2p_pressed():
 	var menu_1 = $ColorRect/select_2p/Label/menu_2p_1

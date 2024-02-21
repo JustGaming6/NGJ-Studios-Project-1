@@ -2,6 +2,7 @@ extends Area2D
 
 var region_name = ""
 var Owner = ""
+var intial_font = ""
 
 func _ready():
 	await timer()
@@ -18,6 +19,7 @@ func _on_mouse_entered():
 	print(region_name)
 	for node in get_children():
 		if node.is_class("Polygon2D"):
+			intial_font = node.color
 			node.color = Color(1,1,1,1)
 
 func _on_input_event(viewport, event, shape_idx):
@@ -27,7 +29,7 @@ func _on_input_event(viewport, event, shape_idx):
 func _on_mouse_exited():
 	for node in get_children():
 		if node.is_class("Polygon2D"):
-			node.color = Color(1,1,1,0.5)
+			node.color = intial_font
 			
 func timer():
 	await get_tree().create_timer(1.0).timeout
