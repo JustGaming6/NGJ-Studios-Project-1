@@ -54,7 +54,7 @@ scale = Vector2(0.107109, 0.0817972)
 theme_override_font_sizes/font_size = 16
 text = "4 Players"
 
-[node name="select_2p" type="ColorRect" parent="ColorRect"]
+[node name="select" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = 6.76653
 offset_top = 6.90875
@@ -63,63 +63,107 @@ offset_bottom = 46.9088
 scale = Vector2(0.726908, 0.634991)
 color = Color(0.180392, 0.180392, 0.180392, 1)
 
-[node name="Label" type="Label" parent="ColorRect/select_2p"]
+[node name="done_2p" type="Button" parent="ColorRect/select"]
 layout_mode = 0
-offset_left = 8.59259
-offset_top = 0.291431
-offset_right = 36.5926
-offset_bottom = 23.2914
-scale = Vector2(0.793262, 0.259363)
-theme_override_font_sizes/font_size = 0
+offset_left = 28.7852
+offset_top = 31.9603
+offset_right = 88.7852
+offset_bottom = 95.9603
+scale = Vector2(0.176112, 0.0758734)
+text = "Done"
+
+[node name="Label" type="Label" parent="ColorRect/select"]
+layout_mode = 0
+offset_left = 1.43211
+offset_top = 1.55432
+offset_right = 101.432
+offset_bottom = 35.5543
+scale = Vector2(0.0574382, 0.131398)
+theme_override_font_sizes/font_size = 24
 text = "Player 1:"
 
-[node name="menu_2p_1" type="OptionButton" parent="ColorRect/select_2p/Label"]
+[node name="menu_1" type="OptionButton" parent="ColorRect/select/Label"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 27.0
-offset_right = 59.0
-offset_bottom = 158.0
-scale = Vector2(0.545959, 0.179456)
+offset_left = 107.0
+offset_top = 10.0
+offset_right = 570.0
+offset_bottom = 215.0
+scale = Vector2(1.17749, 0.124449)
 theme_override_font_sizes/font_size = 0
 alignment = 1
 text_overrun_behavior = 1
 
-[node name="Label2" type="Label" parent="ColorRect/select_2p"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Label2" type="Label" parent="ColorRect/select"]
+offset_left = 1.43211
+offset_top = 6.89722
+offset_right = 101.432
+offset_bottom = 40.8972
+scale = Vector2(0.0574382, 0.131398)
+theme_override_font_sizes/font_size = 24
 text = "Player 2:"
 
-[node name="menu_2p_2" type="OptionButton" parent="ColorRect/select_2p/Label2"]
+[node name="menu_2" type="OptionButton" parent="ColorRect/select/Label2"]
 layout_mode = 0
-offset_left = 1.67078
-offset_top = 19.8173
-offset_right = 68.6708
-offset_bottom = 50.8173
-scale = Vector2(0.545959, 0.179456)
+offset_left = 107.0
+offset_top = 10.0
+offset_right = 570.0
+offset_bottom = 215.0
+scale = Vector2(1.17749, 0.124449)
 theme_override_font_sizes/font_size = 0
 alignment = 1
 text_overrun_behavior = 1
 
-[node name="done_2p" type="Button" parent="ColorRect/select_2p"]
+[node name="Label3" type="Label" parent="ColorRect/select"]
+offset_left = 1.09795
+offset_top = 11.5601
+offset_right = 101.098
+offset_bottom = 45.5601
+scale = Vector2(0.0574382, 0.131398)
+theme_override_font_sizes/font_size = 24
+text = "Player 3:"
+
+[node name="menu_3" type="OptionButton" parent="ColorRect/select/Label3"]
 layout_mode = 0
-offset_left = 27.4486
-offset_top = 33.9031
-offset_right = 76.4486
-offset_bottom = 64.9031
-scale = Vector2(0.244585, 0.126)
-text = "Done"
+offset_left = 107.0
+offset_top = 10.0
+offset_right = 570.0
+offset_bottom = 215.0
+scale = Vector2(1.17749, 0.124449)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
+
+[node name="Label4" type="Label" parent="ColorRect/select"]
+offset_left = 1.2889
+offset_top = 16.7087
+offset_right = 101.289
+offset_bottom = 50.7087
+scale = Vector2(0.0574382, 0.131398)
+theme_override_font_sizes/font_size = 24
+text = "Player 4:"
+
+[node name="menu_1" type="OptionButton" parent="ColorRect/select/Label4"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 10.0
+offset_right = 570.0
+offset_bottom = 215.0
+scale = Vector2(1.17749, 0.124449)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
 
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 33.0
-offset_right = 64.0
-offset_bottom = 56.0
-scale = Vector2(0.36454, 0.150659)
+offset_left = 14.6782
+offset_top = 27.8818
+offset_right = 67.6782
+offset_bottom = 57.8818
+scale = Vector2(0.207847, 0.0788314)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Invalid"
 
 [connection signal="pressed" from="ColorRect/2p" to="." method="_on_2p_pressed"]
 [connection signal="pressed" from="ColorRect/3p" to="." method="_on_3p_pressed"]
 [connection signal="pressed" from="ColorRect/4p" to="." method="_on_4p_pressed"]
-[connection signal="pressed" from="ColorRect/select_2p/done_2p" to="." method="_on_done_2p_pressed"]
+[connection signal="pressed" from="ColorRect/select/done_2p" to="." method="_on_done_2p_pressed"]
