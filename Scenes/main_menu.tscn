@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://8r2y28v4tuit"]
+[gd_scene load_steps=12 format=3 uid="uid://8r2y28v4tuit"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_6h27t"]
 [ext_resource type="Texture2D" uid="uid://830f628h3p6r" path="res://Assets/Images/Map/Regions.png" id="2_2dy68"]
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="3_m0kwm"]
+[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="4_4a83w"]
+[ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="4_j2i3r"]
+[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="5_xt5ec"]
+[ext_resource type="StyleBox" uid="uid://cahu17i6656y0" path="res://Assets/StyleBox(Ignore)/Normal.tres" id="6_b01ju"]
+[ext_resource type="StyleBox" uid="uid://cswapw5lu2aa1" path="res://Assets/StyleBox(Ignore)/Hover.tres" id="7_m51s2"]
+[ext_resource type="StyleBox" uid="uid://b2ji0vvv4pbnv" path="res://Assets/StyleBox(Ignore)/Pressed.tres" id="8_5eoij"]
+[ext_resource type="StyleBox" uid="uid://b88puvy7iv4vo" path="res://Assets/StyleBox(Ignore)/Disabled.tres" id="9_p0nsq"]
+
+[sub_resource type="Theme" id="Theme_dpiv3"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,43 +36,64 @@ scale = Vector2(0.486735, 0.422335)
 texture = ExtResource("3_m0kwm")
 
 [node name="Label" type="Label" parent="Node"]
-offset_left = 21.0
-offset_top = 12.0
-offset_right = 508.0
-offset_bottom = 204.0
-theme_override_font_sizes/font_size = 62
+offset_left = 38.0
+offset_top = 10.0
+offset_right = 562.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("4_j2i3r")
+theme_override_font_sizes/font_size = 80
 text = "New Zealand 
-   Conquest"
+ Conquest"
 
 [node name="quit" type="Button" parent="Node"]
-offset_left = 19.0
-offset_top = 365.0
-offset_right = 240.0
-offset_bottom = 417.0
+offset_left = 20.0
+offset_top = 424.0
+offset_right = 241.0
+offset_bottom = 476.0
+theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_fonts/font = ExtResource("5_xt5ec")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = ExtResource("6_b01ju")
+theme_override_styles/hover = ExtResource("7_m51s2")
+theme_override_styles/pressed = ExtResource("8_5eoij")
+theme_override_styles/disabled = ExtResource("9_p0nsq")
 text = "Quit"
 
 [node name="Options" type="Button" parent="Node"]
-offset_left = 19.0
-offset_top = 282.0
-offset_right = 240.0
-offset_bottom = 334.0
+offset_left = 20.0
+offset_top = 341.0
+offset_right = 241.0
+offset_bottom = 393.0
+theme = SubResource("Theme_dpiv3")
+theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_fonts/font = ExtResource("5_xt5ec")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = ExtResource("6_b01ju")
+theme_override_styles/hover = ExtResource("7_m51s2")
+theme_override_styles/pressed = ExtResource("8_5eoij")
+theme_override_styles/disabled = ExtResource("9_p0nsq")
 text = "Options"
 
 [node name="Play" type="Button" parent="Node"]
-offset_left = 20.0
-offset_top = 204.0
-offset_right = 241.0
-offset_bottom = 256.0
+offset_left = 21.0
+offset_top = 263.0
+offset_right = 242.0
+offset_bottom = 315.0
+theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_fonts/font = ExtResource("5_xt5ec")
 theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = ExtResource("6_b01ju")
+theme_override_styles/hover = ExtResource("7_m51s2")
+theme_override_styles/pressed = ExtResource("8_5eoij")
+theme_override_styles/disabled = ExtResource("9_p0nsq")
 text = "Play"
 
 [node name="Label2" type="Label" parent="Node"]
-offset_left = 58.0
-offset_top = 575.0
-offset_right = 214.0
-offset_bottom = 641.0
+offset_left = 43.0
+offset_top = 573.0
+offset_right = 229.0
+offset_bottom = 639.0
+theme_override_fonts/font = ExtResource("4_4a83w")
 theme_override_font_sizes/font_size = 19
 text = "NGJ Studios 2024"
 

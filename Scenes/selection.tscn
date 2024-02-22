@@ -51,6 +51,7 @@ offset_top = 17.827
 offset_right = 81.1577
 offset_bottom = 58.827
 scale = Vector2(0.107109, 0.0817972)
+theme_override_font_sizes/font_size = 16
 text = "4 Players"
 
 [node name="select_2p" type="ColorRect" parent="ColorRect"]
@@ -111,10 +112,10 @@ text = "Done"
 
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 12.2145
-offset_top = 33.0017
-offset_right = 64.2145
-offset_bottom = 56.0017
+offset_left = 12.0
+offset_top = 33.0
+offset_right = 64.0
+offset_bottom = 56.0
 scale = Vector2(0.36454, 0.150659)
 text = "Invalid"
 
