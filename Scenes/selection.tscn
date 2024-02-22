@@ -87,6 +87,7 @@ scale = Vector2(0.110489, 0.182457)
 text = "Done"
 
 [node name="Label2" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 0.811528
 offset_top = 9.03438
 offset_right = 66.8115
@@ -107,6 +108,7 @@ alignment = 1
 text_overrun_behavior = 1
 
 [node name="Label3" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 1.00248
 offset_top = 15.4459
 offset_right = 67.0025
@@ -127,6 +129,7 @@ alignment = 1
 text_overrun_behavior = 1
 
 [node name="Label4" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 1.09795
 offset_top = 20.6916
 offset_right = 67.0979

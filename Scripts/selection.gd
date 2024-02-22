@@ -1,19 +1,44 @@
 extends Node2D
 
+var players = 0
+
 func _ready():
-	$ColorRect/select_2p.hide()
+	$ColorRect/select.hide()
 	$ColorRect/Invalid.hide()
+	$ColorRect/select/Label.hide()
+	$ColorRect/select/Label2.hide()
+	$ColorRect/select/Label3.hide()
+	$ColorRect/select/Label4.hide()
 
 func _on_2p_pressed():
-	$ColorRect/select_2p.show()
-	add_items($ColorRect/select_2p/Label/menu_2p_1)
-	add_items($ColorRect/select_2p/Label2/menu_2p_2)
+	players = 2
+	$ColorRect/select.show()
+	add_items($ColorRect/select/Label/menu_1)
+	add_items($ColorRect/select/Label2/menu_2)
+	$ColorRect/select/Label.show()
+	$ColorRect/select/Label2.show()
 
 func _on_3p_pressed():
-	print("hello")
+	players = 3
+	$ColorRect/select.show()
+	add_items($ColorRect/select/Label/menu_1)
+	add_items($ColorRect/select/Label2/menu_2)
+	add_items($ColorRect/select/Label3/menu_3)
+	$ColorRect/select/Label.show()
+	$ColorRect/select/Label2.show()
+	$ColorRect/select/Label3.show()
 
 func _on_4p_pressed():
-	print("hillo")
+	players = 4
+	$ColorRect/select.show()
+	add_items($ColorRect/select/Label/menu_1)
+	add_items($ColorRect/select/Label2/menu_2)
+	add_items($ColorRect/select/Label3/menu_3)
+	add_items($ColorRect/select/Label4/menu_4)
+	$ColorRect/select/Label.show()
+	$ColorRect/select/Label2.show()
+	$ColorRect/select/Label3.show()
+	$ColorRect/select/Label4.show()
 
 func add_items(name):
 	name.add_item("Northland")
@@ -30,14 +55,17 @@ func add_items(name):
 	name.add_item("Southland")
 
 func _on_done_2p_pressed():
-	var menu_1 = $ColorRect/select_2p/Label/menu_2p_1
-	var menu_2 = $ColorRect/select_2p/Label2/menu_2p_2
-	if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1:
-		print("Please select an item in both menus.")
-	else:
-		var selected_item_1 = menu_1.get_selected_id()
-		var selected_item_2 = menu_2.get_selected_id()
-		if selected_item_1 != selected_item_2:
-			get_tree().change_scene_to_file("res://Scenes/game.tscn")
+	var menu_1 = $ColorRect/select/Label/menu_1
+	var menu_2 = $ColorRect/select/Label2/menu_2
+	var menu_3 = $ColorRect/select/Label3/menu_3
+	var menu_4 = $ColorRect/select/Label4/menu_4
+	if players == 2:
+		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1:
+			print("Please select an item in both menus.")
 		else:
-			$ColorRect/Invalid.show()
+			var selected_item_1 = menu_1.get_selected_id()
+			var selected_item_2 = menu_2.get_selected_id()
+			if selected_item_1 != selected_item_2:
+				get_tree().change_scene_to_file("res://Scenes/game.tscn")
+			else:
+				$ColorRect/Invalid.show()
