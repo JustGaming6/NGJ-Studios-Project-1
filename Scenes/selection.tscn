@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dan3ho5qssm7m"]
+[gd_scene load_steps=2 format=3 uid="uid://dan3ho5qssm7m"]
 
 [ext_resource type="Script" path="res://Scripts/selection.gd" id="1_dlqva"]
-[ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_vtl0l"]
 
 [node name="Selection" type="Node2D"]
 script = ExtResource("1_dlqva")
@@ -11,11 +10,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.8183, 16.2113)
 color = Color(0.180392, 0.180392, 0.180392, 1)
-
-[node name="AiMainMenu" type="Sprite2D" parent="ColorRect"]
-position = Vector2(27.0314, 19.986)
-scale = Vector2(0.0167962, 0.0258888)
-texture = ExtResource("1_vtl0l")
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -53,72 +47,117 @@ offset_bottom = 58.827
 scale = Vector2(0.107109, 0.0817972)
 text = "4 Players"
 
-[node name="select_2p" type="ColorRect" parent="ColorRect"]
+[node name="select" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = 6.76653
 offset_top = 6.90875
 offset_right = 46.7665
 offset_bottom = 46.9088
 scale = Vector2(0.726908, 0.634991)
-color = Color(0.180392, 0.180392, 0.180392, 1)
+color = Color(0.372549, 0.372549, 0.372549, 1)
 
-[node name="Label" type="Label" parent="ColorRect/select_2p"]
+[node name="Label" type="Label" parent="ColorRect/select"]
 layout_mode = 0
-offset_left = 8.59259
-offset_top = 0.291431
-offset_right = 36.5926
-offset_bottom = 23.2914
-scale = Vector2(0.793262, 0.259363)
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 26.0
+scale = Vector2(0.142496, 0.216914)
 theme_override_font_sizes/font_size = 0
 text = "Player 1:"
 
-[node name="menu_2p_1" type="OptionButton" parent="ColorRect/select_2p/Label"]
+[node name="menu_1" type="OptionButton" parent="ColorRect/select/Label"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 27.0
-offset_right = 59.0
-offset_bottom = 158.0
-scale = Vector2(0.545959, 0.179456)
+offset_left = 69.0
+offset_top = 2.55216
+offset_right = 252.0
+offset_bottom = 28.5522
+scale = Vector2(1.04955, 0.90652)
 theme_override_font_sizes/font_size = 0
 alignment = 1
 text_overrun_behavior = 1
 
-[node name="Label2" type="Label" parent="ColorRect/select_2p"]
+[node name="done_2p" type="Button" parent="ColorRect/select"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 30.9069
+offset_top = 33.3199
+offset_right = 100.907
+offset_bottom = 64.3199
+scale = Vector2(0.110489, 0.182457)
+text = "Done"
+
+[node name="Label2" type="Label" parent="ColorRect/select"]
+offset_left = 0.811528
+offset_top = 9.03438
+offset_right = 66.8115
+offset_bottom = 32.0344
+scale = Vector2(0.142496, 0.216914)
+theme_override_font_sizes/font_size = 0
 text = "Player 2:"
 
-[node name="menu_2p_2" type="OptionButton" parent="ColorRect/select_2p/Label2"]
+[node name="menu_2" type="OptionButton" parent="ColorRect/select/Label2"]
 layout_mode = 0
-offset_left = 1.67078
-offset_top = 19.8173
-offset_right = 68.6708
-offset_bottom = 50.8173
-scale = Vector2(0.545959, 0.179456)
+offset_left = 69.0
+offset_top = 2.55216
+offset_right = 252.0
+offset_bottom = 28.5522
+scale = Vector2(1.04955, 0.90652)
 theme_override_font_sizes/font_size = 0
 alignment = 1
 text_overrun_behavior = 1
 
-[node name="done_2p" type="Button" parent="ColorRect/select_2p"]
+[node name="Label3" type="Label" parent="ColorRect/select"]
+offset_left = 1.00248
+offset_top = 15.4459
+offset_right = 67.0025
+offset_bottom = 38.4459
+scale = Vector2(0.142496, 0.216914)
+theme_override_font_sizes/font_size = 0
+text = "Player 3:"
+
+[node name="menu_3" type="OptionButton" parent="ColorRect/select/Label3"]
 layout_mode = 0
-offset_left = 27.4486
-offset_top = 33.9031
-offset_right = 76.4486
-offset_bottom = 64.9031
-scale = Vector2(0.244585, 0.126)
-text = "Done"
+offset_left = 69.0
+offset_top = 2.55216
+offset_right = 252.0
+offset_bottom = 28.5522
+scale = Vector2(1.04955, 0.90652)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
+
+[node name="Label4" type="Label" parent="ColorRect/select"]
+offset_left = 1.09795
+offset_top = 20.6916
+offset_right = 67.0979
+offset_bottom = 43.6916
+scale = Vector2(0.142496, 0.216914)
+theme_override_font_sizes/font_size = 0
+text = "Player 4:"
+
+[node name="menu_4" type="OptionButton" parent="ColorRect/select/Label4"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 2.55216
+offset_right = 252.0
+offset_bottom = 28.5522
+scale = Vector2(1.04955, 0.90652)
+theme_override_font_sizes/font_size = 0
+alignment = 1
+text_overrun_behavior = 1
 
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 12.2145
-offset_top = 33.0017
-offset_right = 64.2145
-offset_bottom = 56.0017
-scale = Vector2(0.36454, 0.150659)
+offset_left = 16.7255
+offset_top = 27.45
+offset_right = 71.7255
+offset_bottom = 51.45
+scale = Vector2(0.10904, 0.139337)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
 text = "Invalid"
 
 [connection signal="pressed" from="ColorRect/2p" to="." method="_on_2p_pressed"]
 [connection signal="pressed" from="ColorRect/3p" to="." method="_on_3p_pressed"]
 [connection signal="pressed" from="ColorRect/4p" to="." method="_on_4p_pressed"]
-[connection signal="pressed" from="ColorRect/select_2p/done_2p" to="." method="_on_done_2p_pressed"]
+[connection signal="pressed" from="ColorRect/select/done_2p" to="." method="_on_done_2p_pressed"]
