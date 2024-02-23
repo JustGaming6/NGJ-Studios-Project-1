@@ -18,6 +18,9 @@ func _on_2p_pressed():
 	add_items($ColorRect/select/Label2/menu_2)
 	$ColorRect/select/Label.show()
 	$ColorRect/select/Label2.show()
+	
+	$ColorRect/select/Label3.hide()
+	$ColorRect/select/Label4.hide()
 
 func _on_3p_pressed():
 	print("hello")
@@ -29,6 +32,8 @@ func _on_3p_pressed():
 	$ColorRect/select/Label.show()
 	$ColorRect/select/Label2.show()
 	$ColorRect/select/Label3.show()
+	
+	$ColorRect/select/Label4.hide()
 
 func _on_4p_pressed():
 	print("hillo")
@@ -70,6 +75,31 @@ func _on_done_2p_pressed():
 			var selected_item_1 = menu_1.get_selected_id()
 			var selected_item_2 = menu_2.get_selected_id()
 			if selected_item_1 != selected_item_2:
+				get_tree().change_scene_to_file("res://Scenes/game.tscn")
+			else:
+				$ColorRect/Invalid.show()
+	elif players == 3:
+		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id():
+			print("Please select an item in both menus.")
+		else:
+			$ColorRect/Invalid.show()
+			var selected_item_1 = menu_1.get_selected_id()
+			var selected_item_2 = menu_2.get_selected_id()
+			var selected_item_3 = menu_3.get_selected_id()
+			if selected_item_1 != selected_item_2 and selected_item_1 != selected_item_3:
+				get_tree().change_scene_to_file("res://Scenes/game.tscn")
+			else:
+				$ColorRect/Invalid.show()
+	elif players == 4:
+		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id() or menu_4.get_selected_id():
+			print("Please select an item in both menus.")
+		else:
+			$ColorRect/Invalid.show()
+			var selected_item_1 = menu_1.get_selected_id()
+			var selected_item_2 = menu_2.get_selected_id()
+			var selected_item_3 = menu_3.get_selected_id()
+			var selected_item_4 = menu_4.get_selected_id()
+			if selected_item_1 != selected_item_2 and selected_item_1 != selected_item_3 and selected_item_1 != selected_item_4:
 				get_tree().change_scene_to_file("res://Scenes/game.tscn")
 			else:
 				$ColorRect/Invalid.show()
