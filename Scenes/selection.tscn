@@ -94,6 +94,7 @@ alignment = 1
 text_overrun_behavior = 1
 
 [node name="Label2" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 1.43211
 offset_top = 6.89722
 offset_right = 101.432
@@ -114,6 +115,7 @@ alignment = 1
 text_overrun_behavior = 1
 
 [node name="Label3" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 1.09795
 offset_top = 11.5601
 offset_right = 101.098
@@ -134,6 +136,7 @@ alignment = 1
 text_overrun_behavior = 1
 
 [node name="Label4" type="Label" parent="ColorRect/select"]
+layout_mode = 0
 offset_left = 1.2889
 offset_top = 16.7087
 offset_right = 101.289
