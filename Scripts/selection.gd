@@ -1,7 +1,5 @@
 extends Node2D
 
-var players = 0
-
 func _ready():
 	$ColorRect/select.hide()
 	$ColorRect/select.hide()
@@ -12,7 +10,7 @@ func _ready():
 	$ColorRect/select/Label4.hide()
 
 func _on_2p_pressed():
-	players = 2
+	Global.players = 2
 	$ColorRect/select.show()
 	add_items($ColorRect/select/Label/menu_1)
 	add_items($ColorRect/select/Label2/menu_2)
@@ -24,7 +22,7 @@ func _on_2p_pressed():
 
 func _on_3p_pressed():
 	print("hello")
-	players = 3
+	Global.players = 3
 	$ColorRect/select.show()
 	add_items($ColorRect/select/Label/menu_1)
 	add_items($ColorRect/select/Label2/menu_2)
@@ -37,7 +35,7 @@ func _on_3p_pressed():
 
 func _on_4p_pressed():
 	print("hillo")
-	players = 4
+	Global.players = 4
 	$ColorRect/select.show()
 	add_items($ColorRect/select/Label/menu_1)
 	add_items($ColorRect/select/Label2/menu_2)
@@ -67,7 +65,7 @@ func _on_done_2p_pressed():
 	var menu_2 = $ColorRect/select/Label2/menu_2
 	var menu_3 = $ColorRect/select/Label3/menu_3
 	var menu_4 = $ColorRect/select/Label4/menu_4
-	if players == 2:
+	if Global.players == 2:
 		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1:
 			print("Please select an item in both menus.")
 		else:
@@ -78,8 +76,8 @@ func _on_done_2p_pressed():
 				get_tree().change_scene_to_file("res://Scenes/game.tscn")
 			else:
 				$ColorRect/Invalid.show()
-	elif players == 3:
-		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id():
+	elif Global.players == 3:
+		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id() == -1:
 			print("Please select an item in both menus.")
 		else:
 			$ColorRect/Invalid.show()
@@ -90,8 +88,8 @@ func _on_done_2p_pressed():
 				get_tree().change_scene_to_file("res://Scenes/game.tscn")
 			else:
 				$ColorRect/Invalid.show()
-	elif players == 4:
-		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id() or menu_4.get_selected_id():
+	elif Global.players == 4:
+		if menu_1.get_selected_id() == -1 or menu_2.get_selected_id() == -1 or menu_3.get_selected_id() == -1 or menu_4.get_selected_id() == -1:
 			print("Please select an item in both menus.")
 		else:
 			$ColorRect/Invalid.show()
