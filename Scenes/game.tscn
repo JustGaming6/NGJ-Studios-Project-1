@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=4 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://6ywsh3rsyw6m" path="res://Assets/Images/Map/Terretories.png" id="2_p5k3c"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
@@ -12,6 +13,7 @@ position = Vector2(5, 19)
 scale = Vector2(0.979879, 0.929167)
 texture = ExtResource("2_p5k3c")
 centered = false
+script = ExtResource("3_gu6h3")
 
 [node name="Regions" type="Node2D" parent="."]
 
