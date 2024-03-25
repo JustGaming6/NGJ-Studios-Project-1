@@ -6,7 +6,7 @@ var camera_speed = 10
 
 func _ready():
 	load_regions()
-	change_owner("Steward Island", "p1")
+	change_owner("Wellington", "p2")
 	set_region(Global.p1_selection, 1)
 	set_region(Global.p2_selection, 2)
 	if Global.players > 2:
@@ -109,6 +109,7 @@ func change_owner(region_name: String, new_owner : String):
 	var region = get_node("Regions").get_node(region_name)
 	if region != null:
 		region.Owner = new_owner
+		Global.region_owner = region.Owner
 		print(region_name + ": " + region.Owner)
 	else:
 		print("Region not found: " + region_name)

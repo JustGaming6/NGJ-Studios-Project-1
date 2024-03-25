@@ -3,18 +3,33 @@ extends Area2D
 var region_name = ""
 var Owner = ""
 var intial_font = ""
-var p1_col = "Blue"
-var p2_col = "Blue"
-var p3_col = "Blue"
-var p4_col = "Blue"
-var bot_col = "Blue"
+var p1_col = Color(0,0,255,1)
+var p2_col = Color(255,0,0,1)
+var p3_col = Color(130,94,92,1)
+var p4_col = Color(255,240,0,1)
+var bot_col = Color(46,204,113,1)
 
 func _ready():
 	await timer()
+
+func change_color(node):
+	if Global.region_owner == "p1":
+		node.color = p1_col
+	elif Global.region_owner == "p2":
+		node.color = p2_col
+	elif Global.region_owner == "p3":
+		node.color = p3_col
+	elif Global.region_owner == "p4":
+		node.color = p4_col
+	elif Global.region_owner == "bot":
+		node.color = bot_col
+
+func _physics_process(delta):
 	if region_name == "Steward Island":
+		region_name = "Steward Isalnd"
 		for node in get_children():
 			if node.is_class("Polygon2D"):
-				node.color = Color(0,0,255,1)
+					change_color(node)
 
 func _on_child_entered_tree(node):
 	if node.is_class("Polygon2D"):
