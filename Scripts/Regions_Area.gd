@@ -3,6 +3,11 @@ extends Area2D
 var region_name = ""
 var Owner = ""
 var intial_font = ""
+var p1_col = "Blue"
+var p2_col = "Blue"
+var p3_col = "Blue"
+var p4_col = "Blue"
+var bot_col = "Blue"
 
 func _ready():
 	await timer()

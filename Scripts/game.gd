@@ -6,7 +6,13 @@ var camera_speed = 10
 
 func _ready():
 	load_regions()
-	change_owner("Steward Island", "Blue")
+	change_owner("Steward Island", "p1")
+	set_region(Global.p1_selection, 1)
+	set_region(Global.p2_selection, 2)
+	if Global.players > 2:
+		set_region(Global.p3_selection, 3)
+		if Global.players > 3:
+			set_region(Global.p4_selection, 4)
 	
 func _physics_process(delta):
 	zoom()
@@ -106,3 +112,6 @@ func change_owner(region_name: String, new_owner : String):
 		print(region_name + ": " + region.Owner)
 	else:
 		print("Region not found: " + region_name)
+		
+func set_region(selection, player):
+	pass
