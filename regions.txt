@@ -54,8 +54,8 @@
 	, "#3e49de" : "Kaipara"
  
 	, "#2aeb61" : "North Auckland"
-	, "#22b14c" : "Central Acukland"
-	, "#1d8f3d" : "East Auckland"
+	, "#22b14c" : "Central Auckland"
+	, "#1d8f3d" : "West Auckland"
 	, "#197331" : "South Auckland"
 	, "#28d158" : "Coromandel"
  

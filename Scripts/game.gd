@@ -6,14 +6,12 @@ var camera_speed = 10
 
 func _ready():
 	load_regions()
-	await change_owner("Steward Island", "p2")
-	await change_owner("Wellington", "p1")
-	set_region(Global.p1_selection, 1)
-	set_region(Global.p2_selection, 2)
+	await set_region(Global.p1_selection, "p1")
+	await set_region(Global.p2_selection, "p2")
 	if Global.players > 2:
-		set_region(Global.p3_selection, 3)
+		await set_region(Global.p3_selection, "p3")
 		if Global.players > 3:
-			set_region(Global.p4_selection, 4)
+			await set_region(Global.p4_selection, "p4")
 	
 func _physics_process(delta):
 	zoom()
@@ -120,10 +118,16 @@ func change_owner(region_name: String, new_owner : String):
 func set_region(selection, player):
 	if selection == 0:
 		await change_owner("Far North", player)
+		await change_owner("Whangarei", player)
+		await change_owner("Kaipara", player)
 	elif selection == 1:
-		pass
+		await change_owner("North Auckland", player)
+		await change_owner("Central Auckland", player)
+		await change_owner("South Auckland", player)
+		await change_owner("West Auckland", player)
+		await change_owner("Coromandel", player)
 	elif selection == 2:
-		pass
+		await change_owner("North Waikato", player)
 	elif selection == 3:
 		pass
 	elif selection == 4:
@@ -145,4 +149,4 @@ func set_region(selection, player):
 	print(selection)
 
 func timer():
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.1).timeout
