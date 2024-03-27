@@ -119,8 +119,28 @@ func change_owner(region_name: String, new_owner : String):
 		
 func set_region(selection, player):
 	if selection == 0:
-		pass
+		await change_owner("Far North", player)
 	elif selection == 1:
+		pass
+	elif selection == 2:
+		pass
+	elif selection == 3:
+		pass
+	elif selection == 4:
+		pass
+	elif selection == 5:
+		pass
+	elif selection == 6:
+		pass
+	elif selection == 7:
+		pass
+	elif selection == 8:
+		pass
+	elif selection == 9:
+		pass
+	elif selection == 10:
+		pass
+	elif selection == 11:
 		pass
 	print(selection)
 
