@@ -25,10 +25,9 @@ func change_color(node):
 		node.color = bot_col
 
 func _physics_process(delta):
-	if region_name == "Steward Island":
-		region_name = "Steward Isalnd"
-		for node in get_children():
-			if node.is_class("Polygon2D"):
+		if region_name == Global.region_name:
+			for node in get_children():
+				if node.is_class("Polygon2D"):
 					change_color(node)
 
 func _on_child_entered_tree(node):
