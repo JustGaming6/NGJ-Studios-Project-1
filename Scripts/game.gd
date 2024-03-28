@@ -116,6 +116,13 @@ func change_owner(region_name: String, new_owner : String):
 	await timer()
 		
 func set_region(selection, player):
+	var Northland_Owned = false
+	var Auckland_Owned = false
+	var Waikato_Owned = false
+	var BayOfPlenty_Owned = false
+	var Taranaki_Owned = false
+	var HawkesBay_Owned = false
+	
 	if selection == 0:
 		await change_owner("Far North", player)
 		await change_owner("Whangarei", player)
@@ -127,26 +134,62 @@ func set_region(selection, player):
 		await change_owner("West Auckland", player)
 		await change_owner("Coromandel", player)
 	elif selection == 2:
-		await change_owner("North Waikato", player)
+		await change_owner("Gisborne", player)
+		await change_owner("Opotiki", player)
+		await change_owner("Whakatane", player)
+		await change_owner("Rotorua", player)
+		await change_owner("Tauranga", player)
 	elif selection == 3:
-		pass
+		await change_owner("North Waikato", player)
+		await change_owner("Hauraki", player)
+		await change_owner("Hamilton",player)
+		await change_owner("Waitomo", player)
+		await change_owner("Taupo", player)
+		await change_owner("Desert Road", player)
 	elif selection == 4:
-		pass
+		await change_owner("South Taranaki", player)
+		await change_owner("Whanganui", player)
+		await change_owner("New Plymouth", player)
+		await change_owner("Stratford", player)
+		await change_owner("Ruapehu", player)
 	elif selection == 5:
-		pass
+		await change_owner("Central Hawke's Bay", player)
+		await change_owner("Hastings", player)
+		await change_owner("Napier", player)
+		await change_owner("Wairoa", player)
 	elif selection == 6:
-		pass
+		await change_owner("Wellington", player)
+		await change_owner("South Wairarapa", player)
+		await change_owner("Masterton", player)
+		await change_owner("Tararua Region", player)
+		await change_owner("Palmerston North", player)
+		await change_owner("Kapiti Coast", player)
+		await change_owner("North Manawatu", player)
 	elif selection == 7:
-		pass
+		await change_owner("Tasman", player)
+		await change_owner("Marlbrough", player)
+		await change_owner("Nelson", player)
+		await change_owner("Kaikoura", player)
 	elif selection == 8:
-		pass
+		await change_owner("Southern West Coast", player)
+		await change_owner("Hokitika", player)
+		await change_owner("Greymouth", player)
 	elif selection == 9:
-		pass
+		await change_owner("Hurunui", player)
+		await change_owner("Christchurch", player)
+		await change_owner("Waimakariri", player)
+		await change_owner("Selwyn", player)
+		await change_owner("Ashburton", player)
+		await change_owner("Waitaki", player)
 	elif selection == 10:
-		pass
+		await change_owner("Queenstown", player)
+		await change_owner("Wanaka", player)
+		await change_owner("Otago", player)
+		await change_owner("Dunedin", player)
 	elif selection == 11:
-		pass
-	print(selection)
+		await change_owner("Stewart Island", player)
+		await change_owner("Invercargill", player)
+		await change_owner("Fiordland", player)
 
 func timer():
 	await get_tree().create_timer(0.1).timeout

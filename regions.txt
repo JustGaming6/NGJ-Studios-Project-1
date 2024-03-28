@@ -1,5 +1,5 @@
 {
-	"#f0054f" : "Steward Island"
+	"#f0054f" : "Stewart Island"
 	, "#990030" : "Invercargill"
 	, "#3d0013" : "Fiordland"
 	
@@ -26,7 +26,7 @@
 
 	, "#ad8b2d" : "Wellington"
 	, "#e0a709" : "South Wairarapa"
-	, "#dbb95c" : "Masteron"
+	, "#dbb95c" : "Masterton"
 	, "#4d3d15" : "Tararua Region"
 	, "#a88947" : "Palmerston North"
 	, "#947318" : "Kapiti Coast"
@@ -46,7 +46,7 @@
 	, "#db8c9a" : "South Taranaki"
 	, "#a36c76" : "Whanganui"
 	, "#ff859d" : "New Plymouth"
-	, "#c77181" : "Startford"
+	, "#c77181" : "Stratford"
 	, "#db93a1" : "Ruapehu"
 
 	, "#2f3699" : "Far North"
