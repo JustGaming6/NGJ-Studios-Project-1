@@ -122,6 +122,12 @@ func set_region(selection, player):
 	var BayOfPlenty_Owned = false
 	var Taranaki_Owned = false
 	var HawkesBay_Owned = false
+	var Wellington_Owned = false
+	var MarlboughTasman_Owned = false
+	var WestCoast_Owned = false
+	var Canterbury_Owned = false
+	var Fiordland_Owned = false
+	var Southland_Owned = false
 	
 	if selection == 0:
 		await change_owner("Far North", player)
