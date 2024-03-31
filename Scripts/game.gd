@@ -12,6 +12,7 @@ func _ready():
 		await set_region(Global.p3_selection, "p3")
 		if Global.players > 3:
 			await set_region(Global.p4_selection, "p4")
+	set_bot()
 	
 func _physics_process(delta):
 	zoom()
@@ -114,88 +115,151 @@ func change_owner(region_name: String, new_owner : String):
 	else:
 		print("Region not found: " + region_name)
 	await timer()
-		
+
+var Northland_Owned = false
+var Auckland_Owned = false
+var Waikato_Owned = false
+var BayOfPlenty_Owned = false
+var Taranaki_Owned = false
+var HawkesBay_Owned = false
+var Wellington_Owned = false
+var MarlboughTasman_Owned = false
+var WestCoast_Owned = false
+var Canterbury_Owned = false
+var Fiordland_Owned = false
+var Southland_Owned = false
+
 func set_region(selection, player):
-	var Northland_Owned = false
-	var Auckland_Owned = false
-	var Waikato_Owned = false
-	var BayOfPlenty_Owned = false
-	var Taranaki_Owned = false
-	var HawkesBay_Owned = false
-	var Wellington_Owned = false
-	var MarlboughTasman_Owned = false
-	var WestCoast_Owned = false
-	var Canterbury_Owned = false
-	var Fiordland_Owned = false
-	var Southland_Owned = false
-	
 	if selection == 0:
-		await change_owner("Far North", player)
-		await change_owner("Whangarei", player)
-		await change_owner("Kaipara", player)
+		await change_northland(player)
+		Northland_Owned = true
 	elif selection == 1:
-		await change_owner("North Auckland", player)
-		await change_owner("Central Auckland", player)
-		await change_owner("South Auckland", player)
-		await change_owner("West Auckland", player)
-		await change_owner("Coromandel", player)
+		await change_auckland(player)
+		Auckland_Owned = true
 	elif selection == 2:
-		await change_owner("Gisborne", player)
-		await change_owner("Opotiki", player)
-		await change_owner("Whakatane", player)
-		await change_owner("Rotorua", player)
-		await change_owner("Tauranga", player)
+		await change_bayofplenty(player)
+		BayOfPlenty_Owned = true
 	elif selection == 3:
-		await change_owner("North Waikato", player)
-		await change_owner("Hauraki", player)
-		await change_owner("Hamilton",player)
-		await change_owner("Waitomo", player)
-		await change_owner("Taupo", player)
-		await change_owner("Desert Road", player)
+		await change_waikato(player)
+		Waikato_Owned = true
 	elif selection == 4:
-		await change_owner("South Taranaki", player)
-		await change_owner("Whanganui", player)
-		await change_owner("New Plymouth", player)
-		await change_owner("Stratford", player)
-		await change_owner("Ruapehu", player)
+		await change_taranaki(player)
+		Taranaki_Owned = true
 	elif selection == 5:
-		await change_owner("Central Hawke's Bay", player)
-		await change_owner("Hastings", player)
-		await change_owner("Napier", player)
-		await change_owner("Wairoa", player)
+		await change_hawkesbay(player)
+		HawkesBay_Owned = true
 	elif selection == 6:
-		await change_owner("Wellington", player)
-		await change_owner("South Wairarapa", player)
-		await change_owner("Masterton", player)
-		await change_owner("Tararua Region", player)
-		await change_owner("Palmerston North", player)
-		await change_owner("Kapiti Coast", player)
-		await change_owner("North Manawatu", player)
+		await change_wellington(player)
+		Wellington_Owned = true
 	elif selection == 7:
-		await change_owner("Tasman", player)
-		await change_owner("Marlbrough", player)
-		await change_owner("Nelson", player)
-		await change_owner("Kaikoura", player)
+		await change_marlbroughtasman(player)
+		MarlboughTasman_Owned = true
 	elif selection == 8:
-		await change_owner("Southern West Coast", player)
-		await change_owner("Hokitika", player)
-		await change_owner("Greymouth", player)
+		await change_westcoast(player)
+		WestCoast_Owned = true
 	elif selection == 9:
-		await change_owner("Hurunui", player)
-		await change_owner("Christchurch", player)
-		await change_owner("Waimakariri", player)
-		await change_owner("Selwyn", player)
-		await change_owner("Ashburton", player)
-		await change_owner("Waitaki", player)
+		await change_canterbury(player)
+		Canterbury_Owned = true
 	elif selection == 10:
-		await change_owner("Queenstown", player)
-		await change_owner("Wanaka", player)
-		await change_owner("Otago", player)
-		await change_owner("Dunedin", player)
+		await change_fiordland(player)
+		Fiordland_Owned = true
 	elif selection == 11:
-		await change_owner("Stewart Island", player)
-		await change_owner("Invercargill", player)
-		await change_owner("Fiordland", player)
+		await change_southland(player)
+		Southland_Owned = true
+	
+func set_bot():
+	if Northland_Owned == false:
+		await change_northland("bot")
+	if Auckland_Owned == false:
+		await change_auckland("bot")
+	if Waikato_Owned == false:
+		await change_waikato("bot")
+	if BayOfPlenty_Owned == false:
+		await change_bayofplenty("bot")
+	if Taranaki_Owned == false:
+		await change_taranaki("bot")
+	if HawkesBay_Owned == false:
+		await change_hawkesbay("bot")
+	if Wellington_Owned == false:
+		await change_wellington("bot")
+	if MarlboughTasman_Owned == false:
+		await change_marlbroughtasman("bot")
+	if WestCoast_Owned == false:
+		await change_westcoast("bot")
+	if Canterbury_Owned == false:
+		await change_canterbury("bot")
+	if Fiordland_Owned == false:
+		await change_fiordland("bot")
+	if Southland_Owned == false:
+		await change_southland("bot")
+
+func change_northland(player):
+	await change_owner("Far North", player)
+	await change_owner("Whangarei", player)
+	await change_owner("Kaipara", player)
+func change_auckland(player):
+	await change_owner("North Auckland", player)
+	await change_owner("Central Auckland", player)
+	await change_owner("South Auckland", player)
+	await change_owner("West Auckland", player)
+	await change_owner("Coromandel", player)
+func change_bayofplenty(player):
+	await change_owner("Gisborne", player)
+	await change_owner("Opotiki", player)
+	await change_owner("Whakatane", player)
+	await change_owner("Rotorua", player)
+	await change_owner("Tauranga", player)
+func change_waikato(player):
+	await change_owner("North Waikato", player)
+	await change_owner("Hauraki", player)
+	await change_owner("Hamilton",player)
+	await change_owner("Waitomo", player)
+	await change_owner("Taupo", player)
+	await change_owner("Desert Road", player)
+func change_taranaki(player):
+	await change_owner("South Taranaki", player)
+	await change_owner("Whanganui", player)
+	await change_owner("New Plymouth", player)
+	await change_owner("Stratford", player)
+	await change_owner("Ruapehu", player)
+func change_hawkesbay(player):
+	await change_owner("Central Hawke's Bay", player)
+	await change_owner("Hastings", player)
+	await change_owner("Napier", player)
+	await change_owner("Wairoa", player)
+func change_wellington(player):
+	await change_owner("Wellington", player)
+	await change_owner("South Wairarapa", player)
+	await change_owner("Masterton", player)
+	await change_owner("Tararua Region", player)
+	await change_owner("Palmerston North", player)
+	await change_owner("Kapiti Coast", player)
+	await change_owner("North Manawatu", player)
+func change_marlbroughtasman(player):
+	await change_owner("Tasman", player)
+	await change_owner("Marlbrough", player)
+	await change_owner("Nelson", player)
+	await change_owner("Kaikoura", player)
+func change_canterbury(player):
+	await change_owner("Hurunui", player)
+	await change_owner("Christchurch", player)
+	await change_owner("Waimakariri", player)
+	await change_owner("Selwyn", player)
+	await change_owner("Ashburton", player)
+	await change_owner("Waitaki", player)
+func change_westcoast(player):
+	await change_owner("Southern West Coast", player)
+	await change_owner("Hokitika", player)
+	await change_owner("Greymouth", player)
+func change_fiordland(player):
+	await change_owner("Queenstown", player)
+	await change_owner("Wanaka", player)
+	await change_owner("Otago", player)
+	await change_owner("Dunedin", player)
+func change_southland(player):
+	await change_owner("Stewart Island", player)
+	await change_owner("Invercargill", player)
+	await change_owner("Fiordland", player)
 
 func timer():
 	await get_tree().create_timer(0.1).timeout

@@ -8,7 +8,6 @@ var p2_col = Color(255,0,0,1)
 var p3_col = Color(130,94,92,1)
 var p4_col = Color(255,240,0,1)
 var bot_col = Color(46,204,113,1)
-
 func _ready():
 	await timer()
 
