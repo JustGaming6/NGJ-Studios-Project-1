@@ -169,29 +169,29 @@ func set_region(selection, player):
 	
 func set_bot():
 	if Northland_Owned == false:
-		await change_northland("bot")
+		await change_northland("bot1")
 	if Auckland_Owned == false:
-		await change_auckland("bot")
+		await change_auckland("bot2")
 	if Waikato_Owned == false:
-		await change_waikato("bot")
+		await change_waikato("bot3")
 	if BayOfPlenty_Owned == false:
-		await change_bayofplenty("bot")
+		await change_bayofplenty("bot4")
 	if Taranaki_Owned == false:
-		await change_taranaki("bot")
+		await change_taranaki("bot5")
 	if HawkesBay_Owned == false:
-		await change_hawkesbay("bot")
+		await change_hawkesbay("bot6")
 	if Wellington_Owned == false:
-		await change_wellington("bot")
+		await change_wellington("bot7")
 	if MarlboughTasman_Owned == false:
-		await change_marlbroughtasman("bot")
+		await change_marlbroughtasman("bot8")
 	if WestCoast_Owned == false:
-		await change_westcoast("bot")
+		await change_westcoast("bot9")
 	if Canterbury_Owned == false:
-		await change_canterbury("bot")
+		await change_canterbury("bot10")
 	if Fiordland_Owned == false:
-		await change_fiordland("bot")
+		await change_fiordland("bot11")
 	if Southland_Owned == false:
-		await change_southland("bot")
+		await change_southland("bot12")
 
 func change_northland(player):
 	await change_owner("Far North", player)

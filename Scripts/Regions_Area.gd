@@ -3,11 +3,12 @@ extends Area2D
 var region_name = ""
 var Owner = ""
 var intial_font = ""
-var p1_col = Color(0,0,255,1)
-var p2_col = Color(255,0,0,1)
-var p3_col = Color(130,94,92,1)
-var p4_col = Color(255,240,0,1)
-var bot_col = Color(46,204,113,1)
+var p1_col = Color(0,0,1,1)
+var p2_col = Color(1,0,0,1)
+var p3_col = Color(0,1,0,1)
+var p4_col = Color(1,1,0,1)
+var bot1_col = Color(1,1,1,1)
+var bot2_col = Color(0,0,1,0.5)
 func _ready():
 	await timer()
 
@@ -20,8 +21,10 @@ func change_color(node):
 		node.color = p3_col
 	elif Global.region_owner == "p4":
 		node.color = p4_col
-	elif Global.region_owner == "bot":
-		node.color = bot_col
+	elif Global.region_owner == "bot1":
+		node.color = bot1_col
+	elif Global.region_owner == "bot2":
+		node.color = bot2_col
 
 func _physics_process(delta):
 		if region_name == Global.region_name:
