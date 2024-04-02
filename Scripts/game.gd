@@ -3,6 +3,7 @@ extends Node2D
 @onready var mapImage = $Sprite2D
 
 var camera_speed = 10
+var zoom_speed = 0.25
 
 func _ready():
 	load_regions()
@@ -19,14 +20,18 @@ func _physics_process(delta):
 	camera_move()
 	
 func zoom():
+	if $Regions/Camera2D.zoom.x > 5:
+		zoom_speed = 1
+	elif $Regions/Camera2D.zoom.x < 5:
+		zoom_speed = 0.25
 	if Input.is_action_just_released("wheel up"):
-		if $Regions/Camera2D.zoom.x < 6:
-			$Regions/Camera2D.zoom.x += 0.25
-			$Regions/Camera2D.zoom.y += 0.25
+		if $Regions/Camera2D.zoom.x <= 10:
+			$Regions/Camera2D.zoom.x += zoom_speed
+			$Regions/Camera2D.zoom.y += zoom_speed
 	if Input.is_action_just_released("wheel down"):
 		if $Regions/Camera2D.zoom.x >0.5:
-			$Regions/Camera2D.zoom.x -= 0.25
-			$Regions/Camera2D.zoom.y -= 0.25
+			$Regions/Camera2D.zoom.x -= zoom_speed
+			$Regions/Camera2D.zoom.y -= zoom_speed
 
 func camera_move():
 	if $Regions/Camera2D.zoom.x > 1:
@@ -115,6 +120,9 @@ func change_owner(region_name: String, new_owner : String):
 	else:
 		print("Region not found: " + region_name)
 	await timer()
+	
+func _turn(player):
+	pass
 
 var Northland_Owned = false
 var Auckland_Owned = false
