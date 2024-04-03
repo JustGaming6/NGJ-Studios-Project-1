@@ -20,12 +20,12 @@ func _physics_process(delta):
 	camera_move()
 	
 func zoom():
-	if $Regions/VBoxContainer/Camera2D.zoom.x > 5:
+	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1
-	elif $Regions/VBoxContainer/Camera2D.zoom.x < 5:
+	elif $Regions/Camera2D.zoom.x < 5:
 		zoom_speed = 0.25
 	if Input.is_action_just_released("wheel up"):
-		if $Regions/VBoxContainer/Camera2D.zoom.x <= 10:
+		if $Regions/Camera2D.zoom.x <= 10:
 			$Regions/Camera2D.zoom.x += zoom_speed
 			$Regions/Camera2D.zoom.y += zoom_speed
 	if Input.is_action_just_released("wheel down"):
@@ -34,9 +34,9 @@ func zoom():
 			$Regions/Camera2D.zoom.y -= zoom_speed
 
 func camera_move():
-	if $Regions/VBoxContainer/Camera2D.zoom.x > 1:
+	if $Regions/Camera2D.zoom.x > 1:
 		camera_speed = 5
-	elif $Regions/VBoxContainer/Camera2D.zoom.x <= 1:
+	elif $Regions/Camera2D.zoom.x <= 1:
 		camera_speed = 10
 	
 	if Input.is_action_pressed("right"):
