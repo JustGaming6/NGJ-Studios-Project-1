@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg7ik10gy1i24"]
+[gd_scene load_steps=2 format=3 uid="uid://boj3b762cosnr"]
 
-[ext_resource type="Texture2D" uid="uid://chr5tr0tlpcgk" path="res://Assets/Images/territory images/Wellington.webp" id="1_q6aal"]
+[ext_resource type="Texture2D" uid="uid://chr5tr0tlpcgk" path="res://Assets/Images/territory images/Wellington.webp" id="1_5paet"]
 
 [node name="Wellington info" type="Node2D"]
 
@@ -19,7 +19,7 @@ offset_top = -11.0
 offset_right = 414.0
 offset_bottom = 75.0
 theme_override_font_sizes/font_size = 62
-text = "Wellington"
+text = "Masterton"
 
 [node name="color1" type="ColorRect" parent="Node2DBackground"]
 offset_left = 12.0
@@ -40,7 +40,7 @@ autowrap_mode = 2
 [node name="Wellington" type="Sprite2D" parent="."]
 position = Vector2(833.258, 211.719)
 scale = Vector2(0.429677, 0.420142)
-texture = ExtResource("1_q6aal")
+texture = ExtResource("1_5paet")
 
 [node name="color2" type="ColorRect" parent="."]
 offset_left = 13.0
