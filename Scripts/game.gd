@@ -19,6 +19,20 @@ func _physics_process(delta):
 	zoom()
 	camera_move()
 	
+func _process(delta):
+	if Global.players == 2:
+		turn("p1")
+		turn("p2")
+	elif Global.players == 3:
+		turn("p1")
+		turn("p2")
+		turn("p3")
+	elif Global.players == 4:
+		turn("p1")
+		turn("p2")
+		turn("p3")
+		turn ("p4")
+	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1
@@ -121,7 +135,7 @@ func change_owner(region_name: String, new_owner : String):
 		print("Region not found: " + region_name)
 	await timer()
 	
-func _turn(player):
+func turn(player):
 	pass
 
 var Northland_Owned = false
@@ -271,3 +285,7 @@ func change_southland(player):
 
 func timer():
 	await get_tree().create_timer(0.1).timeout
+
+
+func _on_balance_mouse_entered():
+	pass # Replace with function body.
