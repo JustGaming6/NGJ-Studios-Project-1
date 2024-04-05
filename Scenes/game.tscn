@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://6ywsh3rsyw6m" path="res://Assets/Images/Map/Terretories.png" id="2_p5k3c"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
-[ext_resource type="Script" path="res://Scenes/UI.gd" id="4_mcphf"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
