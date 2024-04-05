@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://bg7ik10gy1i24"]
+[gd_scene load_steps=2 format=3 uid="uid://bg7ik10gy1i24"]
+
+[ext_resource type="Texture2D" uid="uid://chr5tr0tlpcgk" path="res://Assets/Images/territory images/Wellington.webp" id="1_q6aal"]
 
 [node name="Wellington info" type="Node2D"]
+
+[node name="Node2DBackground" type="Node2D" parent="."]
+
+[node name="Background color" type="ColorRect" parent="Node2DBackground"]
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 1153.0
+offset_bottom = 652.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="title" type="Label" parent="Node2DBackground"]
+offset_left = 94.0
+offset_top = -11.0
+offset_right = 414.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 62
+text = "Wellington"
+
+[node name="color1" type="ColorRect" parent="Node2DBackground"]
+offset_left = 12.0
+offset_top = 77.0
+offset_right = 485.0
+offset_bottom = 418.0
+color = Color(0.227451, 0.227451, 0.227451, 1)
+
+[node name="description" type="Label" parent="Node2DBackground"]
+offset_left = 25.0
+offset_top = 85.0
+offset_right = 487.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 22
+text = "Wellington City, the captivating capital of New Zealand, nestles at the southernmost tip of the North Island. This vibrant metropolis harmonizes natural beauty with urban life. Surrounded by rolling hills and a rugged coastline. Wellington boasts a large economy with great manpower making this territroy a powerhouse that is vital to control."
+autowrap_mode = 2
+
+[node name="Wellington" type="Sprite2D" parent="."]
+position = Vector2(833.258, 211.719)
+scale = Vector2(0.429677, 0.420142)
+texture = ExtResource("1_q6aal")
+
+[node name="color2" type="ColorRect" parent="."]
+offset_left = 13.0
+offset_top = 450.0
+offset_right = 1125.0
+offset_bottom = 616.0
+color = Color(0.227451, 0.227451, 0.227451, 1)
