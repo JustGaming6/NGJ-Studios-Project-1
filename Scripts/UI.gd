@@ -2,9 +2,6 @@ extends CanvasLayer
 
 func _ready():
 	SubMenu("hide")
-
-func _on_balance_mouse_entered():
-	SubMenu("show")
 	
 func SubMenu(vis):
 	if vis == "show":
@@ -16,3 +13,6 @@ func SubMenu(vis):
 
 func timer():
 	await get_tree().create_timer(5).timeout
+
+func _on_color_rect_mouse_entered():
+	SubMenu("show")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=8 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://6ywsh3rsyw6m" path="res://Assets/Images/Map/Terretories.png" id="2_p5k3c"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
+[ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
+[ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
+[ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
@@ -26,10 +29,10 @@ position_smoothing_enabled = true
 script = ExtResource("4_mcphf")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -315.0
-offset_top = -66.0
-offset_right = 836.0
-offset_bottom = -1.0
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 66.0
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
 [node name="balance" type="Label" parent="CanvasLayer/ColorRect"]
@@ -42,6 +45,12 @@ text = "000000
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="income" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
+position = Vector2(261, 32)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("5_b6ggv")
+hframes = 3
+
 [node name="moral" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
 offset_left = 383.0
@@ -51,6 +60,13 @@ theme_override_font_sizes/font_size = 30
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="moral" type="Sprite2D" parent="CanvasLayer/ColorRect/moral"]
+position = Vector2(121, 32)
+scale = Vector2(0.189583, 0.139583)
+texture = ExtResource("6_q1wgj")
+hframes = 5
+frame = 2
 
 [node name="manpower" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
@@ -62,11 +78,19 @@ text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SubMenu" type="ColorRect" parent="."]
-offset_left = -311.0
-offset_top = -2.0
-offset_right = 837.0
-offset_bottom = 113.0
+[node name="SubMenu" type="ColorRect" parent="CanvasLayer"]
+offset_left = -2.0
+offset_top = 60.0
+offset_right = 1153.0
+offset_bottom = 165.0
 color = Color(0.188235, 0.188235, 0.188235, 1)
 
+[node name="BuildMenu" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1090.25, 594.875)
+scale = Vector2(0.123718, 0.110324)
+texture = ExtResource("7_p8hmm")
+
+[connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]

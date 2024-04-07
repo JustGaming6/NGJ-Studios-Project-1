@@ -289,3 +289,11 @@ func timer():
 
 func _on_balance_mouse_entered():
 	pass # Replace with function body.
+
+
+func _on_sub_menu_mouse_exited():
+	pass # Replace with function body.
+
+
+func _on_color_rect_mouse_exited():
+	pass # Replace with function body.
