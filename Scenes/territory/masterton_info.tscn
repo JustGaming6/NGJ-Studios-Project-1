@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://boj3b762cosnr"]
 
-[ext_resource type="Texture2D" uid="uid://chr5tr0tlpcgk" path="res://Assets/Images/territory images/Wellington.webp" id="1_5paet"]
+[ext_resource type="Texture2D" uid="uid://cktagc53u06nm" path="res://Assets/Images/territory images/masterton.jpg" id="1_scspn"]
 
 [node name="Wellington info" type="Node2D"]
 
@@ -34,13 +34,8 @@ offset_top = 85.0
 offset_right = 487.0
 offset_bottom = 504.0
 theme_override_font_sizes/font_size = 22
-text = "Wellington City, the captivating capital of New Zealand, nestles at the southernmost tip of the North Island. This vibrant metropolis harmonizes natural beauty with urban life. Surrounded by rolling hills and a rugged coastline. Wellington boasts a large economy with great manpower making this territroy a powerhouse that is vital to control."
+text = "Masteton, an essential fortress for holding the Wairarapa valley. This town has a medium sized economy and population. "
 autowrap_mode = 2
-
-[node name="Wellington" type="Sprite2D" parent="."]
-position = Vector2(833.258, 211.719)
-scale = Vector2(0.429677, 0.420142)
-texture = ExtResource("1_5paet")
 
 [node name="color2" type="ColorRect" parent="."]
 offset_left = 13.0
@@ -48,3 +43,8 @@ offset_top = 450.0
 offset_right = 1125.0
 offset_bottom = 616.0
 color = Color(0.227451, 0.227451, 0.227451, 1)
+
+[node name="Masterton" type="Sprite2D" parent="."]
+position = Vector2(826, 216)
+scale = Vector2(1.29248, 1.29248)
+texture = ExtResource("1_scspn")
