@@ -1,12 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=10 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://6ywsh3rsyw6m" path="res://Assets/Images/Map/Terretories.png" id="2_p5k3c"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
+[ext_resource type="Texture2D" uid="uid://b0dslt7cjtn0t" path="res://Assets/Images/Icons/single_dollar.png" id="5_1qbhn"]
 [ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
 [ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
 [ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
+
+[sub_resource type="GDScript" id="GDScript_1trf3"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
@@ -44,8 +59,14 @@ text = "000000
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_1trf3")
 
-[node name="income" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
+[node name="bal" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
+position = Vector2(94, 32)
+scale = Vector2(0.321739, 0.24)
+texture = ExtResource("5_1qbhn")
+
+[node name="bal_change" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
 position = Vector2(261, 32)
 scale = Vector2(0.199107, 0.22625)
 texture = ExtResource("5_b6ggv")
@@ -68,6 +89,12 @@ texture = ExtResource("6_q1wgj")
 hframes = 5
 frame = 2
 
+[node name="moral_change" type="Sprite2D" parent="CanvasLayer/ColorRect/moral"]
+position = Vector2(249, 33)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("5_b6ggv")
+hframes = 3
+
 [node name="manpower" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
 offset_left = 765.0
@@ -77,6 +104,12 @@ theme_override_font_sizes/font_size = 30
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="manpower_change" type="Sprite2D" parent="CanvasLayer/ColorRect/manpower"]
+position = Vector2(247, 34)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("5_b6ggv")
+hframes = 3
 
 [node name="SubMenu" type="ColorRect" parent="CanvasLayer"]
 offset_left = -2.0
@@ -89,6 +122,14 @@ color = Color(0.188235, 0.188235, 0.188235, 1)
 position = Vector2(1090.25, 594.875)
 scale = Vector2(0.123718, 0.110324)
 texture = ExtResource("7_p8hmm")
+
+[node name="player" type="Label" parent="CanvasLayer"]
+offset_left = 1100.0
+offset_top = 10.0
+offset_right = 1140.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
+text = "P2"
 
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
