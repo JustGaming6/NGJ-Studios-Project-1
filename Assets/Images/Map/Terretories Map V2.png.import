@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brtahp5f7b2kd"
-path="res://.godot/imported/Regions; THICC.png-d1e79fcc23512e34462910c9a155caff.ctex"
+uid="uid://c3xppi5nwq6o"
+path="res://.godot/imported/Terretories Map V2.png-2289e47f779846d2bc18aaf57eef66e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Map/Regions; THICC.png"
-dest_files=["res://.godot/imported/Regions; THICC.png-d1e79fcc23512e34462910c9a155caff.ctex"]
+source_file="res://Assets/Images/Map/Terretories Map V2.png"
+dest_files=["res://.godot/imported/Terretories Map V2.png-2289e47f779846d2bc18aaf57eef66e5.ctex"]
 
 [params]
 
