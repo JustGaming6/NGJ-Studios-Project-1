@@ -62,14 +62,14 @@ func camera_move():
 	if Input.is_action_pressed("down"):
 		$Regions/Camera2D.offset.y += camera_speed
 	
-	if $Regions/Camera2D.offset.x > 150:
-		$Regions/Camera2D.offset.x = 150
-	if $Regions/Camera2D.offset.x < -150:
-		$Regions/Camera2D.offset.x = -150
-	if $Regions/Camera2D.offset.y > 250:
-		$Regions/Camera2D.offset.y = 250
-	if $Regions/Camera2D.offset.y < -250:
-		$Regions/Camera2D.offset.y = -250
+	if $Regions/Camera2D.offset.x > 600:
+		$Regions/Camera2D.offset.x = 600
+	if $Regions/Camera2D.offset.x < -600:
+		$Regions/Camera2D.offset.x = -600
+	if $Regions/Camera2D.offset.y > 800:
+		$Regions/Camera2D.offset.y = 800
+	if $Regions/Camera2D.offset.y < -800:
+		$Regions/Camera2D.offset.y = -800
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
@@ -285,15 +285,3 @@ func change_southland(player):
 
 func timer():
 	await get_tree().create_timer(0.1).timeout
-
-
-func _on_balance_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_sub_menu_mouse_exited():
-	pass # Replace with function body.
-
-
-func _on_color_rect_mouse_exited():
-	pass # Replace with function body.

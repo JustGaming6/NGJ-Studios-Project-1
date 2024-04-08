@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=12 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
-[ext_resource type="Texture2D" uid="uid://6ywsh3rsyw6m" path="res://Assets/Images/Map/Terretories.png" id="2_p5k3c"]
+[ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
 [ext_resource type="Texture2D" uid="uid://b0dslt7cjtn0t" path="res://Assets/Images/Icons/single_dollar.png" id="5_1qbhn"]
 [ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
 [ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
 [ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
+[ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="8_kn01r"]
 
 [sub_resource type="GDScript" id="GDScript_1trf3"]
 script/source = "extends Label
@@ -23,6 +24,9 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ge1"]
+size = Vector2(784.036, 743.265)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
 
@@ -30,7 +34,7 @@ script = ExtResource("1_e67rb")
 visible = false
 position = Vector2(5, 19)
 scale = Vector2(0.979879, 0.929167)
-texture = ExtResource("2_p5k3c")
+texture = ExtResource("2_of3w0")
 centered = false
 script = ExtResource("3_gu6h3")
 
@@ -47,13 +51,15 @@ script = ExtResource("4_mcphf")
 offset_left = -4.0
 offset_top = 1.0
 offset_right = 1152.0
-offset_bottom = 66.0
+offset_bottom = 51.0
 color = Color(0.129412, 0.129412, 0.129412, 1)
 
 [node name="balance" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
-offset_right = 382.0
-offset_bottom = 62.0
+offset_left = 154.0
+offset_top = -9.0
+offset_right = 536.0
+offset_bottom = 53.0
 theme_override_font_sizes/font_size = 30
 text = "000000
 "
@@ -74,9 +80,10 @@ hframes = 3
 
 [node name="moral" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
-offset_left = 383.0
-offset_right = 765.0
-offset_bottom = 63.0
+offset_left = 384.0
+offset_top = -12.0
+offset_right = 766.0
+offset_bottom = 51.0
 theme_override_font_sizes/font_size = 30
 text = "100%"
 horizontal_alignment = 1
@@ -97,9 +104,10 @@ hframes = 3
 
 [node name="manpower" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
-offset_left = 765.0
-offset_right = 1148.0
-offset_bottom = 65.0
+offset_left = 582.0
+offset_top = -9.0
+offset_right = 965.0
+offset_bottom = 56.0
 theme_override_font_sizes/font_size = 30
 text = "0000"
 horizontal_alignment = 1
@@ -111,11 +119,17 @@ scale = Vector2(0.199107, 0.22625)
 texture = ExtResource("5_b6ggv")
 hframes = 3
 
+[node name="manpower" type="Sprite2D" parent="CanvasLayer/ColorRect/manpower"]
+position = Vector2(116, 106)
+scale = Vector2(0.059184, 0.0512671)
+texture = ExtResource("8_kn01r")
+offset = Vector2(225.633, -1490.67)
+
 [node name="SubMenu" type="ColorRect" parent="CanvasLayer"]
-offset_left = -2.0
-offset_top = 60.0
-offset_right = 1153.0
-offset_bottom = 165.0
+offset_left = -1.0
+offset_top = 51.0
+offset_right = 1154.0
+offset_bottom = 123.0
 color = Color(0.188235, 0.188235, 0.188235, 1)
 
 [node name="BuildMenu" type="Sprite2D" parent="CanvasLayer"]
@@ -123,15 +137,28 @@ position = Vector2(1090.25, 594.875)
 scale = Vector2(0.123718, 0.110324)
 texture = ExtResource("7_p8hmm")
 
+[node name="Area2D" type="Area2D" parent="CanvasLayer/BuildMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BuildMenu/Area2D"]
+position = Vector2(2.01855, 1.1333)
+shape = SubResource("RectangleShape2D_16ge1")
+
 [node name="player" type="Label" parent="CanvasLayer"]
-offset_left = 1100.0
-offset_top = 10.0
-offset_right = 1140.0
-offset_bottom = 52.0
+offset_left = 1103.0
+offset_top = 2.0
+offset_right = 1143.0
+offset_bottom = 44.0
 theme_override_font_sizes/font_size = 30
 text = "P2"
+
+[node name="BlankScreens" type="CanvasLayer" parent="."]
+
+[node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/BuildMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
