@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://dpxk1dkyx8gy0"]
+[gd_scene load_steps=2 format=3 uid="uid://dpxk1dkyx8gy0"]
+
+[ext_resource type="Texture2D" uid="uid://daoa2rke1wx28" path="res://Assets/Images/Main menu/AI_NZ.jpg" id="1_bhroy"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AiNz" type="Sprite2D" parent="."]
+position = Vector2(842, 330)
+scale = Vector2(0.642578, 0.642578)
+texture = ExtResource("1_bhroy")
