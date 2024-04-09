@@ -4,8 +4,11 @@ extends Node2D
 
 var camera_speed = 10
 var zoom_speed = 0.25
+var loading_screen = false
 
 func _ready():
+	loading_screen = true
+	load_screen("loading")
 	load_regions()
 	await set_region(Global.p1_selection, "p1")
 	await set_region(Global.p2_selection, "p2")
@@ -13,11 +16,14 @@ func _ready():
 		await set_region(Global.p3_selection, "p3")
 		if Global.players > 3:
 			await set_region(Global.p4_selection, "p4")
-	set_bot()
+	await set_bot()
+	loading_screen = false
+	load_screen("game")
 	
 func _physics_process(delta):
-	zoom()
-	camera_move()
+	if loading_screen == false:
+		zoom()
+		camera_move()
 	
 func _process(delta):
 	if Global.players == 2:
@@ -285,3 +291,17 @@ func change_southland(player):
 
 func timer():
 	await get_tree().create_timer(0.1).timeout
+
+func load_screen(screen):
+	if screen == "loading":
+		$BlankScreens/LoadingScreen.show()
+	elif screen == "p1":
+		pass
+	elif screen == "p2":
+		pass
+	elif screen == "p3":
+		pass
+	elif screen == "p4":
+		pass
+	elif screen == "game":
+		$BlankScreens/LoadingScreen.hide()

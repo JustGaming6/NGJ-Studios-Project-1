@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=13 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
 [ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
 [ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="8_kn01r"]
+[ext_resource type="Script" path="res://Scenes/loading.gd" id="10_uf8ue"]
 
 [sub_resource type="GDScript" id="GDScript_1trf3"]
 script/source = "extends Label
@@ -154,8 +155,20 @@ text = "P2"
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
 [node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1156.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_uf8ue")
+
+[node name="Label" type="Label" parent="BlankScreens/LoadingScreen"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 241.0
+offset_right = 672.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 50
+text = "Loading."
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
