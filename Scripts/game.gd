@@ -27,17 +27,17 @@ func _physics_process(delta):
 	
 func _process(delta):
 	if Global.players == 2:
-		turn("p1")
-		turn("p2")
+		await turn("p1")
+		await turn("p2")
 	elif Global.players == 3:
-		turn("p1")
-		turn("p2")
-		turn("p3")
+		await turn("p1")
+		await turn("p2")
+		await turn("p3")
 	elif Global.players == 4:
-		turn("p1")
-		turn("p2")
-		turn("p3")
-		turn ("p4")
+		await turn("p1")
+		await turn("p2")
+		await turn("p3")
+		await turn ("p4")
 	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:

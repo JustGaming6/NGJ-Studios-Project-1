@@ -1,5 +1,27 @@
 extends CanvasLayer
 
+func _physics_process(delta):
+	if Global.turn == 1:
+		$player.set_text("P1")
+		$ColorRect/balance.set_text(str(Global.p1_bal))
+		$ColorRect/moral.set_text(str(Global.p1_moral) + "%")
+		$ColorRect/manpower.set_text(str(Global.p1_manpower))
+	elif Global.turn == 2:
+		$player.set_text("P2")
+		$ColorRect/balance.set_text(str(Global.p2_bal))
+		$ColorRect/moral.set_text(str(Global.p2_moral) + "%")
+		$ColorRect/manpower.set_text(str(Global.p2_manpower))
+	elif Global.turn == 3:
+		$player.set_text("P3")
+		$ColorRect/balance.set_text(str(Global.p3_bal))
+		$ColorRect/moral.set_text(str(Global.p3_moral) + "%")
+		$ColorRect/manpower.set_text(str(Global.p3_manpower))
+	elif Global.turn == 4:
+		$player.set_text("P4")
+		$ColorRect/balance.set_text(str(Global.p4_bal))
+		$ColorRect/moral.set_text(str(Global.p4_moral) + "%")
+		$ColorRect/manpower.set_text(str(Global.p4_manpower))
+
 func _ready():
 	SubMenu("hide")
 	
