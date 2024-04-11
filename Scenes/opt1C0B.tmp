@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpxk1dkyx8gy0"]
+[gd_scene load_steps=3 format=3 uid="uid://dpxk1dkyx8gy0"]
 
 [ext_resource type="Script" path="res://Scenes/options.gd" id="1_24avf"]
 [ext_resource type="Texture2D" uid="uid://daoa2rke1wx28" path="res://Assets/Images/Main menu/AI_NZ.jpg" id="1_bhroy"]
-[ext_resource type="Script" path="res://Scenes/Control.gd" id="3_fn5xt"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_24avf")
@@ -10,26 +9,15 @@ script = ExtResource("1_24avf")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="AiNz" type="Sprite2D" parent="."]
-position = Vector2(888, 411)
+position = Vector2(891, 262)
 scale = Vector2(0.516113, 0.516113)
 texture = ExtResource("1_bhroy")
 
 [node name="menu" type="Button" parent="."]
-offset_left = 7.0
+offset_left = 10.0
 offset_top = 588.0
-offset_right = 164.0
+offset_right = 167.0
 offset_bottom = 638.0
 text = "Back to Main menu"
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_fn5xt")
-
-[node name="Camera2D" type="Camera2D" parent="Control"]
-position = Vector2(578, 326)
-offset = Vector2(1, 1)
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
