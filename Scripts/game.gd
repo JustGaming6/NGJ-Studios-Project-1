@@ -296,12 +296,16 @@ func load_screen(screen):
 	if screen == "loading":
 		$BlankScreens/LoadingScreen.show()
 	elif screen == "p1":
-		pass
+		$BlankScreens/p1Screen.show()
 	elif screen == "p2":
-		pass
+		$BlankScreens/p2Screen.show()
 	elif screen == "p3":
-		pass
+		$BlankScreens/p3Screen.show()
 	elif screen == "p4":
-		pass
+		$BlankScreens/p4Screen.show()
 	elif screen == "game":
 		$BlankScreens/LoadingScreen.hide()
+		$BlankScreens/p1Screen.hide()
+		$BlankScreens/p2Screen.hide()
+		$BlankScreens/p3Screen.hide()
+		$BlankScreens/p4Screen.hide()

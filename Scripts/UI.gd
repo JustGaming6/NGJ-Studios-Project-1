@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+
+func _ready():
+	SubMenu("hide")
+
 func _physics_process(delta):
 	if Global.turn == 1:
 		$player.set_text("P1")
@@ -45,9 +49,6 @@ func _physics_process(delta):
 			$ColorRect/balance/bal_change.set_frame(2)
 		elif Global.p3_income > 0:
 			$ColorRect/balance/bal_change.set_frame(0)
-
-func _ready():
-	SubMenu("hide")
 	
 func SubMenu(vis):
 	if vis == "show":
