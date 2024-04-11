@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=14 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
-[ext_resource type="Texture2D" uid="uid://b0dslt7cjtn0t" path="res://Assets/Images/Icons/single_dollar.png" id="5_1qbhn"]
 [ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
+[ext_resource type="Texture2D" uid="uid://bl6tqbw0lnlp2" path="res://Assets/Images/Icons/Money.png" id="5_wfsxe"]
 [ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
 [ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
 [ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="8_kn01r"]
@@ -27,6 +27,8 @@ func _process(delta):
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_16ge1"]
 size = Vector2(784.036, 743.265)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6dq7f"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
@@ -69,15 +71,16 @@ vertical_alignment = 1
 script = SubResource("GDScript_1trf3")
 
 [node name="bal" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
-position = Vector2(94, 32)
-scale = Vector2(0.321739, 0.24)
-texture = ExtResource("5_1qbhn")
+position = Vector2(117.375, 30.375)
+scale = Vector2(0.0758102, 0.0499132)
+texture = ExtResource("5_wfsxe")
 
 [node name="bal_change" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
 position = Vector2(261, 32)
 scale = Vector2(0.199107, 0.22625)
 texture = ExtResource("5_b6ggv")
 hframes = 3
+frame = 2
 
 [node name="moral" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
@@ -152,12 +155,20 @@ offset_bottom = 44.0
 theme_override_font_sizes/font_size = 30
 text = "P2"
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_6dq7f")
+offset_left = 988.0
+offset_top = 9.0
+offset_right = 1087.0
+offset_bottom = 39.0
+text = "End Turn"
+
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
 [node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
 visible = false
 offset_right = 1156.0
-offset_bottom = 646.0
+offset_bottom = 678.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("10_uf8ue")
 
@@ -171,8 +182,16 @@ theme_override_font_sizes/font_size = 50
 text = "Loading."
 vertical_alignment = 1
 
+[node name="p1Screen" type="ColorRect" parent="BlankScreens"]
+offset_left = 2.0
+offset_top = 240.0
+offset_right = 1152.0
+offset_bottom = 465.0
+color = Color(0, 0, 1, 1)
+
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/BuildMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
