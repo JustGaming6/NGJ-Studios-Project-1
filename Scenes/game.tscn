@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=17 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -6,10 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
 [ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
 [ext_resource type="Texture2D" uid="uid://bl6tqbw0lnlp2" path="res://Assets/Images/Icons/Money.png" id="5_wfsxe"]
+[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="5_yak2y"]
 [ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="6_q1wgj"]
 [ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_p8hmm"]
 [ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="8_kn01r"]
 [ext_resource type="Script" path="res://Scripts/loading.gd" id="10_uf8ue"]
+[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="11_uq0ph"]
+[ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="12_iyexu"]
 
 [sub_resource type="GDScript" id="GDScript_1trf3"]
 script/source = "extends Label
@@ -63,6 +66,7 @@ offset_left = 154.0
 offset_top = -9.0
 offset_right = 536.0
 offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("5_yak2y")
 theme_override_font_sizes/font_size = 30
 text = "000000
 "
@@ -88,6 +92,7 @@ offset_left = 384.0
 offset_top = -12.0
 offset_right = 766.0
 offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("5_yak2y")
 theme_override_font_sizes/font_size = 30
 text = "100%"
 horizontal_alignment = 1
@@ -112,6 +117,7 @@ offset_left = 582.0
 offset_top = -9.0
 offset_right = 965.0
 offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("5_yak2y")
 theme_override_font_sizes/font_size = 30
 text = "0000"
 horizontal_alignment = 1
@@ -148,10 +154,11 @@ position = Vector2(2.01855, 1.1333)
 shape = SubResource("RectangleShape2D_16ge1")
 
 [node name="player" type="Label" parent="CanvasLayer"]
-offset_left = 1103.0
-offset_top = 2.0
-offset_right = 1143.0
-offset_bottom = 44.0
+offset_left = 1102.0
+offset_top = 10.0
+offset_right = 1146.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("11_uq0ph")
 theme_override_font_sizes/font_size = 30
 text = "P2"
 
@@ -161,12 +168,13 @@ offset_left = 988.0
 offset_top = 9.0
 offset_right = 1087.0
 offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("12_iyexu")
+theme_override_font_sizes/font_size = 22
 text = "End Turn"
 
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
 [node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
-visible = false
 offset_right = 1156.0
 offset_bottom = 678.0
 color = Color(0, 0, 0, 1)
@@ -178,6 +186,7 @@ offset_left = 466.0
 offset_top = 241.0
 offset_right = 672.0
 offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("5_yak2y")
 theme_override_font_sizes/font_size = 50
 text = "Loading."
 vertical_alignment = 1
