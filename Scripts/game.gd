@@ -290,7 +290,7 @@ func change_southland(player):
 	await change_owner("Fiordland", player)
 
 func timer():
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 
 func load_screen(screen):
 	if screen == "loading":
