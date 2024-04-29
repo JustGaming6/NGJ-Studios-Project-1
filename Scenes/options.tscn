@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpxk1dkyx8gy0"]
 
-[ext_resource type="Script" path="res://Scenes/options.gd" id="1_24avf"]
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_24avf"]
 [ext_resource type="Texture2D" uid="uid://daoa2rke1wx28" path="res://Assets/Images/Main menu/AI_NZ.jpg" id="1_bhroy"]
 
 [node name="Node2D" type="Node2D"]
