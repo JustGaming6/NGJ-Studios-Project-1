@@ -7,6 +7,8 @@ var zoom_speed = 0.25
 var loading_screen = false
 
 func _ready():
+	$BlankScreens/p1Screen.hide()
+	$BlankScreens/Button.hide()
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
@@ -20,24 +22,25 @@ func _ready():
 	loading_screen = false
 	load_screen("game")
 	
+	
 func _physics_process(delta):
 	if loading_screen == false:
 		zoom()
 		camera_move()
 	
 func _process(delta):
-	if Global.players == 2:
+	if Global.turn == 1:
+		load_screen("p1")
 		await turn("p1")
+	elif Global.turn == 2:
+		load_screen("p2")
 		await turn("p2")
-	elif Global.players == 3:
-		await turn("p1")
-		await turn("p2")
+	elif Global.turn == 3:
+		load_screen("p3")
 		await turn("p3")
-	elif Global.players == 4:
-		await turn("p1")
-		await turn("p2")
-		await turn("p3")
-		await turn ("p4")
+	elif Global.turn == 4:
+		load_screen("p4")
+		await turn("p4")
 	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
@@ -297,15 +300,24 @@ func load_screen(screen):
 		$BlankScreens/LoadingScreen.show()
 	elif screen == "p1":
 		$BlankScreens/p1Screen.show()
+		$BlankScreens/Button.show()
 	elif screen == "p2":
 		$BlankScreens/p2Screen.show()
+		$BlankScreens/Button.show()
 	elif screen == "p3":
 		$BlankScreens/p3Screen.show()
+		$BlankScreens/Button.show()
 	elif screen == "p4":
 		$BlankScreens/p4Screen.show()
+		$BlankScreens/Button.show()
 	elif screen == "game":
 		$BlankScreens/LoadingScreen.hide()
 		$BlankScreens/p1Screen.hide()
 		$BlankScreens/p2Screen.hide()
 		$BlankScreens/p3Screen.hide()
 		$BlankScreens/p4Screen.hide()
+		$BlankScreens/Button.hide()
+
+
+func _on_button_pressed():
+	load_screen("game")

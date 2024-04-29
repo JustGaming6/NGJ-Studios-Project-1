@@ -193,7 +193,6 @@ text = "Loading."
 vertical_alignment = 1
 
 [node name="p1Screen" type="ColorRect" parent="BlankScreens"]
-visible = false
 offset_left = -2.0
 offset_top = 184.0
 offset_right = 1152.0
@@ -223,9 +222,17 @@ offset_right = 1155.0
 offset_bottom = 409.0
 color = Color(1, 1, 0, 1)
 
+[node name="Button" type="Button" parent="BlankScreens"]
+offset_left = 1032.0
+offset_top = 353.0
+offset_right = 1140.0
+offset_bottom = 397.0
+text = "Start Turn"
+
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/BuildMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]
