@@ -68,8 +68,3 @@ func _on_color_rect_mouse_entered():
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		print("build")
-
-func _on_button_pressed():
-	Global.turn += 1
-	if Global.turn > Global.players:
-		Global.turn = 1

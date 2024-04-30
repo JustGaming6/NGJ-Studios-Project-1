@@ -21,7 +21,7 @@ func _ready():
 	await set_bot()
 	loading_screen = false
 	load_screen("game")
-	
+	load_screen("p1")
 	
 func _physics_process(delta):
 	if loading_screen == false:
@@ -29,18 +29,7 @@ func _physics_process(delta):
 		camera_move()
 	
 func _process(delta):
-	if Global.turn == 1:
-		load_screen("p1")
-		await turn("p1")
-	elif Global.turn == 2:
-		load_screen("p2")
-		await turn("p2")
-	elif Global.turn == 3:
-		load_screen("p3")
-		await turn("p3")
-	elif Global.turn == 4:
-		load_screen("p4")
-		await turn("p4")
+	pass
 	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
@@ -145,7 +134,7 @@ func change_owner(region_name: String, new_owner : String):
 	await timer()
 	
 func turn(player):
-	pass
+	load_screen(player)
 
 var Northland_Owned = false
 var Auckland_Owned = false
@@ -318,6 +307,19 @@ func load_screen(screen):
 		$BlankScreens/p4Screen.hide()
 		$BlankScreens/Button.hide()
 
-
 func _on_button_pressed():
 	load_screen("game")
+
+
+func _on_turnbutton_pressed():
+	Global.turn += 1
+	if Global.turn > Global.players:
+		Global.turn = 1
+	if Global.turn == 1:
+		await turn("p1")
+	elif Global.turn == 2:
+		await turn("p2")
+	elif Global.turn == 3:
+		await turn("p3")
+	elif Global.turn == 4:
+		await turn("p4")
