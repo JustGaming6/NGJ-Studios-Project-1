@@ -199,6 +199,15 @@ offset_right = 1152.0
 offset_bottom = 409.0
 color = Color(0, 0, 1, 1)
 
+[node name="Label" type="Label" parent="BlankScreens/p1Screen"]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 79.0
+offset_right = 769.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 1's Turn"
+
 [node name="p2Screen" type="ColorRect" parent="BlankScreens"]
 visible = false
 offset_top = 184.0
