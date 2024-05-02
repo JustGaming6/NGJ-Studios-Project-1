@@ -1,16 +1,16 @@
 {
-	"#f0054f" : "Stewart Island"
-	, "#990030" : "Invercargill"
-	, "#3d0013" : "Fiordland"
+	"#f0054f" : "Stewart Island"        : "50" : "10"
+	, "#990030" : "Invercargill"        : "220": "150"
+	, "#3d0013" : "Fiordland"           : "70": "10"  
 	
-	, "#bd6af7" : "Queenstown"
-	, "#402652" : "Wanaka"
-	, "#9c45d6" : "Otago"
-	, "#522570" : "Dunedin" 
+	, "#bd6af7" : "Queenstown"          : "250": "150"
+	, "#402652" : "Wanaka"              : "120": "50"
+	, "#9c45d6" : "Otago"               : "70" : "20"
+	, "#522570" : "Dunedin"             : "350": "250"
  
-	, "#2c3a4d" : "Southern West Coast"
-	, "#546d8e" : "Hokitika"
-	, "#668bba" : "Greymouth"
+	, "#2c3a4d" : "Southern West Coast" : "70" : "20"
+	, "#546d8e" : "Hokitika"            : "90" : "40"
+	, "#668bba" : "Greymouth"           : "120": "50"
 
 	, "#3951b3" : "Tasman"
 	, "#2e4085" : "Marlbrough"
