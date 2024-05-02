@@ -12,13 +12,13 @@ func _ready():
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
+	await set_bot()
 	await set_region(Global.p1_selection, "p1")
 	await set_region(Global.p2_selection, "p2")
 	if Global.players > 2:
 		await set_region(Global.p3_selection, "p3")
 		if Global.players > 3:
 			await set_region(Global.p4_selection, "p4")
-	await set_bot()
 	loading_screen = false
 	load_screen("game")
 	load_screen("p1")
@@ -92,7 +92,7 @@ func load_regions():
 			
 			region.add_child(region_collision)
 			region.add_child(region_polygon)
-
+			
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}
 	for y in range(image.get_height()):
@@ -134,84 +134,49 @@ func change_owner(region_name: String, new_owner : String):
 	await timer()
 	
 func turn(player):
+	load_screen("game")
 	load_screen(player)
 
-var Northland_Owned = false
-var Auckland_Owned = false
-var Waikato_Owned = false
-var BayOfPlenty_Owned = false
-var Taranaki_Owned = false
-var HawkesBay_Owned = false
-var Wellington_Owned = false
-var MarlboughTasman_Owned = false
-var WestCoast_Owned = false
-var Canterbury_Owned = false
-var Fiordland_Owned = false
-var Southland_Owned = false
-
 func set_region(selection, player):
-	if selection == 0:
-		await change_northland(player)
-		Northland_Owned = true
-	elif selection == 1:
-		await change_auckland(player)
-		Auckland_Owned = true
-	elif selection == 2:
-		await change_bayofplenty(player)
-		BayOfPlenty_Owned = true
-	elif selection == 3:
-		await change_waikato(player)
-		Waikato_Owned = true
-	elif selection == 4:
-		await change_taranaki(player)
-		Taranaki_Owned = true
-	elif selection == 5:
-		await change_hawkesbay(player)
-		HawkesBay_Owned = true
-	elif selection == 6:
-		await change_wellington(player)
-		Wellington_Owned = true
-	elif selection == 7:
-		await change_marlbroughtasman(player)
-		MarlboughTasman_Owned = true
-	elif selection == 8:
-		await change_westcoast(player)
-		WestCoast_Owned = true
-	elif selection == 9:
-		await change_canterbury(player)
-		Canterbury_Owned = true
-	elif selection == 10:
-		await change_fiordland(player)
-		Fiordland_Owned = true
-	elif selection == 11:
-		await change_southland(player)
-		Southland_Owned = true
+	match selection:
+		0:
+			await change_northland(player)
+		1:
+			await change_auckland(player)
+		2:
+			await change_bayofplenty(player)
+		3:
+			await change_waikato(player)
+		4:
+			await change_taranaki(player)
+		5:
+			await change_hawkesbay(player)
+		6:
+			await change_wellington(player)
+		7:
+			await change_marlbroughtasman(player)
+		8:
+			await change_westcoast(player)
+		9:
+			await change_canterbury(player)
+		10:
+			await change_fiordland(player)
+		11:
+			await change_southland(player)
 	
 func set_bot():
-	if Northland_Owned == false:
-		await change_northland("bot1")
-	if Auckland_Owned == false:
-		await change_auckland("bot2")
-	if Waikato_Owned == false:
-		await change_waikato("bot3")
-	if BayOfPlenty_Owned == false:
-		await change_bayofplenty("bot4")
-	if Taranaki_Owned == false:
-		await change_taranaki("bot5")
-	if HawkesBay_Owned == false:
-		await change_hawkesbay("bot6")
-	if Wellington_Owned == false:
-		await change_wellington("bot7")
-	if MarlboughTasman_Owned == false:
-		await change_marlbroughtasman("bot8")
-	if WestCoast_Owned == false:
-		await change_westcoast("bot9")
-	if Canterbury_Owned == false:
-		await change_canterbury("bot10")
-	if Fiordland_Owned == false:
-		await change_fiordland("bot11")
-	if Southland_Owned == false:
-		await change_southland("bot12")
+	await change_northland("bot1")
+	await change_auckland("bot2")
+	await change_waikato("bot3")
+	await change_bayofplenty("bot4")
+	await change_taranaki("bot5")
+	await change_hawkesbay("bot6")
+	await change_wellington("bot7")
+	await change_marlbroughtasman("bot8")
+	await change_westcoast("bot9")
+	await change_canterbury("bot10")
+	await change_fiordland("bot11")
+	await change_southland("bot12")
 
 func change_northland(player):
 	await change_owner("Far North", player)
@@ -285,41 +250,42 @@ func timer():
 	await get_tree().create_timer(0.2).timeout
 
 func load_screen(screen):
-	if screen == "loading":
-		$BlankScreens/LoadingScreen.show()
-	elif screen == "p1":
-		$BlankScreens/p1Screen.show()
-		$BlankScreens/Button.show()
-	elif screen == "p2":
-		$BlankScreens/p2Screen.show()
-		$BlankScreens/Button.show()
-	elif screen == "p3":
-		$BlankScreens/p3Screen.show()
-		$BlankScreens/Button.show()
-	elif screen == "p4":
-		$BlankScreens/p4Screen.show()
-		$BlankScreens/Button.show()
-	elif screen == "game":
-		$BlankScreens/LoadingScreen.hide()
-		$BlankScreens/p1Screen.hide()
-		$BlankScreens/p2Screen.hide()
-		$BlankScreens/p3Screen.hide()
-		$BlankScreens/p4Screen.hide()
-		$BlankScreens/Button.hide()
+	match screen:
+		"loading":
+			$BlankScreens/LoadingScreen.show()
+		"p1":
+			$BlankScreens/p1Screen.show()
+			$BlankScreens/Button.show()
+		"p2":
+			$BlankScreens/p2Screen.show()
+			$BlankScreens/Button.show()
+		"p3":
+			$BlankScreens/p3Screen.show()
+			$BlankScreens/Button.show()
+		"p4":
+			$BlankScreens/p4Screen.show()
+			$BlankScreens/Button.show()
+		"game":
+			$BlankScreens/LoadingScreen.hide()
+			$BlankScreens/p1Screen.hide()
+			$BlankScreens/p2Screen.hide()
+			$BlankScreens/p3Screen.hide()
+			$BlankScreens/p4Screen.hide()
+			$BlankScreens/Button.hide()
 
 func _on_button_pressed():
 	load_screen("game")
-
 
 func _on_turnbutton_pressed():
 	Global.turn += 1
 	if Global.turn > Global.players:
 		Global.turn = 1
-	if Global.turn == 1:
-		await turn("p1")
-	elif Global.turn == 2:
-		await turn("p2")
-	elif Global.turn == 3:
-		await turn("p3")
-	elif Global.turn == 4:
-		await turn("p4")
+	match Global.turn:
+		1: 
+			await turn("p1")
+		2:
+			await turn("p2")
+		3:
+			await turn("p3")
+		4:
+			await turn("p4")
