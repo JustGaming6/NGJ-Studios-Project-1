@@ -92,7 +92,7 @@ func load_regions():
 			
 			region.add_child(region_collision)
 			region.add_child(region_polygon)
-
+			
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}
 	for y in range(image.get_height()):
