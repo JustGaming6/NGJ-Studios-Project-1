@@ -217,6 +217,7 @@ offset_bottom = 407.0
 color = Color(1, 0, 0, 1)
 
 [node name="Label" type="Label" parent="BlankScreens/p2Screen"]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 79.0
 offset_right = 769.0
@@ -233,6 +234,7 @@ offset_bottom = 407.0
 color = Color(0, 1, 0, 1)
 
 [node name="Label" type="Label" parent="BlankScreens/p3Screen"]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 79.0
 offset_right = 769.0
@@ -249,6 +251,7 @@ offset_bottom = 409.0
 color = Color(1, 1, 0, 1)
 
 [node name="Label" type="Label" parent="BlankScreens/p4Screen"]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 79.0
 offset_right = 769.0
