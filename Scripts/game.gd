@@ -134,6 +134,7 @@ func change_owner(region_name: String, new_owner : String):
 	await timer()
 	
 func turn(player):
+	load_screen("game")
 	load_screen(player)
 
 func set_region(selection, player):

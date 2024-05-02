@@ -193,6 +193,7 @@ text = "Loading."
 vertical_alignment = 1
 
 [node name="p1Screen" type="ColorRect" parent="BlankScreens"]
+visible = false
 offset_left = -2.0
 offset_top = 184.0
 offset_right = 1152.0
@@ -215,6 +216,14 @@ offset_right = 1150.0
 offset_bottom = 407.0
 color = Color(1, 0, 0, 1)
 
+[node name="Label" type="Label" parent="BlankScreens/p2Screen"]
+offset_left = 383.0
+offset_top = 79.0
+offset_right = 769.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 2's Turn"
+
 [node name="p3Screen" type="ColorRect" parent="BlankScreens"]
 visible = false
 offset_left = -1.0
@@ -223,6 +232,14 @@ offset_right = 1151.0
 offset_bottom = 407.0
 color = Color(0, 1, 0, 1)
 
+[node name="Label" type="Label" parent="BlankScreens/p3Screen"]
+offset_left = 383.0
+offset_top = 79.0
+offset_right = 769.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 3's Turn"
+
 [node name="p4Screen" type="ColorRect" parent="BlankScreens"]
 visible = false
 offset_left = -2.0
@@ -230,6 +247,14 @@ offset_top = 184.0
 offset_right = 1155.0
 offset_bottom = 409.0
 color = Color(1, 1, 0, 1)
+
+[node name="Label" type="Label" parent="BlankScreens/p4Screen"]
+offset_left = 383.0
+offset_top = 79.0
+offset_right = 769.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 4's Turn"
 
 [node name="Button" type="Button" parent="BlankScreens"]
 offset_left = 1032.0
