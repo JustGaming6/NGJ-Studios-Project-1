@@ -24,7 +24,7 @@ func _ready():
 	await timer()
 
 func change_color(node):
-	match Global.region_owner
+	match Global.region_owner:
 		"p1":
 			node.color = p1_col
 		"p2":
