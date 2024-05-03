@@ -1,7 +1,7 @@
 {
-	"#f0054f" : "Stewart Island"        : "50" : "10"
-	, "#990030" : "Invercargill"        : "220": "150"
-	, "#3d0013" : "Fiordland"           : "70": "10"  
+	"#f0054f" : "Stewart Island"
+	, "#990030" : "Invercargill"
+	, "#3d0013" : "Fiordland"
 	
 	, "#bd6af7" : "Queenstown"
 	, "#402652" : "Wanaka"
