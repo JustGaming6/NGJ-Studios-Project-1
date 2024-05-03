@@ -79,8 +79,6 @@ func load_regions():
 		region.region_name = regions_dict[region_color]
 		region.set_name(regions_dict[region_color])
 		region.Owner = "region_owner"
-		region.region_income = regions_dict[region_color]["region_income"]
-		region.region_manpower = regions_dict[region_color]["region_manpower"]
 		get_node("Regions").add_child(region)
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)

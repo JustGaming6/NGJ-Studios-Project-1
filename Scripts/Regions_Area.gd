@@ -24,38 +24,39 @@ func _ready():
 	await timer()
 
 func change_color(node):
-	if Global.region_owner == "p1":
-		node.color = p1_col
-	elif Global.region_owner == "p2":
-		node.color = p2_col
-	elif Global.region_owner == "p3":
-		node.color = p3_col
-	elif Global.region_owner == "p4":
-		node.color = p4_col
-	elif Global.region_owner == "bot1":
-		node.color = bot1_col
-	elif Global.region_owner == "bot2":
-		node.color = bot2_col
-	elif Global.region_owner == "bot3":
-		node.color = bot3_col
-	elif Global.region_owner == "bot4":
-		node.color = bot4_col
-	elif Global.region_owner == "bot5":
-		node.color = bot5_col
-	elif Global.region_owner == "bot6":
-		node.color = bot6_col
-	elif Global.region_owner == "bot7":
-		node.color = bot7_col
-	elif Global.region_owner == "bot8":
-		node.color = bot8_col
-	elif Global.region_owner == "bot9":
-		node.color = bot9_col
-	elif Global.region_owner == "bot10":
-		node.color = bot10_col
-	elif Global.region_owner == "bot11":
-		node.color = bot11_col
-	elif Global.region_owner == "bot12":
-		node.color = bot12_Col
+	match Global.region_owner
+		"p1":
+			node.color = p1_col
+		"p2":
+			node.color = p2_col
+		"p3":
+			node.color = p3_col
+		"p4":
+			node.color = p4_col
+		"bot1":
+			node.color = bot1_col
+		"bot2":
+			node.color = bot2_col
+		"bot3":
+			node.color = bot3_col
+		"bot4":
+			node.color = bot4_col
+		"bot5":
+			node.color = bot5_col
+		"bot6":
+			node.color = bot6_col
+		"bot7":
+			node.color = bot7_col
+		"bot8":
+			node.color = bot8_col
+		"bot9":
+			node.color = bot9_col
+		"bot10":
+			node.color = bot10_col
+		"bot11":
+			node.color = bot11_col
+		"bot12":
+			node.color = bot12_Col
 
 func _physics_process(delta):
 		if region_name == Global.region_name:
