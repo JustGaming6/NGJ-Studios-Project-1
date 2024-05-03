@@ -12,6 +12,7 @@ func _ready():
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
+	load_variables()
 	await set_bot()
 	await set_region(Global.p1_selection, "p1")
 	await set_region(Global.p2_selection, "p2")
@@ -68,6 +69,11 @@ func camera_move():
 		$Regions/Camera2D.offset.y = 800
 	if $Regions/Camera2D.offset.y < -800:
 		$Regions/Camera2D.offset.y = -800
+		
+func load_variables():
+	var region_info = import_file("res://region_info.txt")
+	for region_income in region_info:
+		region_info.region_name = region_info[region_income]
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
