@@ -71,9 +71,11 @@ func camera_move():
 		$Regions/Camera2D.offset.y = -800
 		
 func load_variables():
-	var region_info = import_file("res://region_info.txt")
-	for region_income in region_info:
-		region_info.region_name = region_info[region_income]
+	var region_info_dict = import_file("res://region_info.txt")
+	for region in region_info_dict:
+		var region_info = region_info_dict[region]
+		var region_income = region_info[1]
+		print(region_income)
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
