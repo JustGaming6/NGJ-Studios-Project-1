@@ -1,5 +1,5 @@
 {
-        "Stewart Island"        : "50" : "10"
+	"Stewart Island"        : "50" : "10"
 	, "Invercargill"        : "220": "150"
 	, "Fiordland"           : "70": "10"  
 	
