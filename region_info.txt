@@ -1,68 +1,68 @@
 {
-	"Stewart Island"        : "50" : "10"
-	, "Invercargill"        : "220": "150"
-	, "Fiordland"           : "70": "10"  
+	"Stewart Island"        : ["50" , "10"]
+	, "Invercargill"        : ["220", "150"]
+	, "Fiordland"           : ["70", "10"]  
 	
-	, "Queenstown"          : "250": "150"
-	, "Wanaka"              : "140": "50"
-	, "Otago"               : "70" : "20"
-	, "Dunedin"             : "350": "300"
+	, "Queenstown"          : ["250", "150"]
+	, "Wanaka"              : ["140", "50"]
+	, "Otago"               : ["70" , "20"]
+	, "Dunedin"             : ["350", "300"]
  
-	, "Southern West Coast" : "70" : "20"
-	, "Hokitika"            : "100" : "40"
-	, "Greymouth"           : "140": "50"
+	, "Southern West Coast" : ["70" , "20"]
+	, "Hokitika"            : ["100", "40"]
+	, "Greymouth"           : ["140", "50"]
 
-	, "Tasman"              : "220" : "170"
-	, "Marlbrough"          : "210" : "130"
-	, "Nelson"              : "240" : "160"
-	, "Kaikoura"            : "120" : "40"
+	, "Tasman"              : ["220" , "170"]
+	, "Marlbrough"          : ["210" , "130"]
+	, "Nelson"              : ["240" , "160"]
+	, "Kaikoura"            : ["120" , "40"]
 
-	, "Hurunui"             : "150" : "70"
-	, "Christchurch"        : "600" : "450"
-	, "Waimakariri"         : "250" : "180"
-	, "Selwyn"              : "270" : "200"
-	, "Ashburton"           : "210" : "120"
-	, "Waitaki"             : "170" : "90"
+	, "Hurunui"             : ["150" , "70"]
+	, "Christchurch"        : ["600" , "450"]
+	, "Waimakariri"         : ["250" , "180"]
+	, "Selwyn"              : ["270" , "200"]
+	, "Ashburton"           : ["210" , "120"]
+	, "Waitaki"             : ["170" , "90"]
 
-	, "Wellington"          : "800" : "500"
-	, "South Wairarapa"     : "100" : "70"
-	, "Masterton"           : "200" : "120"
-	, "Tararua Region"      : "170" : "100"
-	, "Palmerston North"    : "280" : "210"
-	, "Kapiti Coast"        : "250" : "170"
-	, "North Manawatu"      : "200" : "120"
+	, "Wellington"          : ["800" , "500"]
+	, "South Wairarapa"     : ["100" , "70"]
+	, "Masterton"           : ["200" , "120"]
+	, "Tararua Region"      : ["170" , "100"]
+	, "Palmerston North"    : ["280" , "210"]
+	, "Kapiti Coast"        : ["250" , "170"]
+	, "North Manawatu"      : ["200" , "120"]
 
-	, "Central Hawke's Bay" : "1" : "1"
-	, "Hastings"            : "1" : "1"
-	, "Napier"              : "1" : "1"
-	, "Wairoa"              : "1" : "1"
+	, "Central Hawke's Bay" : ["100" , "30"]
+	, "Hastings"            : ["350" , "200"]
+	, "Napier"              : ["300" , "180"]
+	, "Wairoa"              : ["150" , "80"]
 
-	, "Gisborne"            : "1" : "1"
-	, "Opotiki"             : "1" : "1"
-	, "Whakatane"           : "1" : "1"
-	, "Rotorua"             : "1" : "1"
-	, "Tauranga"            : "1" : "1"
+	, "Gisborne"            : ["1" , "1"]
+	, "Opotiki"             : ["1" , "1"]
+	, "Whakatane"           : ["1" , "1"]
+	, "Rotorua"             : ["1" , "1"]
+	, "Tauranga"            : ["1" , "1"]
 
-	, "South Taranaki"      : "1" : "1"
-	, "Whanganui"           : "1" : "1"
-	, "New Plymouth"        : "1" : "1"
-	, "Stratford"           : "1" : "1"
-	, "Ruapehu"             : "1" : "1"
+	, "South Taranaki"      : ["1" , "1"]
+	, "Whanganui"           : ["1" , "1"]
+	, "New Plymouth"        : ["1" , "1"]
+	, "Stratford"           : ["1" , "1"]
+	, "Ruapehu"             : ["1" , "1"]
 
-	, "Far North"           : "1" : "1"
-	, "Whangarei"           : "1" : "1"
-	, "Kaipara"             : "1" : "1"
+	, "Far North"           : ["1" , "1"]
+	, "Whangarei"           : ["1" , "1"]
+	, "Kaipara"             : ["1" , "1"]
  
-	, "North Auckland"      : "1" : "1"
-	, "Central Auckland"    : "1" : "1"
-	, "West Auckland"       : "1" : "1"
-	, "South Auckland"      : "1" : "1"
-	, "Coromandel"          : "1" : "1"
+	, "North Auckland"      : ["1" , "1"]
+	, "Central Auckland"    : ["1" , "1"]
+	, "West Auckland"       : ["1" , "1"]
+	, "South Auckland"      : ["1" , "1"]
+	, "Coromandel"          : ["1" , "1"]
  
-	, "North Waikato"       : "1" : "1"
-	, "Hamilton"            : "1" : "1"
-	, "Hauraki"             : "1" : "1"
-	, "Waitomo"             : "1" : "1"
-	, "Taupo"               : "1" : "1"
-	, "Desert Road"         : "1" : "1"
+	, "North Waikato"       : ["1" , "1"]
+	, "Hamilton"            : ["1" , "1"]
+	, "Hauraki"             : ["1" , "1"]
+	, "Waitomo"             : ["1" , "1"]
+	, "Taupo"               : ["1" , "1"]
+	, "Desert Road"         : ["1" , "1"]
 }
