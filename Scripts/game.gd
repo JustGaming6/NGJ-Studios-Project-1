@@ -23,6 +23,7 @@ func _ready():
 	loading_screen = false
 	load_screen("game")
 	load_screen("p1")
+	print(Global.p1_income)
 	
 func _physics_process(delta):
 	if loading_screen == false:
@@ -71,9 +72,11 @@ func camera_move():
 		$Regions/Camera2D.offset.y = -800
 		
 func load_variables():
-	var region_info = import_file("res://region_info.txt")
-	for region_income in region_info:
-		region_info.region_name = region_info[region_income]
+	var region_info_dict = import_file("res://region_info.txt")
+	for region in region_info_dict:
+		var region_info = region_info_dict[region]
+		Global.region_income = region_info[0]
+		Global.region_manpower = region_info[1] 
 	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
@@ -135,6 +138,9 @@ func change_owner(region_name: String, new_owner : String):
 		Global.region_owner = region.Owner
 		Global.region_name = region_name
 		print(region_name + ": " + region.Owner)
+		match new_owner:
+			"p1":
+				Global.p1_income += Global.region_income
 	else:
 		print("Region not found: " + region_name)
 	await timer()
