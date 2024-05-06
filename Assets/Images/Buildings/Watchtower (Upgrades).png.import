@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvypco3r50u21"
-path="res://.godot/imported/Animation Factory (2).png-0dfc6266a99638311697435fd0df7008.ctex"
+uid="uid://ch18olo6hl1jy"
+path="res://.godot/imported/Watchtower (Upgrades).png-f266ea341ab3cf0e58fb5f620391619d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Buildings/Animation Factory (2).png"
-dest_files=["res://.godot/imported/Animation Factory (2).png-0dfc6266a99638311697435fd0df7008.ctex"]
+source_file="res://Assets/Images/Buildings/Watchtower (Upgrades).png"
+dest_files=["res://.godot/imported/Watchtower (Upgrades).png-f266ea341ab3cf0e58fb5f620391619d.ctex"]
 
 [params]
 
