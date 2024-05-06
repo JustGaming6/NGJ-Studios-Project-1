@@ -12,7 +12,6 @@ func _ready():
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
-	load_variables()
 	await set_bot()
 	await set_region(Global.p1_selection, "p1")
 	await set_region(Global.p2_selection, "p2")
@@ -71,13 +70,6 @@ func camera_move():
 	if $Regions/Camera2D.offset.y < -800:
 		$Regions/Camera2D.offset.y = -800
 		
-func load_variables():
-	var region_info_dict = import_file("res://region_info.txt")
-	for region in region_info_dict:
-		var region_info = region_info_dict[region]
-		Global.region_income = region_info[0]
-		Global.region_manpower = region_info[1] 
-	
 func load_regions():
 	var image = mapImage.get_texture().get_image()
 	var pixel_color_dict = get_pixel_color_dict(image)
@@ -85,10 +77,14 @@ func load_regions():
 	
 	for region_color in regions_dict:
 		var region = load("res://Scenes/Regions_Area.tscn").instantiate()
-		region.region_name = regions_dict[region_color]
-		region.set_name(regions_dict[region_color])
-		region.Owner = "region_owner"
+		var region_info = regions_dict[region_color]
+		region.region_name =  region_info[0]
+		region.set_name(region_info[0])
+		region.Owner =  "region_owner"
 		get_node("Regions").add_child(region)
+		
+		Global.region_income = region_info[0]
+		Global.region_manpower = region_info[1] 
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
 		
