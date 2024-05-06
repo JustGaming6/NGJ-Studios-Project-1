@@ -22,7 +22,7 @@ func _ready():
 	loading_screen = false
 	load_screen("game")
 	load_screen("p1")
-	print(Global.p1_income)
+	print(Global.p1_income)                                                                                                                                                                                                                                                                                                                           
 	
 func _physics_process(delta):
 	if loading_screen == false:
@@ -83,8 +83,8 @@ func load_regions():
 		region.Owner =  "region_owner"
 		get_node("Regions").add_child(region)
 		
-		Global.region_income = region_info[0]
-		Global.region_manpower = region_info[1] 
+		Global.region_income = region_info[1]
+		Global.region_manpower = region_info[2] 
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
 		

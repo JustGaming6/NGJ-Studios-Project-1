@@ -52,8 +52,8 @@
 	, "#db93a1" : ["Ruapehu", "140" , "100"]
 
 	, "#2f3699" : ["Far North", "270" , "190"]
-	, "#141a5c" : "Whangarei", "330" , "280"]
-	, "#3e49de" : "Kaipara", "200" , "110"]
+	, "#141a5c" : ["Whangarei", "330" , "280"]
+	, "#3e49de" : ["Kaipara", "200" , "110"]
  
 	, "#2aeb61" : ["North Auckland", "520" , "400"]
 	, "#22b14c" : ["Central Auckland", "800" , "500"]
