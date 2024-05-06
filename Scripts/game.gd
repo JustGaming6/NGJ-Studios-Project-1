@@ -137,6 +137,12 @@ func change_owner(region_name: String, new_owner : String):
 		match new_owner:
 			"p1":
 				Global.p1_income += Global.region_income
+			"p2":
+				Global.p2_income += Global.region_income
+			"p3":
+				Global.p3_income += Global.region_income
+			"p4":
+				Global.p4_income += Global.region_income
 	else:
 		print("Region not found: " + region_name)
 	await timer()
