@@ -22,7 +22,7 @@ func _ready():
 	loading_screen = false
 	load_screen("game")
 	load_screen("p1")
-	print(Global.p1_income)                                                                                                                                                                                                                                                                                                                           
+	turn("p1")                                                                                                                                                                                                                                                                                                                       
 	
 func _physics_process(delta):
 	if loading_screen == false:
@@ -130,6 +130,19 @@ func import_file(filepath):
 func change_owner(region_name: String, new_owner : String):
 	var region = get_node("Regions").get_node(region_name)
 	if region != null:
+		match region.Owner:
+			"p1":
+				Global.p1_income -= Global.region_income
+				Global.p1_manpower -= Global.region_manpower
+			"p2":
+				Global.p2_income -= Global.region_income
+				Global.p2_manpower -= Global.region_manpower
+			"p3":
+				Global.p3_income -= Global.region_income
+				Global.p3_manpower -= Global.region_manpower
+			"p4":
+				Global.p4_income -= Global.region_income
+				Global.p4_manpower-= Global.region_manpower
 		region.Owner = new_owner
 		Global.region_owner = region.Owner
 		Global.region_name = region_name
@@ -137,12 +150,16 @@ func change_owner(region_name: String, new_owner : String):
 		match new_owner:
 			"p1":
 				Global.p1_income += Global.region_income
+				Global.p1_manpower += Global.region_manpower
 			"p2":
 				Global.p2_income += Global.region_income
+				Global.p2_manpower += Global.region_manpower
 			"p3":
 				Global.p3_income += Global.region_income
+				Global.p3_manpower += Global.region_manpower
 			"p4":
 				Global.p4_income += Global.region_income
+				Global.p4_manpower += Global.region_manpower
 	else:
 		print("Region not found: " + region_name)
 	await timer()
@@ -150,6 +167,15 @@ func change_owner(region_name: String, new_owner : String):
 func turn(player):
 	load_screen("game")
 	load_screen(player)
+	match player:
+		"p1":
+			Global.p1_bal += Global.p1_income
+		"p2":
+			Global.p2_bal += Global.p2_income
+		"p3":
+			Global.p3_bal += Global.p3_income
+		"p4":
+			Global.p4_bal += Global.p4_income
 
 func set_region(selection, player):
 	match selection:

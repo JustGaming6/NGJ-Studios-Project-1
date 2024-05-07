@@ -21,7 +21,6 @@ func _on_2p_pressed():
 	$ColorRect/select/Label4.hide()
 
 func _on_3p_pressed():
-	print("hello")
 	Global.players = 3
 	$ColorRect/select.show()
 	add_items($ColorRect/select/Label/menu_1)
@@ -34,7 +33,6 @@ func _on_3p_pressed():
 	$ColorRect/select/Label4.hide()
 
 func _on_4p_pressed():
-	print("hillo")
 	Global.players = 4
 	$ColorRect/select.show()
 	add_items($ColorRect/select/Label/menu_1)
