@@ -69,7 +69,6 @@ func _on_child_entered_tree(node):
 		node.color = Color(1,1,1,0.5)
 
 func _on_mouse_entered():
-	print(region_name)
 	for node in get_children():
 		if node.is_class("Polygon2D"):
 			intial_font = node.color
@@ -77,7 +76,14 @@ func _on_mouse_entered():
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		print("Clicked: " + str(region_name))
+		print("Attacking from: " + str(region_name))
+		Global.attack_region = region_name
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+		if Global.attack_region == "blank":
+			print("error")
+		else:
+			print("To " + str(region_name))
+			Global.defense_region = region_name
 
 func _on_mouse_exited():
 	for node in get_children():

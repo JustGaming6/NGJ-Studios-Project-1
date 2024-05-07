@@ -84,7 +84,7 @@ func load_regions():
 		get_node("Regions").add_child(region)
 		
 		Global.region_income = region_info[1]
-		Global.region_manpower = region_info[2] 
+		Global.region_manpower = region_info[2]
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
 		
