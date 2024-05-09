@@ -28,38 +28,39 @@ text = "Select Game:"
 
 [node name="2p" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 3.12301
-offset_top = 7.77235
-offset_right = 73.123
-offset_bottom = 48.7723
-scale = Vector2(0.107109, 0.0817972)
+offset_left = 3.0
+offset_top = 9.0
+offset_right = 214.0
+offset_bottom = 50.0
+scale = Vector2(0.0370112, 0.0658368)
 text = "2 Players"
 
 [node name="3p" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 3.08831
-offset_top = 12.7072
-offset_right = 81.0883
-offset_bottom = 53.7072
-scale = Vector2(0.107109, 0.0817972)
+offset_left = 3.0
+offset_top = 13.0
+offset_right = 210.0
+offset_bottom = 54.0
+scale = Vector2(0.0375737, 0.0663145)
 text = "3 Players"
 
 [node name="4p" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 3.15771
-offset_top = 17.827
-offset_right = 81.1577
-offset_bottom = 58.827
-scale = Vector2(0.107109, 0.0817972)
+offset_left = 3.01892
+offset_top = 17.2719
+offset_right = 199.019
+offset_bottom = 54.2719
+scale = Vector2(0.0396415, 0.0720608)
 theme_override_font_sizes/font_size = 16
 text = "4 Players"
 
 [node name="select" type="ColorRect" parent="ColorRect"]
+visible = false
 layout_mode = 0
-offset_left = 6.76653
-offset_top = 6.90875
-offset_right = 46.7665
-offset_bottom = 46.9088
+offset_left = 11.2776
+offset_top = 6.66202
+offset_right = 51.2775
+offset_bottom = 46.6621
 scale = Vector2(0.726908, 0.634991)
 color = Color(0.180392, 0.180392, 0.180392, 1)
 
@@ -158,12 +159,14 @@ text_overrun_behavior = 1
 
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 20.2302
-offset_top = 25.5994
-offset_right = 73.2302
-offset_bottom = 55.5994
-scale = Vector2(0.069591, 0.107897)
+offset_left = 25.4352
+offset_top = 35.9009
+offset_right = 119.435
+offset_bottom = 75.9009
+scale = Vector2(0.0380189, 0.072036)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
 text = "Invalid"
 
 [connection signal="pressed" from="ColorRect/2p" to="." method="_on_2p_pressed"]
