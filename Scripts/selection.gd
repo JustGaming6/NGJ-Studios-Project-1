@@ -108,3 +108,7 @@ func _on_done_2p_pressed():
 				Global.p4_selection = selected_item_4
 			else:
 				$ColorRect/Invalid.show()
+
+
+func _on_menu_pressed():
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
