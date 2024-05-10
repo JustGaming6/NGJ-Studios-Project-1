@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dan3ho5qssm7m"]
+[gd_scene load_steps=7 format=3 uid="uid://dan3ho5qssm7m"]
 
 [ext_resource type="Script" path="res://Scripts/selection.gd" id="1_dlqva"]
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_vtl0l"]
 [ext_resource type="Texture2D" uid="uid://brtahp5f7b2kd" path="res://Assets/Images/Map/Regions Map V2.png" id="3_t46qc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qloxl"]
+bg_color = Color(0.0991234, 0.536292, 0.0413927, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i6yq"]
+bg_color = Color(0.672618, 0.306406, 0.0304877, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aobe6"]
+bg_color = Color(0.344541, 0.0465703, 0.0781569, 1)
 
 [node name="Selection" type="Node2D"]
 script = ExtResource("1_dlqva")
@@ -11,7 +20,7 @@ script = ExtResource("1_dlqva")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(28.8183, 16.2113)
-color = Color(0.180392, 0.180392, 0.180392, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="AiMainMenu" type="Sprite2D" parent="ColorRect"]
 position = Vector2(27.0314, 19.986)
@@ -39,6 +48,7 @@ offset_top = 9.0
 offset_right = 214.0
 offset_bottom = 50.0
 scale = Vector2(0.0370112, 0.0658368)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qloxl")
 text = "2 Players"
 
 [node name="3p" type="Button" parent="ColorRect"]
@@ -48,6 +58,7 @@ offset_top = 13.0
 offset_right = 210.0
 offset_bottom = 54.0
 scale = Vector2(0.0375737, 0.0663145)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8i6yq")
 text = "3 Players"
 
 [node name="4p" type="Button" parent="ColorRect"]
@@ -58,6 +69,7 @@ offset_right = 199.019
 offset_bottom = 54.2719
 scale = Vector2(0.0396415, 0.0720608)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_aobe6")
 text = "4 Players"
 
 [node name="select" type="ColorRect" parent="ColorRect"]
