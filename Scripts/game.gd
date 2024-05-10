@@ -6,6 +6,8 @@ var camera_speed = 10
 var zoom_speed = 0.25
 var loading_screen = false
 
+var region_info = " "
+
 func _ready():
 	$BlankScreens/p1Screen.hide()
 	$BlankScreens/Button.hide()
@@ -28,9 +30,6 @@ func _physics_process(delta):
 	if loading_screen == false:
 		zoom()
 		camera_move()
-	
-func _process(delta):
-	pass
 	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
@@ -77,7 +76,7 @@ func load_regions():
 	
 	for region_color in regions_dict:
 		var region = load("res://Scenes/Regions_Area.tscn").instantiate()
-		var region_info = regions_dict[region_color]
+		region_info = regions_dict[region_color]
 		region.region_name =  region_info[0]
 		region.set_name(region_info[0])
 		region.Owner =  "region_owner"
@@ -126,7 +125,7 @@ func import_file(filepath):
 	else:
 		print("Faild to Open file: ", filepath)
 		return null
-		
+
 func change_owner(region_name: String, new_owner : String):
 	var region = get_node("Regions").get_node(region_name)
 	if region != null:
@@ -143,10 +142,12 @@ func change_owner(region_name: String, new_owner : String):
 			"p4":
 				Global.p4_income -= Global.region_income
 				Global.p4_manpower-= Global.region_manpower
+		
 		region.Owner = new_owner
 		Global.region_owner = region.Owner
 		Global.region_name = region_name
 		print(region_name + ": " + region.Owner)
+		
 		match new_owner:
 			"p1":
 				Global.p1_income += Global.region_income
