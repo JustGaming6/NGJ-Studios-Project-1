@@ -6,7 +6,7 @@ var camera_speed = 10
 var zoom_speed = 0.25
 var loading_screen = false
 
-var region_info = " "
+var region_info
 
 func _ready():
 	$BlankScreens/p1Screen.hide()
@@ -80,9 +80,9 @@ func load_regions():
 		region.region_name =  region_info[0]
 		region.set_name(region_info[0])
 		region.Owner =  "region_owner"
+		region.Income = region_info[1]
 		get_node("Regions").add_child(region)
 		
-		Global.region_income = region_info[1]
 		Global.region_manpower = region_info[2]
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
@@ -131,16 +131,16 @@ func change_owner(region_name: String, new_owner : String):
 	if region != null:
 		match region.Owner:
 			"p1":
-				Global.p1_income -= Global.region_income
+				Global.p1_income -= region.Income
 				Global.p1_manpower -= Global.region_manpower
 			"p2":
-				Global.p2_income -= Global.region_income
+				Global.p2_income -= region.Income
 				Global.p2_manpower -= Global.region_manpower
 			"p3":
-				Global.p3_income -= Global.region_income
+				Global.p3_income -= region.Income
 				Global.p3_manpower -= Global.region_manpower
 			"p4":
-				Global.p4_income -= Global.region_income
+				Global.p4_income -= region.Income
 				Global.p4_manpower-= Global.region_manpower
 		
 		region.Owner = new_owner
@@ -150,16 +150,16 @@ func change_owner(region_name: String, new_owner : String):
 		
 		match new_owner:
 			"p1":
-				Global.p1_income += Global.region_income
+				Global.p1_income += region.Income
 				Global.p1_manpower += Global.region_manpower
 			"p2":
-				Global.p2_income += Global.region_income
+				Global.p2_income += region.Income
 				Global.p2_manpower += Global.region_manpower
 			"p3":
-				Global.p3_income += Global.region_income
+				Global.p3_income += region.Income
 				Global.p3_manpower += Global.region_manpower
 			"p4":
-				Global.p4_income += Global.region_income
+				Global.p4_income += region.Income
 				Global.p4_manpower += Global.region_manpower
 	else:
 		print("Region not found: " + region_name)
