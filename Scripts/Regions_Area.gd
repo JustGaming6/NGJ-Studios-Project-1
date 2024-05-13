@@ -3,6 +3,8 @@ extends Area2D
 var region_name = ""
 var Owner = ""
 var Income = 0
+var Manpower = 0
+var Troops = 0
 var intial_font = ""
 var p1_col = Color(0,0,1,1) #Blue
 var p2_col = Color(1,0,0,1) #Red

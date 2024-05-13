@@ -24,10 +24,10 @@ var p2_moral = 50
 var p3_moral = 50
 var p4_moral = 50
 
-var p1_manpower = 100
-var p2_manpower = 100
-var p3_manpower = 100
-var p4_manpower = 100
+var p1_manpower = 0
+var p2_manpower = 0
+var p3_manpower = 0
+var p4_manpower = 0
 
 var region_income = 0
 var region_manpower = 0

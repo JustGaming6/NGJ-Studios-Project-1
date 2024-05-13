@@ -81,9 +81,9 @@ func load_regions():
 		region.set_name(region_info[0])
 		region.Owner =  "region_owner"
 		region.Income = region_info[1]
+		region.Manpower = region_info[2]
+		region.Troops = region_info[3]
 		get_node("Regions").add_child(region)
-		
-		Global.region_manpower = region_info[2]
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
 		
@@ -97,6 +97,18 @@ func load_regions():
 			region.add_child(region_collision)
 			region.add_child(region_polygon)
 			
+			var centre = Vector2.ZERO
+			for vertex in polygon:
+				centre += vertex
+			centre /= polygon.size()
+			
+			var troops_label = Label.new()
+			troops_label.set_text("1")
+			
+			troops_label.rect_position = centre
+			region.add_child(troops_label)
+						
+		
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}
 	for y in range(image.get_height()):
@@ -132,16 +144,16 @@ func change_owner(region_name: String, new_owner : String):
 		match region.Owner:
 			"p1":
 				Global.p1_income -= region.Income
-				Global.p1_manpower -= Global.region_manpower
+				Global.p1_manpower -= region.Manpower
 			"p2":
 				Global.p2_income -= region.Income
-				Global.p2_manpower -= Global.region_manpower
+				Global.p2_manpower -= region.Manpower
 			"p3":
 				Global.p3_income -= region.Income
-				Global.p3_manpower -= Global.region_manpower
+				Global.p3_manpower -= region.Manpower
 			"p4":
 				Global.p4_income -= region.Income
-				Global.p4_manpower-= Global.region_manpower
+				Global.p4_manpower-= region.Manpower
 		
 		region.Owner = new_owner
 		Global.region_owner = region.Owner
@@ -151,16 +163,16 @@ func change_owner(region_name: String, new_owner : String):
 		match new_owner:
 			"p1":
 				Global.p1_income += region.Income
-				Global.p1_manpower += Global.region_manpower
+				Global.p1_manpower += region.Manpower
 			"p2":
 				Global.p2_income += region.Income
-				Global.p2_manpower += Global.region_manpower
+				Global.p2_manpower += region.Manpower
 			"p3":
 				Global.p3_income += region.Income
-				Global.p3_manpower += Global.region_manpower
+				Global.p3_manpower += region.Manpower
 			"p4":
 				Global.p4_income += region.Income
-				Global.p4_manpower += Global.region_manpower
+				Global.p4_manpower += region.Manpower
 	else:
 		print("Region not found: " + region_name)
 	await timer()
