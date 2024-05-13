@@ -10,7 +10,7 @@ var p1_col = Color(0,0,1,1) #Blue
 var p2_col = Color(1,0,0,1) #Red
 var p3_col = Color(0,1,0,1) #Green
 var p4_col = Color(1,1,0,1) #Yellow
-var bot1_col = Color(1, 0.980392, 0.941176, 1)
+var bot1_col = Color(1, 0.980392, 0.941176, 0.5)
 var bot2_col = Color(0.5,0.25,0,1)
 var bot3_col = Color(0,1,0,0.5)
 var bot4_col = Color (1,0,0,0.5)
@@ -69,7 +69,7 @@ func _physics_process(delta):
 
 func _on_child_entered_tree(node):
 	if node.is_class("Polygon2D"):
-		node.color = Color(1,1,1,0.5)
+		node.color = Color(0, 0, 0, 0.5)
 
 func _on_mouse_entered():
 	for node in get_children():

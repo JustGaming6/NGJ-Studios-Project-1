@@ -105,9 +105,10 @@ func load_regions():
 			var troops_label = Label.new()
 			troops_label.set_text("1")
 			
-			troops_label.rect_position = centre
+			troops_label.position = centre
+			troops_label.position.y -= 15
+			troops_label.position.x -= 5
 			region.add_child(troops_label)
-						
 		
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}

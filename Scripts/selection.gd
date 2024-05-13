@@ -8,12 +8,14 @@ func _ready():
 	$ColorRect/select/Label2.hide()
 	$ColorRect/select/Label3.hide()
 	$ColorRect/select/Label4.hide()
+	add_items($ColorRect/select/Label/menu_1)
+	add_items($ColorRect/select/Label2/menu_2)
+	add_items($ColorRect/select/Label3/menu_3)
+	add_items($ColorRect/select/Label4/menu_4)
 
 func _on_2p_pressed():
 	Global.players = 2
 	$ColorRect/select.show()
-	add_items($ColorRect/select/Label/menu_1)
-	add_items($ColorRect/select/Label2/menu_2)
 	$ColorRect/select/Label.show()
 	$ColorRect/select/Label2.show()
 	
@@ -23,9 +25,6 @@ func _on_2p_pressed():
 func _on_3p_pressed():
 	Global.players = 3
 	$ColorRect/select.show()
-	add_items($ColorRect/select/Label/menu_1)
-	add_items($ColorRect/select/Label2/menu_2)
-	add_items($ColorRect/select/Label3/menu_3)
 	$ColorRect/select/Label.show()
 	$ColorRect/select/Label2.show()
 	$ColorRect/select/Label3.show()
@@ -35,10 +34,6 @@ func _on_3p_pressed():
 func _on_4p_pressed():
 	Global.players = 4
 	$ColorRect/select.show()
-	add_items($ColorRect/select/Label/menu_1)
-	add_items($ColorRect/select/Label2/menu_2)
-	add_items($ColorRect/select/Label3/menu_3)
-	add_items($ColorRect/select/Label4/menu_4)
 	$ColorRect/select/Label.show()
 	$ColorRect/select/Label2.show()
 	$ColorRect/select/Label3.show()
