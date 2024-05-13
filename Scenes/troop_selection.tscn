@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://j00bbj0vqoc1"]
+
+[ext_resource type="Script" path="res://Scripts/troop_selection.gd" id="1_560oc"]
+
+[node name="TroopSelection" type="Node2D"]
+script = ExtResource("1_560oc")
+
+[node name="background" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = 366.0
+offset_right = 1155.0
+offset_bottom = 649.0
+color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1118.0
+offset_top = 368.0
+offset_right = 1152.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.362398, 0.0749489, 0.119627, 1)
+theme_override_colors/font_hover_color = Color(1, 0.21268, 0.159696, 1)
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 932.0
+offset_top = 376.0
+offset_right = 995.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Infantry"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 861.0
+offset_top = 484.0
+offset_right = 1101.0
+offset_bottom = 533.0
+text = "Costs: $400 and 250 mp
+Mobilization time:1 turn
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
