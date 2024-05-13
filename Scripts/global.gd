@@ -29,8 +29,7 @@ var p2_manpower = 0
 var p3_manpower = 0
 var p4_manpower = 0
 
-var region_income = 0
-var region_manpower = 0
+var region_troops
 
 var attack_region = "blank"
 var defense_region = "blank"

@@ -24,7 +24,7 @@
 	, "#5d702c" : ["Ashburton", 210 , 120, 1]
 	, "#5d6b36" : ["Waitaki", 170 , 90 , 1]
 
-	, "#ad8b2d" : ["Wellington", 800 , 500 , 1]
+	, "#ad8b2d" : ["Wellington", 800 , 500 , 2]
 	, "#e0a709" : ["South Wairarapa", 100 , 70 , 1]
 	, "#dbb95c" : ["Masterton", 200 , 120 , 1]
 	, "#4d3d15" : ["Tararua Region", 150 , 100 , 1]
