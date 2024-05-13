@@ -7,6 +7,8 @@ var zoom_speed = 0.25
 var loading_screen = false
 
 var region_info
+var region
+var troops_label
 
 func _ready():
 	$BlankScreens/p1Screen.hide()
@@ -24,7 +26,7 @@ func _ready():
 	loading_screen = false
 	load_screen("game")
 	load_screen("p1")
-	turn("p1")                                                                                                                                                                                                                                                                                                                       
+	turn("p1")                                                                                                                                                                                                                                                                                                        
 	
 func _physics_process(delta):
 	if loading_screen == false:
@@ -75,7 +77,7 @@ func load_regions():
 	var regions_dict = import_file("res://regions.txt")
 	
 	for region_color in regions_dict:
-		var region = load("res://Scenes/Regions_Area.tscn").instantiate()
+		region = load("res://Scenes/Regions_Area.tscn").instantiate()
 		region_info = regions_dict[region_color]
 		region.region_name =  region_info[0]
 		region.set_name(region_info[0])
@@ -102,14 +104,14 @@ func load_regions():
 				centre += vertex
 			centre /= polygon.size()
 			
-			var troops_label = Label.new()
-			troops_label.set_text("1")
+			troops_label = Label.new()
+			troops_label.set_text(str(region.Troops))
 			
 			troops_label.position = centre
 			troops_label.position.y -= 15
 			troops_label.position.x -= 5
 			region.add_child(troops_label)
-		
+
 func get_pixel_color_dict(image):
 	var pixel_color_dict = {}
 	for y in range(image.get_height()):
