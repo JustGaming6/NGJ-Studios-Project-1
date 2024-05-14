@@ -23,6 +23,8 @@ var bot10_col = Color(0, 0, 0.545098, 1)
 var bot11_col = Color(0.545098, 0, 0.545098, 1)
 var bot12_Col = Color(1, 0.54902, 0, 1)
 
+signal troops_added(region)
+
 func _ready():
 	await timer()
 
