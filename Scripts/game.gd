@@ -32,7 +32,13 @@ func _physics_process(delta):
 	if loading_screen == false:
 		zoom()
 		camera_move()
-	
+		
+func _process(delta):
+	if Global.region_clicked == true:
+		region.Troops += 1
+		Global.region_clicked = false
+		troops_label.set_text(str(region.Troops))
+
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1

@@ -29,7 +29,7 @@ var p2_manpower = 0
 var p3_manpower = 0
 var p4_manpower = 0
 
-var region_troops
+var region_clicked = false
 
 var attack_region = "blank"
 var defense_region = "blank"
