@@ -84,6 +84,7 @@ func _on_input_event(viewport, event, shape_idx):
 		print("Attacking from: " + str(region_name))
 		Global.attack_region = region_name
 		Global.region_clicked = true
+		Global.troops_region_name = region_name
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		if Global.attack_region == "blank":
 			print("error")

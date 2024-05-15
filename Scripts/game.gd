@@ -35,6 +35,7 @@ func _physics_process(delta):
 		
 func _process(delta):
 	if Global.region_clicked == true:
+		var region = get_node("Regions").get_node(Global.troops_region_name)
 		region.Troops += 1
 		Global.region_clicked = false
 		troops_label.set_text(str(region.Troops))
