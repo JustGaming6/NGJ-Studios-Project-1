@@ -38,6 +38,7 @@ func _process(delta):
 		var region = get_node("Regions").get_node(Global.troops_region_name)
 		region.Troops += 1
 		Global.region_clicked = false
+		var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
 		troops_label.set_text(str(region.Troops))
 
 func zoom():
@@ -113,6 +114,7 @@ func load_regions():
 			
 			troops_label = Label.new()
 			troops_label.set_text(str(region.Troops))
+			troops_label.set_name("label")
 			
 			troops_label.position = centre
 			troops_label.position.y -= 15
