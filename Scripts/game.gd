@@ -33,6 +33,7 @@ func _physics_process(delta):
 		zoom()
 		camera_move()
 		
+		
 func _process(delta):
 	if Global.region_clicked == true:
 		var turn
@@ -201,6 +202,8 @@ func change_owner(region_name: String, new_owner : String):
 	await timer()
 	
 func turn(player):
+	Global.deployment_phase = true
+	$TroopSelection.show()
 	load_screen("game")
 	load_screen(player)
 	match player:
@@ -365,3 +368,8 @@ func _on_turnbutton_pressed():
 			await turn("p3")
 		4:
 			await turn("p4")
+
+
+func _on_troopselection_button_pressed():
+	Global.deployment_phase = false
+	$TroopSelection.hide()

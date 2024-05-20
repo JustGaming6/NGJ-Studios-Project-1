@@ -29,6 +29,8 @@ var p2_manpower = 0
 var p3_manpower = 0
 var p4_manpower = 0
 
+var deployment_phase = false
+
 var region_clicked = false
 var troops_region_name
 

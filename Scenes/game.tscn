@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=18 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -32,6 +32,18 @@ func _process(delta):
 size = Vector2(784.036, 743.265)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6dq7f"]
+
+[sub_resource type="GDScript" id="GDScript_p1rrs"]
+script/source = "extends CanvasLayer
+
+func _ready():
+	$Troopselection
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
@@ -279,7 +291,15 @@ offset_right = 1140.0
 offset_bottom = 397.0
 text = "Start Turn"
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="TroopSelection" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_p1rrs")
+
+[node name="Button" type="Button" parent="TroopSelection"]
+offset_left = 988.0
+offset_top = 130.0
+offset_right = 1149.0
+offset_bottom = 170.0
+text = "Exit Deployment"
 
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
@@ -289,3 +309,4 @@ text = "Start Turn"
 [connection signal="input_event" from="CanvasLayer/TroopsMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_turnbutton_pressed"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TroopSelection/Button" to="." method="_on_troopselection_button_pressed"]
