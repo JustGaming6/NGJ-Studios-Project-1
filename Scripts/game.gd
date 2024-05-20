@@ -37,21 +37,35 @@ func _physics_process(delta):
 func _process(delta):
 	if Global.region_clicked == true:
 		var turn
+		var purchased = false
 		match Global.turn:
 			1:
 				turn = "p1"
+				if Global.p1_bal >= 200:
+					Global.p1_bal -= 200
+					purchased = true 
 			2:
 				turn = "p2"
+				if Global.p2_bal >= 200:
+					Global.p2_bal -= 200
+					purchased = true 
 			3:
 				turn = "p3"
+				if Global.p3_bal >= 200:
+					Global.p3_bal -= 200
+					purchased = true 
 			4:
 				turn = "p4"
-		var region = get_node("Regions").get_node(Global.troops_region_name)
-		if str(region.Owner) == turn:
-			region.Troops += 1
-			Global.region_clicked = false
-			var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
-			troops_label.set_text(str(region.Troops))
+				if Global.p4_bal >= 200:
+					Global.p4_bal -= 200
+					purchased = true 
+		if purchased == true:
+			var region = get_node("Regions").get_node(Global.troops_region_name)
+			if str(region.Owner) == turn:
+				region.Troops += 1
+				Global.region_clicked = false
+				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
+				troops_label.set_text(str(region.Troops))
 
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:

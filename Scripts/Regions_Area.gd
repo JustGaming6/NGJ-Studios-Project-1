@@ -87,11 +87,11 @@ func _on_input_event(viewport, event, shape_idx):
 		else:
 			print("Attacking from: " + str(region_name))
 			Global.attack_region = region_name
-		if Global.attack_region == "blank":
-			print("error")
-		else:
-			print("To " + str(region_name))
-			Global.defense_region = region_name
+			if Global.attack_region == "blank":
+				print("error")
+			else:
+				print("To " + str(region_name))
+				Global.defense_region = region_name
 
 func _on_mouse_exited():
 	for node in get_children():

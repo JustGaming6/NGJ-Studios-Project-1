@@ -14,6 +14,18 @@
 [ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="11_uq0ph"]
 [ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="12_iyexu"]
 
+[sub_resource type="GDScript" id="GDScript_p1rrs"]
+script/source = "extends CanvasLayer
+
+func _ready():
+	$Troopselection
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [sub_resource type="GDScript" id="GDScript_1trf3"]
 script/source = "extends Label
 
@@ -33,18 +45,6 @@ size = Vector2(784.036, 743.265)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6dq7f"]
 
-[sub_resource type="GDScript" id="GDScript_p1rrs"]
-script/source = "extends CanvasLayer
-
-func _ready():
-	$Troopselection
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_e67rb")
 
@@ -61,6 +61,16 @@ script = ExtResource("3_gu6h3")
 [node name="Camera2D" type="Camera2D" parent="Regions"]
 position = Vector2(262, 257)
 position_smoothing_enabled = true
+
+[node name="TroopSelection" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_p1rrs")
+
+[node name="Button" type="Button" parent="TroopSelection"]
+offset_left = 988.0
+offset_top = 130.0
+offset_right = 1149.0
+offset_bottom = 170.0
+text = "Exit Deployment"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_mcphf")
@@ -291,16 +301,7 @@ offset_right = 1140.0
 offset_bottom = 397.0
 text = "Start Turn"
 
-[node name="TroopSelection" type="CanvasLayer" parent="."]
-script = SubResource("GDScript_p1rrs")
-
-[node name="Button" type="Button" parent="TroopSelection"]
-offset_left = 988.0
-offset_top = 130.0
-offset_right = 1149.0
-offset_bottom = 170.0
-text = "Exit Deployment"
-
+[connection signal="pressed" from="TroopSelection/Button" to="." method="_on_troopselection_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
@@ -309,4 +310,3 @@ text = "Exit Deployment"
 [connection signal="input_event" from="CanvasLayer/TroopsMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_turnbutton_pressed"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="TroopSelection/Button" to="." method="_on_troopselection_button_pressed"]
