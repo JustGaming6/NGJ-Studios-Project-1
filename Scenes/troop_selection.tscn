@@ -29,44 +29,44 @@ script = SubResource("GDScript_bi4gf")
 
 [node name="background" type="ColorRect" parent="."]
 offset_left = -4.0
-offset_top = 366.0
-offset_right = 1155.0
-offset_bottom = 649.0
+offset_top = -1.0
+offset_right = 303.0
+offset_bottom = 653.0
 color = Color(0.288518, 0.288518, 0.288518, 1)
 
 [node name="Button" type="Button" parent="."]
-offset_left = 1118.0
-offset_top = 368.0
-offset_right = 1152.0
-offset_bottom = 399.0
+offset_left = 268.0
+offset_top = 89.0
+offset_right = 302.0
+offset_bottom = 120.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.362398, 0.0749489, 0.119627, 1)
 theme_override_colors/font_hover_color = Color(1, 0.21268, 0.159696, 1)
 text = "X"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 911.0
-offset_top = 376.0
-offset_right = 997.0
-offset_bottom = 407.0
+offset_left = 53.0
+offset_top = 86.0
+offset_right = 139.0
+offset_bottom = 117.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "Infantry"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 861.0
-offset_top = 540.0
-offset_right = 1101.0
-offset_bottom = 589.0
+offset_left = 9.0
+offset_top = 188.0
+offset_right = 249.0
+offset_bottom = 237.0
 text = "Costs: $400 and 250 mp
 Mobilization time:1 turn
 "
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 919.0
-offset_top = 600.0
-offset_right = 999.0
-offset_bottom = 631.0
+offset_left = 67.0
+offset_top = 248.0
+offset_right = 147.0
+offset_bottom = 279.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_grctt")
 text = "Purchase"
 
