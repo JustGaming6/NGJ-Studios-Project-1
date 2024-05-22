@@ -70,35 +70,72 @@ func _process(delta):
 	if Global.attack_region != "blank":
 		if Global.defense_region != "blank":
 			attack(Global.attack_region, Global.defense_region)
+			Global.defense_region = "blank"
+			Global.attack_region = "blank"
 
 func attack(attack, defense):
-	attack = get_node("Regions").get_node(attack)
-	defense = get_node("Regions").get_node(defense)
-	var chance = int(attack.Troops) / int(defense.Troops)
+	var attack_node = get_node("Regions").get_node(attack)
+	var defense_node = get_node("Regions").get_node(defense)
+	print("hi " + str(attack))
+	var chance = int(attack_node.Troops) / int(defense_node.Troops)
 	print(chance)
-	Global.attack_region = "blank"
-	Global.defense_region = "blank"
+	var rng = RandomNumberGenerator.new()
+	var result = rng.randf_range(0,9)
+	var outcome
 	if chance <= 0.25:
-		print("lose")
+		outcome = "L"
 	elif chance <= 0.5:
-		print("Extremely low chance")
-	elif chance <= 0.75:
-		print("Low chance")
+		match result:
+			0,1,2,3,4,5,6,7,8:
+				outcome = "L"
+			9:
+				outcome = "W"
+	elif chance <= 0.6:
+		match result:
+			0,1,2,3,4,5,6,7:
+				outcome = "L"
+			8,9:
+				outcome = "W"
 	elif chance <= 1:
-		print("meh")
+		match result:
+			0,1,2,3,4,5,6:
+				outcome = "L"
+			7,8,9:
+				outcome = "W"
 	elif chance <= 1.25:
-		pass
+		match result:
+			0,1,2,3,4:
+				outcome = "L"
+			5,6,7,8,9:
+				outcome = "W"
 	elif chance <= 1.5:
-		pass
+		match result:
+			0,1,2:
+				outcome = "L"
+			3,4,5,6,7,8,9:
+				outcome = "W"
 	elif chance <= 2:
-		pass
-	elif chance <=2.5:
-		pass
+		match result:
+			0,1:
+				outcome = "L"
+			2,3,4,5,6,7,8,9:
+				outcome = "W"
 	elif chance <=3:
-		pass
+		match result:
+			0:
+				outcome = "L"
+			1,2,3,4,5,6,7,8,9:
+				outcome = "W"
 	elif chance > 3:
-		pass
+		outcome = "W"
 	
+	match outcome:
+		"W":
+			defense_node.Troops = attack_node.Troops - 1
+			attack_node.Troops = 1
+			change_owner(str(defense), str(attack_node.Owner))
+		"L":
+			attack_node.Troops = 1
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1
