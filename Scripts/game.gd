@@ -66,7 +66,39 @@ func _process(delta):
 				Global.region_clicked = false
 				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
 				troops_label.set_text(str(region.Troops))
+				
+	if Global.attack_region != "blank":
+		if Global.defense_region != "blank":
+			attack(Global.attack_region, Global.defense_region)
 
+func attack(attack, defense):
+	attack = get_node("Regions").get_node(attack)
+	defense = get_node("Regions").get_node(defense)
+	var chance = int(attack.Troops) / int(defense.Troops)
+	print(chance)
+	Global.attack_region = "blank"
+	Global.defense_region = "blank"
+	if chance <= 0.25:
+		print("lose")
+	elif chance <= 0.5:
+		print("Extremely low chance")
+	elif chance <= 0.75:
+		print("Low chance")
+	elif chance <= 1:
+		print("meh")
+	elif chance <= 1.25:
+		pass
+	elif chance <= 1.5:
+		pass
+	elif chance <= 2:
+		pass
+	elif chance <=2.5:
+		pass
+	elif chance <=3:
+		pass
+	elif chance > 3:
+		pass
+	
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1

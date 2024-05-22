@@ -89,8 +89,8 @@ func _on_input_event(viewport, event, shape_idx):
 			Global.attack_region = region_name
 			if Global.attack_region == "blank":
 				print("error")
-			else:
-				print("To " + str(region_name))
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+				print("To: " + str(region_name))
 				Global.defense_region = region_name
 
 func _on_mouse_exited():
