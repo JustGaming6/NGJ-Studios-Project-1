@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=19 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="3_gu6h3"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="4_mcphf"]
+[ext_resource type="Script" path="res://Scenes/Camera2D.gd" id="4_rl1fb"]
 [ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="5_b6ggv"]
 [ext_resource type="Texture2D" uid="uid://bl6tqbw0lnlp2" path="res://Assets/Images/Icons/Money.png" id="5_wfsxe"]
 [ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="5_yak2y"]
@@ -61,6 +62,7 @@ script = ExtResource("3_gu6h3")
 [node name="Camera2D" type="Camera2D" parent="Regions"]
 position = Vector2(262, 257)
 position_smoothing_enabled = true
+script = ExtResource("4_rl1fb")
 
 [node name="TroopSelection" type="CanvasLayer" parent="."]
 script = SubResource("GDScript_p1rrs")
