@@ -36,6 +36,7 @@ func _physics_process(delta):
 		
 func _process(delta):
 	if Global.region_clicked == true:
+		Global.region_clicked = false
 		var turn
 		var purchased = false
 		match Global.turn:
@@ -76,66 +77,88 @@ func _process(delta):
 func attack(attack, defense):
 	var attack_node = get_node("Regions").get_node(attack)
 	var defense_node = get_node("Regions").get_node(defense)
-	print("hi " + str(attack))
-	var chance = int(attack_node.Troops) / int(defense_node.Troops)
-	print(chance)
-	var rng = RandomNumberGenerator.new()
-	var result = rng.randf_range(0,9)
-	var outcome
-	if chance <= 0.25:
-		outcome = "L"
-	elif chance <= 0.5:
-		match result:
-			0,1,2,3,4,5,6,7,8:
-				outcome = "L"
-			9:
-				outcome = "W"
-	elif chance <= 0.6:
-		match result:
-			0,1,2,3,4,5,6,7:
-				outcome = "L"
-			8,9:
-				outcome = "W"
-	elif chance <= 1:
-		match result:
-			0,1,2,3,4,5,6:
-				outcome = "L"
-			7,8,9:
-				outcome = "W"
-	elif chance <= 1.25:
-		match result:
-			0,1,2,3,4:
-				outcome = "L"
-			5,6,7,8,9:
-				outcome = "W"
-	elif chance <= 1.5:
-		match result:
-			0,1,2:
-				outcome = "L"
-			3,4,5,6,7,8,9:
-				outcome = "W"
-	elif chance <= 2:
-		match result:
-			0,1:
-				outcome = "L"
-			2,3,4,5,6,7,8,9:
-				outcome = "W"
-	elif chance <=3:
-		match result:
-			0:
-				outcome = "L"
-			1,2,3,4,5,6,7,8,9:
-				outcome = "W"
-	elif chance > 3:
-		outcome = "W"
-	
-	match outcome:
-		"W":
-			defense_node.Troops = attack_node.Troops - 1
-			attack_node.Troops = 1
-			change_owner(str(defense), str(attack_node.Owner))
-		"L":
-			attack_node.Troops = 1
+	var attack_label = get_node("Regions").get_node(attack).get_node("label")
+	var defense_label = get_node("Regions").get_node(defense).get_node("label")
+	if attack_node.Troops > 1:
+		attack_check(attack, defense, attack_node.Owner)
+		var chance = int(attack_node.Troops) / int(defense_node.Troops)
+		print(chance)
+		var rng = RandomNumberGenerator.new()
+		var result = rng.randf_range(0,9)
+		var outcome
+		if chance <= 0.25:
+			outcome = "L"
+		elif chance <= 0.5:
+			match result:
+				0,1,2,3,4,5,6,7,8:
+					outcome = "L"
+				9:
+					outcome = "W"
+		elif chance <= 0.6:
+			match result:
+				0,1,2,3,4,5,6,7:
+					outcome = "L"
+				8,9:
+					outcome = "W"
+		elif chance <= 1:
+			match result:
+				0,1,2,3,4,5,6:
+					outcome = "L"
+				7,8,9:
+					outcome = "W"
+		elif chance <= 1.25:
+			match result:
+				0,1,2,3,4:
+					outcome = "L"
+				5,6,7,8,9:
+					outcome = "W"
+		elif chance <= 1.5:
+			match result:
+				0,1,2:
+					outcome = "L"
+				3,4,5,6,7,8,9:
+					outcome = "W"
+		elif chance <= 2:
+			match result:
+				0,1:
+					outcome = "L"
+				2,3,4,5,6,7,8,9:
+					outcome = "W"
+		elif chance <3:
+			match result:
+				0:
+					outcome = "L"
+				1,2,3,4,5,6,7,8,9:
+					outcome = "W"
+		elif chance >= 3:
+			outcome = "W"
+		
+		match outcome:
+			"W":
+				defense_node.Troops = attack_node.Troops - 1
+				attack_node.Troops = 1
+				change_owner(str(defense), str(attack_node.Owner))
+			"L":
+				attack_node.Troops = 1
+		attack_label.set_text(str(attack_node.Troops))
+		defense_label.set_text(str(defense_node.Troops))
+				
+func attack_check(attack, defense, attack_player):
+	var check = false
+	var turn
+	match Global.turn:
+		1:
+			turn = "p1"
+		2:
+			turn = "p2"
+		3:
+			turn = "p3"
+		4:
+			turn = "p4"
+	if turn == attack_player:
+		check == true
+	return check
+
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1

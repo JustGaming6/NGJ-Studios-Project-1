@@ -9,10 +9,10 @@ var region_owner = " "
 var region_name = " "
 var turn = 1
 
-var p1_income : int = 0
-var p2_income : int = 0
-var p3_income : int = 0
-var p4_income : int = 0
+var p1_income = 0
+var p2_income = 0
+var p3_income = 0
+var p4_income = 0
 
 var p1_bal = 0
 var p2_bal = 0
