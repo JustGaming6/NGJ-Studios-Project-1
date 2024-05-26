@@ -9,6 +9,8 @@ var loading_screen = false
 var region_info
 var region
 var troops_label
+var p_turn
+var purchase_valid
 
 func _ready():
 	$BlankScreens/p1Screen.hide()
@@ -33,40 +35,49 @@ func _physics_process(delta):
 		zoom()
 		camera_move()
 		
+func change_global_turn():
+	match Global.turn:
+		1:
+			p_turn = "p1"
+		2:
+			p_turn = "p2"
+		3:
+			p_turn = "p3"
+		4:
+			p_turn = "p4"
+
+
+func purchase(cost, turn):
+	purchase_valid = false
+	match turn:
+		"p1":
+			if Global.p1_bal >= cost:
+				purchase_valid = true
+				Global.p1_bal -= cost
+		"p2":
+			if Global.p2_bal >= cost:
+				purchase_valid = true
+				Global.p2_bal -= cost
+		"p3":
+			if Global.p3_bal >= cost:
+				purchase_valid = true
+				Global.p3_bal -= cost
+		"p4":
+			if Global.p4_bal >= cost:
+				purchase_valid = true
+				Global.p4_bal -= cost
 		
 func _process(delta):
 	if Global.region_clicked == true:
 		Global.region_clicked = false
-		var turn
-		var purchased = false
-		match Global.turn:
-			1:
-				turn = "p1"
-				if Global.p1_bal >= 200:
-					Global.p1_bal -= 200
-					purchased = true 
-			2:
-				turn = "p2"
-				if Global.p2_bal >= 200:
-					Global.p2_bal -= 200
-					purchased = true 
-			3:
-				turn = "p3"
-				if Global.p3_bal >= 200:
-					Global.p3_bal -= 200
-					purchased = true 
-			4:
-				turn = "p4"
-				if Global.p4_bal >= 200:
-					Global.p4_bal -= 200
-					purchased = true 
-		if purchased == true:
-			var region = get_node("Regions").get_node(Global.troops_region_name)
-			if str(region.Owner) == turn:
-				region.Troops += 1
-				Global.region_clicked = false
-				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
-				troops_label.set_text(str(region.Troops))
+		change_global_turn()
+		var region = get_node("Regions").get_node(Global.troops_region_name)
+		if str(region.Owner) == p_turn:
+			purchase(200, p_turn)
+			region.Troops += 1
+			Global.region_clicked = false
+			var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
+			troops_label.set_text(str(region.Troops))
 				
 	if Global.attack_region != "blank":
 		if Global.defense_region != "blank":
