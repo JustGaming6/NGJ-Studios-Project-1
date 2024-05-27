@@ -190,7 +190,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TroopsMenu/Area2D"]
 position = Vector2(-0.830078, 2.23633)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pogif")
 
 [node name="player" type="Label" parent="CanvasLayer"]
