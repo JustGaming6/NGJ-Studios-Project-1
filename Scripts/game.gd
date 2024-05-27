@@ -11,6 +11,7 @@ var region
 var troops_label
 var p_turn
 var purchase_valid
+var true_player = false
 
 func _ready():
 	$BlankScreens/p1Screen.hide()
@@ -26,6 +27,7 @@ func _ready():
 		if Global.players > 3:
 			await set_region(Global.p4_selection, "p4")
 	loading_screen = false
+	true_player = false
 	load_screen("game")
 	load_screen("p1")
 	turn("p1")                                                                                                                                                                                                                                                                                                        
@@ -301,6 +303,11 @@ func change_owner(region_name: String, new_owner : String):
 		Global.region_name = region_name
 		print(region_name + ": " + region.Owner)
 		
+		if true_player == true:
+			region.Troops = 1
+			var label = get_node("Regions").get_node(region_name).get_node("label")
+			label.set_text(str(region.Troops))
+		
 		match new_owner:
 			"p1":
 				Global.p1_income += region.Income
@@ -334,6 +341,9 @@ func turn(player):
 			Global.p4_bal += Global.p4_income
 
 func set_region(selection, player):
+	match player:
+		"p1", "p2", "p3", "p4":
+			true_player = true
 	match selection:
 		0:
 			await change_northland(player)
