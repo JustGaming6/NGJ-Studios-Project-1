@@ -20,70 +20,134 @@ func check_attack(attack, defense):
 			match defense:
 				\"Far North\", \"Whangarei\", \"North Auckland\":
 					valid_attack = true
-	match attack:
 		\"North Auckland\":
 			match defense:
 				\"Kaipara\", \"Central Auckland\":
 					valid_attack = true
-	match attack:
 		\"Central Auckland\":
 			match defense:
 				\"North Auckland\", \"West Auckland\", \"South Auckland\":
 					valid_attack = true
-	match attack:
 		\"West Auckland\":
 			match defense:
 				\"Central Auckland\", \"North Waikato\", \"South Auckland\":
 					valid_attack = true
-	match attack:
 		\"South Auckland\":
 			match defense:
 				\"Central Auckland\", \"West Auckland\", \"Coromandel\", \"North Waikato\", \"Hauraki\":
 					valid_attack = true
-	match attack:
 		\"Coromandel\":
 			match defense:
 				\"Hauraki\", \"Tauranga\", \"South Auckland\":
 					valid_attack = true
-	match attack:
 		\"Hauraki\":
 			match defense:
 				\"South Auckland\", \"North Waikato\", \"Hamilton\", \"Tauranga\", \"Coromandel\":
 					valid_attack = true
-	match attack:
 		\"North Waikato\":
 			match defense:
 				\"South Auckland\", \"West Auckland\", \"Hamilton\", \"Hauraki\", \"Waitomo\":
 					valid_attack = true
-	match attack:
 		\"Hamilton\":
 			match defense:
 				\"North Waikato\", \"Rotorua\", \"Tauranga\", \"Hauraki\", \"Waitomo\", \"Taupo\":
 					valid_attack = true
-	match attack:
 		\"Waitomo\":
 			match defense:
 				\"North Waikato\", \"Hamilton\", \"Taupo\", \"Ruapehu\", \"New Plymouth\":
 					valid_attack = true
-	match attack:
 		\"Taupo\":
 			match defense:
 				\"Waitomo\", \"Hamilton\", \"Rotorua\", \"Whakatane\", \"Wairoa\", \"Hastings\", \"Desert Road\", \"Ruapehu\":
 					valid_attack = true
-	match attack:
 		\"Desert Road\":
 			match defense:
 				\"Taupo\", \"Hastings\", \"Whanganui\", \"Ruapehu\":
 					valid_attack = true
-	match attack:
 		\"Tauranga\":
 			match defense:
 				\"Coromandel\", \"Hauraki\", \"Hamilton\", \"Rotorua\", \"Whakatane\":
 					valid_attack = true
-	match attack:
 		\"Rotorua\":
 			match defense:
 				\"Hamilton\", \"Tauranga\", \"Whakatane\", \"Taupo\":
+					valid_attack = true
+		\"Whakatane\":
+			match defense:
+				\"Rotorua\", \"Tauranga\", \"Wairoa\", \"Taupo\", \"Gisborne\", \"Opotiki\":
+					valid_attack = true
+		\"Opotiki\":
+			match defense:
+				\"Whakatane\", \"Gisborne\":
+					valid_attack = true
+		\"Gisborne\":
+			match defense:
+				\"Opotiki\", \"Whakatane\", \"Wairoa\":
+					valid_attack = true
+		\"Wairoa\":
+			match defense:
+				\"Gisborne\", \"Whakatane\", \"Hastings\", \"Taupo\", \"Napier\":
+					valid_attack = true
+		\"Hastings\":
+			match defense:
+				\"Wairoa\", \"Central Hawke's Bay\", \"Whanganui\", \"Taupo\", \"Napier\", \"Desert Road\":
+					valid_attack = true
+		\"Napier\":
+			match defense:
+				\"Central Hawke's Bay\", \"Hastings\", \"Wairoa\":
+					valid_attack = true
+		\"Central Hawke's Bay\":
+			match defense:
+				\"Napier\", \"Hastings\", \"North Manawatu\", \"Tararua Region\":
+					valid_attack = true
+		\"Ruapehu\":
+			match defense:
+				\"Waitomo\", \"Taupo\", \"Desert Road\", \"Stratford\", \"New Plymouth\":
+					valid_attack = true
+		\"New Plymouth\":
+			match defense:
+				\"Waitomo\", \"Ruapehu\", \"South Taranaki\", \"Stratford\":
+					valid_attack = true
+		\"Stratford\":
+			match defense:
+				\"Ruapehu\", \"New Plymouth\", \"South Taranaki\", \"Whanganui\":
+					valid_attack = true
+		\"South Taranaki\":
+			match defense:
+				\"New Plymouth\", \"Stratford\", \"Whanganui\":
+					valid_attack = true
+		\"Whanganui\":
+			match defense:
+				\"South Taranaki\", \"Stratford\", \"Desert Road\", \"Hastings\", \"North Manawatu\":
+					valid_attack = true
+		\"North Manawatu\":
+			match defense:
+				\"Whanganui\", \"Central Hawke's Bay\", \"Tararua Region\", \"Palmerston North\", \"Kapiti Coast\":
+					valid_attack = true
+		\"Palmerston North\":
+			match defense:
+				\"North Manawatu\", \"Kapiti Coast\", \"Masterton\", \"Tararua Region\":
+					valid_attack = true
+		\"Tararua Region\":
+			match defense:
+				\"Central Hawke's Bay\", \"North Manawatu\", \"Masterton\", \"Palmerston North\":
+					valid_attack = true
+		\"Masterton\":
+			match defense:
+				\"Tararua Region\", \"Palmerston North\", \"Kapiti Coast\", \"South Wairarapa\":
+					valid_attack = true
+		\"Kapiti Coast\":
+			match defense:
+				\"North Manawatu\", \"Palmerston North\", \"Masterton\", \"South Wairarapa\", \"Wellington\":
+					valid_attack = true
+		\"Wellington\":
+			match defense:
+				\"Kapiti Coast\", \"South Wairarapa\":
+					valid_attack = true
+		\"Wellington\":
+			match defense:
+				\"Kapiti Coast\", \"Wellington\", \"Masterton\":
+					valid_attack = true
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grctt"]
