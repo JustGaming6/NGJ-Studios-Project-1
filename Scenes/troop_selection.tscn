@@ -142,12 +142,86 @@ func check_attack(attack, defense):
 					valid_attack = true
 		\"Wellington\":
 			match defense:
-				\"Kapiti Coast\", \"South Wairarapa\":
+				\"Kapiti Coast\", \"South Wairarapa\", \"Marlbrough\":
 					valid_attack = true
-		\"Wellington\":
+		\"South Wairarapa\":
 			match defense:
 				\"Kapiti Coast\", \"Wellington\", \"Masterton\":
 					valid_attack = true
+		\"Marlbrough\":
+			match defense:
+				\"Nelson\", \"Tasman\", \"Hurunui\", \"Kaikoura\", \"Wellington\":
+					valid_attack = true
+		\"Tasman\":
+			match defense:
+				\"Nelson\", \"Marlbrough\", \"Hurunui\", \"Greymouth\":
+					valid_attack = true
+		\"Nelson\":
+			match defense:
+				\"Tasman\", \"Marlbrough\":
+					valid_attack = true
+		\"Kaikoura\":
+			match defense:
+				\"Hurunui\", \"Marlbrough\":
+					valid_attack = true
+		\"Waimakariri\":
+			match defense:
+				\"Hurunui\", \"Selwyn\", \"Christchurch\":
+					valid_attack = true
+		\"Selwyn\":
+			match defense:
+				\"Christchurch\", \"Waimakariri\", \"Hurunui\", \"Greymouth\",\"Hokitika\", \"Ashburton\":
+					valid_attack = true
+		\"Hurunui\":
+			match defense:
+				\"Kaikoura\", \"Marlbrough\", \"Tasman\", \"Greymouth\",\"Selwyn\", \"Waimakariri\":
+					valid_attack = true
+		\"Ashburton\":
+			match defense:
+				\"Selwyn\", \"Hokitika\", \"Southern West Coast\", \"Waitaki\":
+					valid_attack = true
+		\"Waitaki\":
+			match defense:
+				\"Ashburton\", \"Wanaka\", \"Southern West Coast\", \"Otago\":
+					valid_attack = true
+		\"Christchurch\":
+			match defense:
+				\"Waimakariri\", \"Selwyn\":
+					valid_attack = true
+		\"Greymouth\":
+			match defense:
+				\"Tasman\", \"Hurunui\", \"Selwyn\", \"Hokitika\":
+					valid_attack = true
+		\"Hokitika\":
+			match defense:
+				\"Greymouth\", \"Ashburton\", \"Selwyn\", \"Southern West Coast\":
+					valid_attack = true
+		\"Southern West Coast\":
+			match defense:
+				\"Hokitika\", \"Ashburton\", \"Waitaki\", \"Wanaka\", \"Fiordland\":
+					valid_attack = true
+		\"Fiordland\":
+			match defense:
+				\"Southern West Coast\", \"Wanaka\", \"Queenstown\", \"Invercargill\":
+					valid_attack = true
+		\"Stewart Island\":
+			match defense:
+				\"Invercargill\":
+					valid_attack = true
+		\"Wanaka\":
+			match defense:
+				\"Southern West Coast\", \"Waitaki\", \"Queenstown\", \"Fiordland\", \"Otago\":
+					valid_attack = true
+		\"Otago\":
+			match defense:
+				\"Wanaka\", \"Dunedin\", \"Waitaki\", \"Queenstown\", \"Invercargill\":
+					valid_attack = true
+		\"Dunedin\":
+			match defense:
+				\"Otago\":
+					valid_attack = true
+
+
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grctt"]
