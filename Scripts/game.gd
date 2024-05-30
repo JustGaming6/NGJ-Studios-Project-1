@@ -88,6 +88,7 @@ func _process(delta):
 			Global.attack_region = "blank"
 
 func attack(attack, defense):
+	var troop_loss_max
 	var attack_node = get_node("Regions").get_node(attack)
 	var defense_node = get_node("Regions").get_node(defense)
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
@@ -101,58 +102,85 @@ func attack(attack, defense):
 		var outcome
 		if chance <= 0.25:
 			outcome = "L"
+			troop_loss_max = 0.1
 		elif chance <= 0.5:
 			match result:
 				0,1,2,3,4,5,6,7,8:
 					outcome = "L"
+					troop_loss_max = 0.1
 				9:
 					outcome = "W"
+					troop_loss_max = 0.9
 		elif chance <= 0.6:
 			match result:
 				0,1,2,3,4,5,6,7:
 					outcome = "L"
+					troop_loss_max = 0.2
 				8,9:
 					outcome = "W"
+					troop_loss_max = 0.9
 		elif chance <= 1:
 			match result:
 				0,1,2,3,4,5,6:
 					outcome = "L"
+					troop_loss_max = 0.3
 				7,8,9:
 					outcome = "W"
+					troop_loss_max = 0.8
 		elif chance <= 1.25:
 			match result:
 				0,1,2,3,4:
 					outcome = "L"
+					troop_loss_max = 0.4
 				5,6,7,8,9:
 					outcome = "W"
+					troop_loss_max = 0.7
 		elif chance <= 1.5:
 			match result:
 				0,1,2:
 					outcome = "L"
+					troop_loss_max = 0.7
 				3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_max = 0.7
 		elif chance <= 2:
 			match result:
 				0,1:
 					outcome = "L"
+					troop_loss_max = 0.8
 				2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_max = 0.5
 		elif chance <3:
 			match result:
 				0:
 					outcome = "L"
+					troop_loss_max = 0.9
 				1,2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_max = 0.3
 		elif chance >= 3:
 			outcome = "W"
+			troop_loss_max = 0.2
 		
+		var troop_loss = rng.randf_range(0.0, troop_loss_max)
 		match outcome:
 			"W":
 				defense_node.Troops = attack_node.Troops - 1
 				attack_node.Troops = 1
+				troop_loss = defense_node.Troops * troop_loss
+				defense_node.Troops -= troop_loss
+				defense_node.Troops = round(int(defense_node.Troops))
+				if int(defense_node.Troops) < 1:
+					defense_node.Troops = 1
 				change_owner(str(defense), str(attack_node.Owner))
 			"L":
 				attack_node.Troops = 1
+				troop_loss = defense_node.Troops * troop_loss
+				defense_node.Troops -= troop_loss
+				defense_node.Troops = round(int(defense_node.Troops))
+				if int(defense_node.Troops) < 1:
+					defense_node.Troops = 1
 		attack_label.set_text(str(attack_node.Troops))
 		defense_label.set_text(str(defense_node.Troops))
 				
