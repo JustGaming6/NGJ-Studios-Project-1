@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="3_m0kwm"]
 [ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="4_4a83w"]
 [ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="4_j2i3r"]
-[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="5_xt5ec"]
+[ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="5_8syyd"]
 [ext_resource type="StyleBox" uid="uid://cahu17i6656y0" path="res://Assets/StyleBox(Ignore)/Normal.tres" id="6_b01ju"]
 [ext_resource type="StyleBox" uid="uid://cswapw5lu2aa1" path="res://Assets/StyleBox(Ignore)/Hover.tres" id="7_m51s2"]
 [ext_resource type="StyleBox" uid="uid://b2ji0vvv4pbnv" path="res://Assets/StyleBox(Ignore)/Pressed.tres" id="8_5eoij"]
@@ -51,7 +51,7 @@ offset_top = 424.0
 offset_right = 241.0
 offset_bottom = 476.0
 theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
-theme_override_fonts/font = ExtResource("5_xt5ec")
+theme_override_fonts/font = ExtResource("5_8syyd")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = ExtResource("6_b01ju")
 theme_override_styles/hover = ExtResource("7_m51s2")
@@ -66,7 +66,7 @@ offset_right = 241.0
 offset_bottom = 393.0
 theme = SubResource("Theme_dpiv3")
 theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
-theme_override_fonts/font = ExtResource("5_xt5ec")
+theme_override_fonts/font = ExtResource("5_8syyd")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = ExtResource("6_b01ju")
 theme_override_styles/hover = ExtResource("7_m51s2")
@@ -80,7 +80,7 @@ offset_top = 263.0
 offset_right = 241.0
 offset_bottom = 315.0
 theme_override_colors/icon_normal_color = Color(0.152941, 0.152941, 0.152941, 1)
-theme_override_fonts/font = ExtResource("5_xt5ec")
+theme_override_fonts/font = ExtResource("5_8syyd")
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = ExtResource("6_b01ju")
 theme_override_styles/hover = ExtResource("7_m51s2")
