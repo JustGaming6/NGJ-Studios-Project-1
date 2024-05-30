@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dan3ho5qssm7m"]
+[gd_scene load_steps=11 format=3 uid="uid://dan3ho5qssm7m"]
 
 [ext_resource type="Script" path="res://Scripts/selection.gd" id="1_dlqva"]
 [ext_resource type="Texture2D" uid="uid://bhfnd5swkicko" path="res://Assets/Images/Main menu/AI main menu.jpg" id="1_vtl0l"]
 [ext_resource type="Texture2D" uid="uid://brtahp5f7b2kd" path="res://Assets/Images/Map/Regions Map V2.png" id="3_t46qc"]
+[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="4_j3d88"]
+[ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="5_k85o7"]
+[ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="6_kdngl"]
+[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="7_p6dvg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qloxl"]
 bg_color = Color(0.0991234, 0.536292, 0.0413927, 1)
@@ -39,6 +43,7 @@ offset_top = 1.17202
 offset_right = 103.192
 offset_bottom = 24.172
 scale = Vector2(0.0712382, 0.155641)
+theme_override_fonts/font = ExtResource("4_j3d88")
 text = "Select Game:"
 
 [node name="2p" type="Button" parent="ColorRect"]
@@ -48,6 +53,7 @@ offset_top = 9.0
 offset_right = 214.0
 offset_bottom = 50.0
 scale = Vector2(0.0370112, 0.0658368)
+theme_override_fonts/font = ExtResource("5_k85o7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qloxl")
 text = "2 Players"
 
@@ -58,6 +64,7 @@ offset_top = 13.0
 offset_right = 210.0
 offset_bottom = 54.0
 scale = Vector2(0.0375737, 0.0663145)
+theme_override_fonts/font = ExtResource("5_k85o7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8i6yq")
 text = "3 Players"
 
@@ -68,6 +75,7 @@ offset_top = 17.2719
 offset_right = 199.019
 offset_bottom = 54.2719
 scale = Vector2(0.0396415, 0.0720608)
+theme_override_fonts/font = ExtResource("5_k85o7")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_aobe6")
 text = "4 Players"
@@ -88,6 +96,7 @@ offset_top = 32.9317
 offset_right = 126.554
 offset_bottom = 79.9317
 scale = Vector2(0.0611492, 0.120913)
+theme_override_fonts/font = ExtResource("5_k85o7")
 text = "Done"
 
 [node name="Label" type="Label" parent="ColorRect/select"]
@@ -97,15 +106,16 @@ offset_top = 1.55432
 offset_right = 101.432
 offset_bottom = 35.5543
 scale = Vector2(0.0574382, 0.131398)
+theme_override_fonts/font = ExtResource("6_kdngl")
 theme_override_font_sizes/font_size = 24
 text = "Player 1:"
 
 [node name="menu_1" type="OptionButton" parent="ColorRect/select/Label"]
 layout_mode = 0
 offset_left = 107.0
-offset_top = 10.0
+offset_top = 1.0
 offset_right = 637.0
-offset_bottom = 40.0
+offset_bottom = 31.0
 scale = Vector2(1.02618, 1.0085)
 theme_override_font_sizes/font_size = 18
 alignment = 1
@@ -118,15 +128,16 @@ offset_top = 6.89722
 offset_right = 101.432
 offset_bottom = 40.8972
 scale = Vector2(0.0574382, 0.131398)
+theme_override_fonts/font = ExtResource("6_kdngl")
 theme_override_font_sizes/font_size = 24
 text = "Player 2:"
 
 [node name="menu_2" type="OptionButton" parent="ColorRect/select/Label2"]
 layout_mode = 0
 offset_left = 107.0
-offset_top = 10.0
+offset_top = 1.0
 offset_right = 582.0
-offset_bottom = 39.0
+offset_bottom = 30.0
 scale = Vector2(1.14931, 1.04655)
 theme_override_font_sizes/font_size = 0
 alignment = 1
@@ -139,15 +150,16 @@ offset_top = 11.5601
 offset_right = 101.098
 offset_bottom = 45.5601
 scale = Vector2(0.0574382, 0.131398)
+theme_override_fonts/font = ExtResource("6_kdngl")
 theme_override_font_sizes/font_size = 24
 text = "Player 3:"
 
 [node name="menu_3" type="OptionButton" parent="ColorRect/select/Label3"]
 layout_mode = 0
 offset_left = 107.0
-offset_top = 10.0
+offset_top = 1.2
 offset_right = 544.0
-offset_bottom = 33.0
+offset_bottom = 24.2
 scale = Vector2(1.24908, 1.17881)
 theme_override_font_sizes/font_size = 15
 alignment = 1
@@ -160,15 +172,16 @@ offset_top = 16.7087
 offset_right = 101.289
 offset_bottom = 50.7087
 scale = Vector2(0.0574382, 0.131398)
+theme_override_fonts/font = ExtResource("6_kdngl")
 theme_override_font_sizes/font_size = 24
 text = "Player 4:"
 
 [node name="menu_4" type="OptionButton" parent="ColorRect/select/Label4"]
 layout_mode = 0
 offset_left = 107.0
-offset_top = 14.0
+offset_top = 2.0
 offset_right = 629.0
-offset_bottom = 37.0
+offset_bottom = 25.0
 scale = Vector2(1.04346, 1.10011)
 theme_override_font_sizes/font_size = 17
 alignment = 1
@@ -176,13 +189,14 @@ text_overrun_behavior = 1
 
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 28.4888
-offset_top = 26.9565
-offset_right = 175.489
-offset_bottom = 89.9565
+offset_left = 27.4825
+offset_top = 28.0052
+offset_right = 210.483
+offset_bottom = 91.0052
 scale = Vector2(0.0380189, 0.072036)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_p6dvg")
 theme_override_font_sizes/font_size = 45
 text = "Invalid"
 
@@ -193,6 +207,7 @@ offset_top = 37.8128
 offset_right = 188.486
 offset_bottom = 68.8128
 scale = Vector2(0.0298984, 0.0619363)
+theme_override_fonts/font = ExtResource("4_j3d88")
 text = "Back to Main Menu"
 
 [node name="map" type="Sprite2D" parent="ColorRect"]
