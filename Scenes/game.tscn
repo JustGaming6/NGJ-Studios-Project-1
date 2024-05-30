@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/loading.gd" id="10_uf8ue"]
 [ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="11_uq0ph"]
 [ext_resource type="Texture2D" uid="uid://ckr4rrel0xdoa" path="res://Assets/Images/Icons/Army Buy.png" id="12_dwqjq"]
-[ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="12_iyexu"]
+[ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="14_lckv4"]
 
 [sub_resource type="GDScript" id="GDScript_p1rrs"]
 script/source = "extends CanvasLayer
@@ -74,6 +74,7 @@ offset_left = 988.0
 offset_top = 130.0
 offset_right = 1149.0
 offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("11_uq0ph")
 text = "Exit Deployment"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -203,11 +204,11 @@ text = "P2"
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 material = SubResource("CanvasItemMaterial_6dq7f")
-offset_left = 988.0
-offset_top = 9.0
-offset_right = 1087.0
-offset_bottom = 39.0
-theme_override_fonts/font = ExtResource("12_iyexu")
+offset_left = 934.0
+offset_top = 10.0
+offset_right = 1083.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("14_lckv4")
 theme_override_font_sizes/font_size = 22
 text = "End Turn"
 
@@ -303,6 +304,7 @@ offset_left = 1032.0
 offset_top = 353.0
 offset_right = 1140.0
 offset_bottom = 397.0
+theme_override_fonts/font = ExtResource("5_yak2y")
 text = "Start Turn"
 
 [connection signal="pressed" from="TroopSelection/Button" to="." method="_on_troopselection_button_pressed"]
