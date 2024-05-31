@@ -12,6 +12,7 @@ var troops_label
 var p_turn
 var purchase_valid
 var true_player = false
+var valid_attack
 
 func _ready():
 	$BlankScreens/p1Screen.hide()
@@ -92,8 +93,8 @@ func attack(attack, defense):
 	var defense_node = get_node("Regions").get_node(defense)
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
 	var defense_label = get_node("Regions").get_node(defense).get_node("label")
-	if attack_node.Troops > 1:
-		attack_check(attack, defense, attack_node.Owner)
+	attack_check(attack, defense, attack_node.Owner)
+	if attack_node.Troops > 1 and valid_attack == true:
 		var chance = int(attack_node.Troops) / int(defense_node.Troops)
 		var rng = RandomNumberGenerator.new()
 		var result = int(rng.randf_range(0,9))
@@ -181,22 +182,6 @@ func attack(attack, defense):
 					defense_node.Troops = 1
 		attack_label.set_text(str(attack_node.Troops))
 		defense_label.set_text(str(defense_node.Troops))
-				
-func attack_check(attack, defense, attack_player):
-	var check = false
-	var turn
-	match Global.turn:
-		1:
-			turn = "p1"
-		2:
-			turn = "p2"
-		3:
-			turn = "p3"
-		4:
-			turn = "p4"
-	if turn == attack_player:
-		check == true
-	return check
 
 func zoom():
 	if $Regions/Camera2D.zoom.x > 5:
@@ -505,6 +490,233 @@ func load_screen(screen):
 			$BlankScreens/p4Screen.hide()
 			$BlankScreens/Button.hide()
 
+func attack_check(attack, defense, attack_player):
+	var turn
+	valid_attack = false
+	match Global.turn:
+		1:
+			turn = "p1"
+		2:
+			turn = "p2"
+		3:
+			turn = "p3"
+		4:
+			turn = "p4"
+	if turn == attack_player:
+		match attack:
+			"Far North":
+				match defense:
+					"Whangarei", "Kaipara":
+						valid_attack = true
+			"Whangarei":
+				match defense:
+					"Far North", "Kaipara":
+						valid_attack = true
+			"Kaipara":
+				match defense:
+					"Far North", "Whangarei", "North Auckland":
+						valid_attack = true
+			"North Auckland":
+				match defense:
+					"Kaipara", "Central Auckland":
+						valid_attack = true
+			"Central Auckland":
+				match defense:
+					"North Auckland", "West Auckland", "South Auckland":
+						valid_attack = true
+			"West Auckland":
+				match defense:
+					"Central Auckland", "North Waikato", "South Auckland":
+						valid_attack = true
+			"South Auckland":
+				match defense:
+					"Central Auckland", "West Auckland", "Coromandel", "North Waikato", "Hauraki":
+						valid_attack = true
+			"Coromandel":
+				match defense:
+					"Hauraki", "Tauranga", "South Auckland":
+						valid_attack = true
+			"Hauraki":
+				match defense:
+					"South Auckland", "North Waikato", "Hamilton", "Tauranga", "Coromandel":
+						valid_attack = true
+			"North Waikato":
+				match defense:
+					"South Auckland", "West Auckland", "Hamilton", "Hauraki", "Waitomo":
+						valid_attack = true
+			"Hamilton":
+				match defense:
+					"North Waikato", "Rotorua", "Tauranga", "Hauraki", "Waitomo", "Taupo":
+						valid_attack = true
+			"Waitomo":
+				match defense:
+					"North Waikato", "Hamilton", "Taupo", "Ruapehu", "New Plymouth":
+						valid_attack = true
+			"Taupo":
+				match defense:
+					"Waitomo", "Hamilton", "Rotorua", "Whakatane", "Wairoa", "Hastings", "Desert Road", "Ruapehu":
+						valid_attack = true
+			"Desert Road":
+				match defense:
+					"Taupo", "Hastings", "Whanganui", "Ruapehu":
+						valid_attack = true
+			"Tauranga":
+				match defense:
+					"Coromandel", "Hauraki", "Hamilton", "Rotorua", "Whakatane":
+						valid_attack = true
+			"Rotorua":
+				match defense:
+					"Hamilton", "Tauranga", "Whakatane", "Taupo":
+						valid_attack = true
+			"Whakatane":
+				match defense:
+					"Rotorua", "Tauranga", "Wairoa", "Taupo", "Gisborne", "Opotiki":
+						valid_attack = true
+			"Opotiki":
+				match defense:
+					"Whakatane", "Gisborne":
+						valid_attack = true
+			"Gisborne":
+				match defense:
+					"Opotiki", "Whakatane", "Wairoa":
+						valid_attack = true
+			"Wairoa":
+				match defense:
+					"Gisborne", "Whakatane", "Hastings", "Taupo", "Napier":
+						valid_attack = true
+			"Hastings":
+				match defense:
+					"Wairoa", "Central Hawke's Bay", "Whanganui", "Taupo", "Napier", "Desert Road":
+						valid_attack = true
+			"Napier":
+				match defense:
+					"Central Hawke's Bay", "Hastings", "Wairoa":
+						valid_attack = true
+			"Central Hawke's Bay":
+				match defense:
+					"Napier", "Hastings", "North Manawatu", "Tararua Region":
+						valid_attack = true
+			"Ruapehu":
+				match defense:
+					"Waitomo", "Taupo", "Desert Road", "Stratford", "New Plymouth":
+						valid_attack = true
+			"New Plymouth":
+				match defense:
+					"Waitomo", "Ruapehu", "South Taranaki", "Stratford":
+						valid_attack = true
+			"Stratford":
+				match defense:
+					"Ruapehu", "New Plymouth", "South Taranaki", "Whanganui":
+						valid_attack = true
+			"South Taranaki":
+				match defense:
+					"New Plymouth", "Stratford", "Whanganui":
+						valid_attack = true
+			"Whanganui":
+				match defense:
+					"South Taranaki", "Stratford", "Desert Road", "Hastings", "North Manawatu":
+						valid_attack = true
+			"North Manawatu":
+				match defense:
+					"Whanganui", "Central Hawke's Bay", "Tararua Region", "Palmerston North", "Kapiti Coast":
+						valid_attack = true
+			"Palmerston North":
+				match defense:
+					"North Manawatu", "Kapiti Coast", "Masterton", "Tararua Region":
+						valid_attack = true
+			"Tararua Region":
+				match defense:
+					"Central Hawke's Bay", "North Manawatu", "Masterton", "Palmerston North":
+						valid_attack = true
+			"Masterton":
+				match defense:
+					"Tararua Region", "Palmerston North", "Kapiti Coast", "South Wairarapa":
+						valid_attack = true
+			"Kapiti Coast":
+				match defense:
+					"North Manawatu", "Palmerston North", "Masterton", "South Wairarapa", "Wellington":
+						valid_attack = true
+			"Wellington":
+				match defense:
+					"Kapiti Coast", "South Wairarapa", "Marlbrough":
+						valid_attack = true
+			"South Wairarapa":
+				match defense:
+					"Kapiti Coast", "Wellington", "Masterton":
+						valid_attack = true
+			"Marlbrough":
+				match defense:
+					"Nelson", "Tasman", "Hurunui", "Kaikoura", "Wellington":
+						valid_attack = true
+			"Tasman":
+				match defense:
+					"Nelson", "Marlbrough", "Hurunui", "Greymouth":
+						valid_attack = true
+			"Nelson":
+				match defense:
+					"Tasman", "Marlbrough":
+						valid_attack = true
+			"Kaikoura":
+				match defense:
+					"Hurunui", "Marlbrough":
+						valid_attack = true
+			"Waimakariri":
+				match defense:
+					"Hurunui", "Selwyn", "Christchurch":
+						valid_attack = true
+			"Selwyn":
+				match defense:
+					"Christchurch", "Waimakariri", "Hurunui", "Greymouth","Hokitika", "Ashburton":
+						valid_attack = true
+			"Hurunui":
+				match defense:
+					"Kaikoura", "Marlbrough", "Tasman", "Greymouth","Selwyn", "Waimakariri":
+						valid_attack = true
+			"Ashburton":
+				match defense:
+					"Selwyn", "Hokitika", "Southern West Coast", "Waitaki":
+						valid_attack = true
+			"Waitaki":
+				match defense:
+					"Ashburton", "Wanaka", "Southern West Coast", "Otago":
+						valid_attack = true
+			"Christchurch":
+				match defense:
+					"Waimakariri", "Selwyn":
+						valid_attack = true
+			"Greymouth":
+				match defense:
+					"Tasman", "Hurunui", "Selwyn", "Hokitika":
+						valid_attack = true
+			"Hokitika":
+				match defense:
+					"Greymouth", "Ashburton", "Selwyn", "Southern West Coast":
+						valid_attack = true
+			"Southern West Coast":
+				match defense:
+					"Hokitika", "Ashburton", "Waitaki", "Wanaka", "Fiordland":
+						valid_attack = true
+			"Fiordland":
+				match defense:
+					"Southern West Coast", "Wanaka", "Queenstown", "Invercargill":
+						valid_attack = true
+			"Stewart Island":
+				match defense:
+					"Invercargill":
+						valid_attack = true
+			"Wanaka":
+				match defense:
+					"Southern West Coast", "Waitaki", "Queenstown", "Fiordland", "Otago":
+						valid_attack = true
+			"Otago":
+				match defense:
+					"Wanaka", "Dunedin", "Waitaki", "Queenstown", "Invercargill":
+						valid_attack = true
+			"Dunedin":
+				match defense:
+					"Otago":
+						valid_attack = true
+
 func _on_button_pressed():
 	load_screen("game")
 
@@ -521,7 +733,6 @@ func _on_turnbutton_pressed():
 			await turn("p3")
 		4:
 			await turn("p4")
-
 
 func _on_troopselection_button_pressed():
 	Global.deployment_phase = false
