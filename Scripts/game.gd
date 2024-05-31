@@ -81,11 +81,10 @@ func _process(delta):
 			var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
 			troops_label.set_text(str(region.Troops))
 				
-	if Global.attack_region != "blank":
-		if Global.defense_region != "blank":
-			attack(Global.attack_region, Global.defense_region)
-			Global.defense_region = "blank"
-			Global.attack_region = "blank"
+	if Global.attack_region != "blank" and Global.defense_region != "blank":
+		attack(Global.attack_region, Global.defense_region)
+		Global.defense_region = "blank"
+		Global.attack_region = "blank"
 
 func attack(attack, defense):
 	var troop_loss_max
@@ -96,9 +95,8 @@ func attack(attack, defense):
 	if attack_node.Troops > 1:
 		attack_check(attack, defense, attack_node.Owner)
 		var chance = int(attack_node.Troops) / int(defense_node.Troops)
-		print(chance)
 		var rng = RandomNumberGenerator.new()
-		var result = rng.randf_range(0,9)
+		var result = int(rng.randf_range(0,9))
 		var outcome
 		if chance <= 0.25:
 			outcome = "L"
@@ -162,8 +160,8 @@ func attack(attack, defense):
 		elif chance >= 3:
 			outcome = "W"
 			troop_loss_max = 0.2
-		
-		var troop_loss = rng.randf_range(0.0, troop_loss_max)
+		var troop_loss = rng.randf_range(0.0,troop_loss_max)
+		print(troop_loss)
 		match outcome:
 			"W":
 				defense_node.Troops = attack_node.Troops - 1
