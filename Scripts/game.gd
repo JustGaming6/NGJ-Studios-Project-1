@@ -36,6 +36,9 @@ func _ready():
 	turn("p1")                                                                                                                                                                                                                                                                                                        
 	
 func _physics_process(delta):
+	if Input.is_action_just_pressed("unlimited_power"):
+		Global.p1_bal = 10000000000
+		Global.p1_manpower = 100000000
 	if loading_screen == false:
 		zoom()
 		camera_move()
@@ -160,11 +163,13 @@ func attack(attack, defense):
 					troop_loss_max = 0.9
 				1,2,3,4,5,6,7,8,9:
 					outcome = "W"
-					troop_loss_max = 0.3
+					troop_loss_max = 0.25
 		elif chance >= 3:
 			outcome = "W"
-			troop_loss_max = 0.2
-		var troop_loss = rng.randf_range(0.0,troop_loss_max)
+			troop_loss_max = 0.1
+			if chance > 3.5:
+				troop_loss_max = 0
+		var troop_loss = rng.randf_range(0.0, troop_loss_max)
 		print(troop_loss)
 		match outcome:
 			"W":
