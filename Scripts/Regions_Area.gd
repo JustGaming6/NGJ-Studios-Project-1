@@ -12,11 +12,11 @@ var p3_col = Color(0,1,0,1) #Green
 var p4_col = Color(1,1,0,1) #Yellow
 var bot1_col = Color(1, 0.980392, 0.941176, 0.5)
 var bot2_col = Color(0.5,0.25,0,1)
-var bot3_col = Color(0,1,0,0.5)
-var bot4_col = Color (1,0,0,0.5)
+var bot3_col = Color(0,1,0,0.7)
+var bot4_col = Color (1,0,0,0.7)
 var bot5_col = Color(0,1,1,1)
-var bot6_col = Color(0,1,1,0.5)
-var bot7_col = Color(1,1,0,0.5)
+var bot6_col = Color(0,1,1,0.7)
+var bot7_col = Color(1,1,0,0.7)
 var bot8_col = Color(1, 0.0784314, 0.576471, 1)
 var bot9_col = Color(0.541176, 0.168627, 0.886275, 1)
 var bot10_col = Color(0, 0, 0.545098, 1)
@@ -77,7 +77,9 @@ func _on_mouse_entered():
 	for node in get_children():
 		if node.is_class("Polygon2D"):
 			intial_font = node.color
-			node.color = Color(1,1,1,1)
+			var current_color = node.color
+			var lighten_color = Color(current_color.r, current_color.g, current_color.b, 0.5)
+			node.color = lighten_color
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
