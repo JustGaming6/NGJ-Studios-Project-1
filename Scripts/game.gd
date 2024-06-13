@@ -29,11 +29,16 @@ func _ready():
 			await set_region(Global.p4_selection, "p4")
 	loading_screen = false
 	true_player = false
+	var hamilton_label = get_node("Regions").get_node("Hamilton").get_node("label")
+	hamilton_label.position.x += 10
 	load_screen("game")
 	load_screen("p1")
 	turn("p1")                                                                                                                                                                                                                                                                                                        
 	
 func _physics_process(delta):
+	if Input.is_action_just_pressed("unlimited_power"):
+		Global.p1_bal = 10000000000
+		Global.p1_manpower = 100000000
 	if loading_screen == false:
 		zoom()
 		camera_move()
@@ -77,10 +82,11 @@ func _process(delta):
 		var region = get_node("Regions").get_node(Global.troops_region_name)
 		if str(region.Owner) == p_turn:
 			purchase(200, p_turn)
-			region.Troops += 1
-			Global.region_clicked = false
-			var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
-			troops_label.set_text(str(region.Troops))
+			if purchase_valid == true:
+				region.Troops += 1
+				Global.region_clicked = false
+				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
+				troops_label.set_text(str(region.Troops))
 				
 	if Global.attack_region != "blank" and Global.defense_region != "blank":
 		attack(Global.attack_region, Global.defense_region)
@@ -157,11 +163,13 @@ func attack(attack, defense):
 					troop_loss_max = 0.9
 				1,2,3,4,5,6,7,8,9:
 					outcome = "W"
-					troop_loss_max = 0.3
+					troop_loss_max = 0.25
 		elif chance >= 3:
 			outcome = "W"
-			troop_loss_max = 0.2
-		var troop_loss = rng.randf_range(0.0,troop_loss_max)
+			troop_loss_max = 0.1
+			if chance > 3.5:
+				troop_loss_max = 0
+		var troop_loss = rng.randf_range(0.0, troop_loss_max)
 		print(troop_loss)
 		match outcome:
 			"W":
