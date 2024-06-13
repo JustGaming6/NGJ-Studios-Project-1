@@ -29,6 +29,8 @@ func _ready():
 			await set_region(Global.p4_selection, "p4")
 	loading_screen = false
 	true_player = false
+	var hamilton_label = get_node("Regions").get_node("Hamilton").get_node("label")
+	hamilton_label.position.x += 10
 	load_screen("game")
 	load_screen("p1")
 	turn("p1")                                                                                                                                                                                                                                                                                                        
@@ -77,10 +79,11 @@ func _process(delta):
 		var region = get_node("Regions").get_node(Global.troops_region_name)
 		if str(region.Owner) == p_turn:
 			purchase(200, p_turn)
-			region.Troops += 1
-			Global.region_clicked = false
-			var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
-			troops_label.set_text(str(region.Troops))
+			if purchase_valid == true:
+				region.Troops += 1
+				Global.region_clicked = false
+				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
+				troops_label.set_text(str(region.Troops))
 				
 	if Global.attack_region != "blank" and Global.defense_region != "blank":
 		attack(Global.attack_region, Global.defense_region)
