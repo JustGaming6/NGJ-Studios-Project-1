@@ -169,7 +169,7 @@ func attack(attack, defense):
 			troop_loss_max = 0.1
 			if chance > 3.5:
 				troop_loss_max = 0
-		var troop_loss = rng.randf_range(0.0, troop_loss_max)
+		var troop_loss = rng.randf_range(0, troop_loss_max)
 		print(troop_loss)
 		match outcome:
 			"W":
@@ -323,7 +323,15 @@ func change_owner(region_name: String, new_owner : String):
 		print(region_name + ": " + region.Owner)
 		
 		if true_player == true:
-			region.Troops = 1
+			match new_owner:
+				"p1":
+					region.Troops = 1
+				"p2":
+					region.Troops = 2
+				"p3":
+					region.Troops = 2
+				"p4":
+					region.Troops = 3
 			var label = get_node("Regions").get_node(region_name).get_node("label")
 			label.set_text(str(region.Troops))
 		
