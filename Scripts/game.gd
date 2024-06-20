@@ -736,6 +736,14 @@ func attack_check(attack, defense, attack_player): #Checking if the defense regi
 				match defense:
 					"Otago":
 						valid_attack = true
+			"Invercargill":
+				match defense:
+					"Fiordland", "Otago", "Stewart Island", "Queenstown":
+						valid_attack = true
+			"Queenstown":
+				match defense:
+					"Fiordland", "Otago", "Wanaka", "Invercargill":
+						valid_attack = true
 
 func _on_button_pressed():
 	load_screen("game")
