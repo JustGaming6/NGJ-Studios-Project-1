@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpxk1dkyx8gy0"]
+[gd_scene load_steps=6 format=3 uid="uid://dpxk1dkyx8gy0"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_24avf"]
 [ext_resource type="Texture2D" uid="uid://daoa2rke1wx28" path="res://Assets/Images/Main menu/AI_NZ.jpg" id="1_bhroy"]
 [ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="3_skg4y"]
-[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="4_ag3or"]
 [ext_resource type="FontFile" uid="uid://digngypwyodm2" path="res://Assets/Fonts/VT323-Regular.ttf" id="5_s1so5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apqny"]
@@ -62,7 +61,6 @@ offset_left = 17.0
 offset_top = 101.0
 offset_right = 615.0
 offset_bottom = 520.0
-theme_override_fonts/font = ExtResource("4_ag3or")
 text = "New Zealand Conquest is a risk like strategy game. The aim of the game
 is to simply conquer all of New Zealand. A player must learn to manage 
 their resources, morale, troops and diplomacy in order to get an upper
