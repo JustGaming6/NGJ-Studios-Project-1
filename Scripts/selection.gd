@@ -41,7 +41,6 @@ func _on_4p_pressed():
 
 func add_items(name):
 	name.add_item("Northland")
-	name.add_item("Auckland")
 	name.add_item("Bay of plenty")
 	name.add_item("Waikato")
 	name.add_item("Taranaki")

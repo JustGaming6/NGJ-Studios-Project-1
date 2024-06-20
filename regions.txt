@@ -1,7 +1,7 @@
 {
-	"#f0054f" : ["Stewart Island", 50, 10 , 5]
+	"#f0054f" : ["Stewart Island", 50, 10 , 2]
 	, "#990030" : ["Invercargill", 220, 150 , 3]
-	, "#3d0013" : ["Fiordland", 70, 10 , 2]
+	, "#3d0013" : ["Fiordland", 70, 10 , 1]
 	
 	, "#bd6af7" : ["Queenstown", 250, 150 , 2]
 	, "#402652" : ["Wanaka", 140, 50 , 1]
@@ -55,11 +55,11 @@
 	, "#141a5c" : ["Whangarei", 330 , 280 , 2]
 	, "#3e49de" : ["Kaipara", 200 , 110 , 3]
  
-	, "#2aeb61" : ["North Auckland", 520 , 400 , 8]
+	, "#2aeb61" : ["North Auckland", 520 , 400 , 9]
 	, "#22b14c" : ["Central Auckland", 800 , 500 , 10]
-	, "#1d8f3d" : ["West Auckland", 540 , 430 , 7]
-	, "#197331" : ["South Auckland", 550 , 450 , 6]
-	, "#28d158" : ["Coromandel", 220 , 130 , 4]
+	, "#1d8f3d" : ["West Auckland", 540 , 430 , 8]
+	, "#197331" : ["South Auckland", 550 , 450 , 7]
+	, "#28d158" : ["Coromandel", 220 , 130 , 5]
  
 	, "#7a3900" : ["North Waikato", 280 , 180 , 4]
 	, "#9e4a00" : ["Hamilton", 450 , 370 , 4]

@@ -15,11 +15,13 @@ var true_player = false
 var valid_attack
 
 func _ready():
+	#Set the loading screen
 	$BlankScreens/p1Screen.hide()
 	$BlankScreens/Button.hide()
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
+	#Seting owners of the regions
 	await set_bot()
 	await set_region(Global.p1_selection, "p1")
 	await set_region(Global.p2_selection, "p2")
@@ -27,19 +29,23 @@ func _ready():
 		await set_region(Global.p3_selection, "p3")
 		if Global.players > 3:
 			await set_region(Global.p4_selection, "p4")
-	loading_screen = false
+	loading_screen = false #Telling the code to exit the loading screen
 	true_player = false
-	var hamilton_label = get_node("Regions").get_node("Hamilton").get_node("label")
+	var hamilton_label = get_node("Regions").get_node("Hamilton").get_node("label") #Adjdusting hamilton label to be centre
 	hamilton_label.position.x += 10
-	load_screen("game")
-	load_screen("p1")
+	load_screen("game") #Load game screen
+	load_screen("p1") #Starting Player 1's turn
 	turn("p1")                                                                                                                                                                                                                                                                                                        
 	
 func _physics_process(delta):
+	#Input for testing
 	if Input.is_action_just_pressed("unlimited_power"):
 		Global.p1_bal = 10000000000
 		Global.p1_manpower = 100000000
-	if loading_screen == false:
+		Global.p2_income = 0
+		Global.p3_income = 0
+		Global.p4_income = 0
+	if loading_screen == false: # If not on the loading screen run the camera movement functions
 		zoom()
 		camera_move()
 		
@@ -55,7 +61,7 @@ func change_global_turn():
 			p_turn = "p4"
 
 
-func purchase(cost, turn):
+func purchase(cost, turn): #Checking if a troop purchase is valid (e.g. has enough money)
 	purchase_valid = false
 	match turn:
 		"p1":
@@ -76,7 +82,7 @@ func purchase(cost, turn):
 				Global.p4_bal -= cost
 		
 func _process(delta):
-	if Global.region_clicked == true:
+	if Global.region_clicked == true: #Add troop to clicked region
 		Global.region_clicked = false
 		change_global_turn()
 		var region = get_node("Regions").get_node(Global.troops_region_name)
@@ -88,12 +94,12 @@ func _process(delta):
 				var troops_label = get_node("Regions").get_node(Global.troops_region_name).get_node("label")
 				troops_label.set_text(str(region.Troops))
 				
-	if Global.attack_region != "blank" and Global.defense_region != "blank":
+	if Global.attack_region != "blank" and Global.defense_region != "blank": #CHeck if the player has chosen to attack
 		attack(Global.attack_region, Global.defense_region)
 		Global.defense_region = "blank"
 		Global.attack_region = "blank"
 
-func attack(attack, defense):
+func attack(attack, defense): #Calculates the outcome of an attack
 	var troop_loss_max
 	var attack_node = get_node("Regions").get_node(attack)
 	var defense_node = get_node("Regions").get_node(defense)
@@ -191,7 +197,7 @@ func attack(attack, defense):
 		attack_label.set_text(str(attack_node.Troops))
 		defense_label.set_text(str(defense_node.Troops))
 
-func zoom():
+func zoom(): #Function for zoom
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1
 	elif $Regions/Camera2D.zoom.x < 5:
@@ -205,7 +211,7 @@ func zoom():
 			$Regions/Camera2D.zoom.x -= zoom_speed
 			$Regions/Camera2D.zoom.y -= zoom_speed
 
-func camera_move():
+func camera_move(): #Function for camera movement (Both wasd and mouse)
 	if $Regions/Camera2D.zoom.x > 1:
 		camera_speed = 5
 	elif $Regions/Camera2D.zoom.x <= 1:
@@ -229,7 +235,7 @@ func camera_move():
 	if $Regions/Camera2D.offset.y < -800:
 		$Regions/Camera2D.offset.y = -800
 		
-func load_regions():
+func load_regions(): #Function to load the regions at the start of the game
 	var image = mapImage.get_texture().get_image()
 	var pixel_color_dict = get_pixel_color_dict(image)
 	var regions_dict = import_file("res://regions.txt")
@@ -271,7 +277,7 @@ func load_regions():
 			troops_label.position.x -= 5
 			region.add_child(troops_label)
 
-func get_pixel_color_dict(image):
+func get_pixel_color_dict(image): #Apart of Load regions
 	var pixel_color_dict = {}
 	for y in range(image.get_height()):
 		for x in range(image.get_width()):
@@ -281,7 +287,7 @@ func get_pixel_color_dict(image):
 			pixel_color_dict[pixel_color].append(Vector2(x,y))
 	return pixel_color_dict
 
-func get_polygons(image, region_color, pixel_color_dict):
+func get_polygons(image, region_color, pixel_color_dict): #Apart of load regions
 	var targetImage = Image.create(image.get_size().x, image.get_size().y, false, Image.FORMAT_RGBA8)
 	for value in pixel_color_dict[region_color]:
 			targetImage.set_pixel(value.x, value.y, "#ffffff")
@@ -292,7 +298,7 @@ func get_polygons(image, region_color, pixel_color_dict):
 	
 	return polygons
 	
-func import_file(filepath):
+func import_file(filepath): #Acces file (Used for the load regions function)
 	var file = FileAccess.open(filepath, FileAccess.READ)
 	if file != null:
 		return JSON.parse_string(file.get_as_text().replace("_", " "))
@@ -300,10 +306,10 @@ func import_file(filepath):
 		print("Faild to Open file: ", filepath)
 		return null
 
-func change_owner(region_name: String, new_owner : String):
+func change_owner(region_name: String, new_owner : String): #Change the owner of the territory and the regions resources
 	var region = get_node("Regions").get_node(region_name)
 	if region != null:
-		match region.Owner:
+		match region.Owner: #Removing the regions Income and Manpiwer from the current regions owner
 			"p1":
 				Global.p1_income -= region.Income
 				Global.p1_manpower -= region.Manpower
@@ -322,7 +328,7 @@ func change_owner(region_name: String, new_owner : String):
 		Global.region_name = region_name
 		print(region_name + ": " + region.Owner)
 		
-		if true_player == true:
+		if true_player == true: #Giving the real players there troops at the start of the game
 			match new_owner:
 				"p1":
 					region.Troops = 1
@@ -335,7 +341,7 @@ func change_owner(region_name: String, new_owner : String):
 			var label = get_node("Regions").get_node(region_name).get_node("label")
 			label.set_text(str(region.Troops))
 		
-		match new_owner:
+		match new_owner: #Add the Regions Income and Manpower to the new region owner
 			"p1":
 				Global.p1_income += region.Income
 				Global.p1_manpower += region.Manpower
@@ -357,7 +363,7 @@ func turn(player):
 	$TroopSelection.show()
 	load_screen("game")
 	load_screen(player)
-	match player:
+	match player: #Adding the players income to their balance
 		"p1":
 			Global.p1_bal += Global.p1_income
 		"p2":
@@ -367,7 +373,7 @@ func turn(player):
 		"p4":
 			Global.p4_bal += Global.p4_income
 
-func set_region(selection, player):
+func set_region(selection, player): #Seting the regions at the start of the game
 	match player:
 		"p1", "p2", "p3", "p4":
 			true_player = true
@@ -479,7 +485,7 @@ func change_southland(player):
 	await change_owner("Invercargill", player)
 	await change_owner("Fiordland", player)
 
-func timer():
+func timer(): #Timer for setting regions
 	await get_tree().create_timer(0.2).timeout
 
 func load_screen(screen):
@@ -506,7 +512,7 @@ func load_screen(screen):
 			$BlankScreens/p4Screen.hide()
 			$BlankScreens/Button.hide()
 
-func attack_check(attack, defense, attack_player):
+func attack_check(attack, defense, attack_player): #Checking if the defense region is next to the attack region
 	var turn
 	valid_attack = false
 	match Global.turn:
@@ -736,7 +742,7 @@ func attack_check(attack, defense, attack_player):
 func _on_button_pressed():
 	load_screen("game")
 
-func _on_turnbutton_pressed():
+func _on_turnbutton_pressed(): #Changing Turns
 	Global.turn += 1
 	if Global.turn > Global.players:
 		Global.turn = 1
@@ -750,6 +756,6 @@ func _on_turnbutton_pressed():
 		4:
 			await turn("p4")
 
-func _on_troopselection_button_pressed():
+func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	Global.deployment_phase = false
 	$TroopSelection.hide()
