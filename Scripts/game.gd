@@ -381,26 +381,24 @@ func set_region(selection, player): #Seting the regions at the start of the game
 		0:
 			await change_northland(player)
 		1:
-			await change_auckland(player)
-		2:
 			await change_bayofplenty(player)
-		3:
+		2:
 			await change_waikato(player)
-		4:
+		3:
 			await change_taranaki(player)
-		5:
+		4:
 			await change_hawkesbay(player)
-		6:
+		5:
 			await change_wellington(player)
-		7:
+		6:
 			await change_marlbroughtasman(player)
-		8:
+		7:
 			await change_westcoast(player)
-		9:
+		8:
 			await change_canterbury(player)
-		10:
+		9:
 			await change_fiordland(player)
-		11:
+		10:
 			await change_southland(player)
 	
 func set_bot():
