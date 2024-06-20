@@ -313,15 +313,19 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 			"p1":
 				Global.p1_income -= region.Income
 				Global.p1_manpower -= region.Manpower
+				Global.p1_territories -= 1
 			"p2":
 				Global.p2_income -= region.Income
 				Global.p2_manpower -= region.Manpower
+				Global.p2_territories -= 1
 			"p3":
 				Global.p3_income -= region.Income
 				Global.p3_manpower -= region.Manpower
+				Global.p3_territories -= 1
 			"p4":
 				Global.p4_income -= region.Income
 				Global.p4_manpower-= region.Manpower
+				Global.territories -= 1
 		
 		region.Owner = new_owner
 		Global.region_owner = region.Owner
@@ -345,24 +349,24 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 			"p1":
 				Global.p1_income += region.Income
 				Global.p1_manpower += region.Manpower
+				Global.p1_territories += 1
 			"p2":
 				Global.p2_income += region.Income
 				Global.p2_manpower += region.Manpower
+				Global.p2_territories += 1
 			"p3":
 				Global.p3_income += region.Income
 				Global.p3_manpower += region.Manpower
+				Global.p3_territories += 1
 			"p4":
 				Global.p4_income += region.Income
 				Global.p4_manpower += region.Manpower
+				Global.p4_territories += 1
 	else:
 		print("Region not found: " + region_name)
 	await timer()
 	
 func turn(player):
-	Global.deployment_phase = true
-	$TroopSelection.show()
-	load_screen("game")
-	load_screen(player)
 	match player: #Adding the players income to their balance
 		"p1":
 			Global.p1_bal += Global.p1_income
@@ -372,6 +376,10 @@ func turn(player):
 			Global.p3_bal += Global.p3_income
 		"p4":
 			Global.p4_bal += Global.p4_income
+	Global.deployment_phase = true
+	$TroopSelection.show()
+	load_screen("game")
+	load_screen(player)
 
 func set_region(selection, player): #Seting the regions at the start of the game
 	match player:
@@ -749,18 +757,33 @@ func _on_button_pressed():
 	load_screen("game")
 
 func _on_turnbutton_pressed(): #Changing Turns
+	match 55:
+		Global.p1_territories, Global.p2_territories, Global.p3_territories, Global.p4_territories:
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	Global.turn += 1
 	if Global.turn > Global.players:
 		Global.turn = 1
 	match Global.turn:
 		1: 
-			await turn("p1")
+			if Global.p1_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p1")
 		2:
-			await turn("p2")
+			if Global.p2_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p2")
 		3:
-			await turn("p3")
+			if Global.p3_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p3")
 		4:
-			await turn("p4")
+			if Global.p4_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p4")
 
 func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	Global.deployment_phase = false
