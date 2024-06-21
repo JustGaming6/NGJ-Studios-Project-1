@@ -267,6 +267,15 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "Infantry"
 
+[node name="Label3" type="Label" parent="."]
+offset_left = 147.0
+offset_top = 239.0
+offset_right = 233.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Infantry"
+
 [node name="Label2" type="Label" parent="."]
 offset_left = 62.0
 offset_top = 190.0
@@ -283,10 +292,25 @@ offset_bottom = 181.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_grctt")
 text = "Select"
 
+[node name="Button3" type="Button" parent="."]
+offset_left = 151.0
+offset_top = 150.0
+offset_right = 231.0
+offset_bottom = 181.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_grctt")
+text = "Select"
+
 [node name="SoldierSpriteSheet" type="Sprite2D" parent="."]
 position = Vector2(103, 152)
 scale = Vector2(0.0367188, 0.0424107)
 texture = ExtResource("1_wsqks")
 hframes = 2
+
+[node name="SoldierSpriteSheet2" type="Sprite2D" parent="."]
+position = Vector2(103, 265)
+scale = Vector2(0.037, 0.042)
+texture = ExtResource("1_wsqks")
+hframes = 2
+frame = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
