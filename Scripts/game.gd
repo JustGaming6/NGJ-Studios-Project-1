@@ -101,6 +101,7 @@ func _process(delta):
 
 func attack(attack, defense): #Calculates the outcome of an attack
 	var troop_loss_max
+	var troop_loss_min
 	var attack_node = get_node("Regions").get_node(attack)
 	var defense_node = get_node("Regions").get_node(defense)
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
@@ -111,72 +112,88 @@ func attack(attack, defense): #Calculates the outcome of an attack
 		var rng = RandomNumberGenerator.new()
 		var result = int(rng.randf_range(0,9))
 		var outcome
+		print(chance)
 		if chance <= 0.25:
 			outcome = "L"
 			troop_loss_max = 0.1
+			troop_loss_min = 0
 		elif chance <= 0.5:
 			match result:
 				0,1,2,3,4,5,6,7,8:
 					outcome = "L"
 					troop_loss_max = 0.1
+					troop_loss_min = 0
 				9:
 					outcome = "W"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.9
 		elif chance <= 0.6:
 			match result:
 				0,1,2,3,4,5,6,7:
 					outcome = "L"
 					troop_loss_max = 0.2
+					troop_loss_min = 0
 				8,9:
 					outcome = "W"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.9
 		elif chance <= 1:
 			match result:
 				0,1,2,3,4,5,6:
 					outcome = "L"
+					troop_loss_min = 0
 					troop_loss_max = 0.3
 				7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.4
 					troop_loss_max = 0.8
 		elif chance <= 1.25:
 			match result:
 				0,1,2,3,4:
 					outcome = "L"
+					troop_loss_min = 0.2
 					troop_loss_max = 0.4
 				5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 		elif chance <= 1.5:
 			match result:
 				0,1,2:
 					outcome = "L"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 				3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 		elif chance <= 2:
 			match result:
 				0,1:
 					outcome = "L"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.8
 				2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.2
 					troop_loss_max = 0.5
-		elif chance <3:
+		elif chance <2.5:
 			match result:
 				0:
 					outcome = "L"
+					troop_loss_min = 0.7
 					troop_loss_max = 0.9
 				1,2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0
 					troop_loss_max = 0.25
 		elif chance >= 3:
 			outcome = "W"
 			troop_loss_max = 0.1
+			troop_loss_min = 0
 			if chance > 3.5:
 				troop_loss_max = 0
-		var troop_loss = rng.randf_range(0, troop_loss_max)
-		print(troop_loss)
+		var troop_loss = rng.randf_range(troop_loss_min, troop_loss_max)
 		match outcome:
 			"W":
 				defense_node.Troops = attack_node.Troops - 1
@@ -313,15 +330,19 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 			"p1":
 				Global.p1_income -= region.Income
 				Global.p1_manpower -= region.Manpower
+				Global.p1_territories -= 1
 			"p2":
 				Global.p2_income -= region.Income
 				Global.p2_manpower -= region.Manpower
+				Global.p2_territories -= 1
 			"p3":
 				Global.p3_income -= region.Income
 				Global.p3_manpower -= region.Manpower
+				Global.p3_territories -= 1
 			"p4":
 				Global.p4_income -= region.Income
 				Global.p4_manpower-= region.Manpower
+				Global.territories -= 1
 		
 		region.Owner = new_owner
 		Global.region_owner = region.Owner
@@ -345,24 +366,24 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 			"p1":
 				Global.p1_income += region.Income
 				Global.p1_manpower += region.Manpower
+				Global.p1_territories += 1
 			"p2":
 				Global.p2_income += region.Income
 				Global.p2_manpower += region.Manpower
+				Global.p2_territories += 1
 			"p3":
 				Global.p3_income += region.Income
 				Global.p3_manpower += region.Manpower
+				Global.p3_territories += 1
 			"p4":
 				Global.p4_income += region.Income
 				Global.p4_manpower += region.Manpower
+				Global.p4_territories += 1
 	else:
 		print("Region not found: " + region_name)
 	await timer()
 	
 func turn(player):
-	Global.deployment_phase = true
-	$TroopSelection.show()
-	load_screen("game")
-	load_screen(player)
 	match player: #Adding the players income to their balance
 		"p1":
 			Global.p1_bal += Global.p1_income
@@ -372,6 +393,10 @@ func turn(player):
 			Global.p3_bal += Global.p3_income
 		"p4":
 			Global.p4_bal += Global.p4_income
+	Global.deployment_phase = true
+	$TroopSelection.show()
+	load_screen("game")
+	load_screen(player)
 
 func set_region(selection, player): #Seting the regions at the start of the game
 	match player:
@@ -749,18 +774,33 @@ func _on_button_pressed():
 	load_screen("game")
 
 func _on_turnbutton_pressed(): #Changing Turns
+	match 55:
+		Global.p1_territories, Global.p2_territories, Global.p3_territories, Global.p4_territories:
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	Global.turn += 1
 	if Global.turn > Global.players:
 		Global.turn = 1
 	match Global.turn:
 		1: 
-			await turn("p1")
+			if Global.p1_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p1")
 		2:
-			await turn("p2")
+			if Global.p2_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p2")
 		3:
-			await turn("p3")
+			if Global.p3_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p3")
 		4:
-			await turn("p4")
+			if Global.p4_territories == 0:
+				Global.turn += 1
+			else:
+				await turn("p4")
 
 func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	Global.deployment_phase = false

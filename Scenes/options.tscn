@@ -57,14 +57,44 @@ theme_override_font_sizes/font_size = 52
 text = "New Zeland Conquest"
 
 [node name="main text" type="Label" parent="."]
-offset_left = 17.0
-offset_top = 101.0
-offset_right = 615.0
-offset_bottom = 520.0
+offset_left = 19.0
+offset_top = 132.0
+offset_right = 617.0
+offset_bottom = 238.0
 text = "New Zealand Conquest is a risk like strategy game. The aim of the game
 is to simply conquer all of New Zealand. A player must learn to manage 
 their resources, morale, troops and diplomacy in order to get an upper
  hand on their opponent."
+
+[node name="main text2" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 238.0
+offset_right = 613.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 40
+text = "Controls:
+"
+
+[node name="main text3" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 297.0
+offset_right = 613.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 25
+text = "Left Click: Select Teritory / Place Troops / 
+Camera Movement
+Right Click: Select Region
+W, A, S, D: Camera Movement
+"
+
+[node name="main text4" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 477.0
+offset_right = 606.0
+offset_bottom = 532.0
+theme_override_font_sizes/font_size = 40
+text = "Tutorial:
+"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 234.0
@@ -75,4 +105,24 @@ theme_override_fonts/font = ExtResource("5_s1so5")
 theme_override_font_sizes/font_size = 20
 text = "For additional help feel free to email andersonn@mywaicol.nz"
 
+[node name="menu2" type="Button" parent="."]
+offset_left = 183.0
+offset_top = 484.0
+offset_right = 340.0
+offset_bottom = 534.0
+theme_override_colors/font_hover_color = Color(0.229099, 0.431597, 0.755653, 1)
+theme_override_fonts/font = ExtResource("3_skg4y")
+theme_override_styles/normal = SubResource("StyleBoxFlat_apqny")
+text = "Tutorial"
+
+[node name="main text5" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 73.0
+offset_right = 614.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Description:
+"
+
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu2" to="." method="_on_menu_pressed"]
