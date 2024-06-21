@@ -72,7 +72,7 @@ theme_override_styles/normal = ExtResource("6_b01ju")
 theme_override_styles/hover = ExtResource("7_m51s2")
 theme_override_styles/pressed = ExtResource("8_5eoij")
 theme_override_styles/disabled = ExtResource("9_p0nsq")
-text = "Options"
+text = "Help"
 
 [node name="Play" type="Button" parent="Node"]
 offset_left = 20.0

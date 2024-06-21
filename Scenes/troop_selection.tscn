@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://j00bbj0vqoc1"]
+[gd_scene load_steps=4 format=3 uid="uid://j00bbj0vqoc1"]
+
+[ext_resource type="Texture2D" uid="uid://5v7q488l51cs" path="res://Assets/Images/Units/Ground/Soldier Sprite Sheet.png" id="1_wsqks"]
 
 [sub_resource type="GDScript" id="GDScript_bi4gf"]
 script/source = "extends Node2D
@@ -257,29 +259,34 @@ theme_override_colors/font_hover_color = Color(1, 0.21268, 0.159696, 1)
 text = "X"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 53.0
-offset_top = 86.0
-offset_right = 139.0
-offset_bottom = 117.0
+offset_left = 147.0
+offset_top = 116.0
+offset_right = 233.0
+offset_bottom = 147.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "Infantry"
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 9.0
-offset_top = 188.0
-offset_right = 249.0
-offset_bottom = 237.0
-text = "Costs: $400 and 250 mp
-Mobilization time:1 turn
+offset_left = 62.0
+offset_top = 190.0
+offset_right = 302.0
+offset_bottom = 239.0
+text = "Costs: $200 and 150 mp
 "
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 67.0
-offset_top = 248.0
-offset_right = 147.0
-offset_bottom = 279.0
+offset_left = 151.0
+offset_top = 150.0
+offset_right = 231.0
+offset_bottom = 181.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_grctt")
-text = "Purchase"
+text = "Select"
+
+[node name="SoldierSpriteSheet" type="Sprite2D" parent="."]
+position = Vector2(103, 152)
+scale = Vector2(0.0367188, 0.0424107)
+texture = ExtResource("1_wsqks")
+hframes = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
