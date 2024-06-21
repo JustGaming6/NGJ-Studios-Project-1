@@ -101,6 +101,7 @@ func _process(delta):
 
 func attack(attack, defense): #Calculates the outcome of an attack
 	var troop_loss_max
+	var troop_loss_min
 	var attack_node = get_node("Regions").get_node(attack)
 	var defense_node = get_node("Regions").get_node(defense)
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
@@ -111,72 +112,88 @@ func attack(attack, defense): #Calculates the outcome of an attack
 		var rng = RandomNumberGenerator.new()
 		var result = int(rng.randf_range(0,9))
 		var outcome
+		print(chance)
 		if chance <= 0.25:
 			outcome = "L"
 			troop_loss_max = 0.1
+			troop_loss_min = 0
 		elif chance <= 0.5:
 			match result:
 				0,1,2,3,4,5,6,7,8:
 					outcome = "L"
 					troop_loss_max = 0.1
+					troop_loss_min = 0
 				9:
 					outcome = "W"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.9
 		elif chance <= 0.6:
 			match result:
 				0,1,2,3,4,5,6,7:
 					outcome = "L"
 					troop_loss_max = 0.2
+					troop_loss_min = 0
 				8,9:
 					outcome = "W"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.9
 		elif chance <= 1:
 			match result:
 				0,1,2,3,4,5,6:
 					outcome = "L"
+					troop_loss_min = 0
 					troop_loss_max = 0.3
 				7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.4
 					troop_loss_max = 0.8
 		elif chance <= 1.25:
 			match result:
 				0,1,2,3,4:
 					outcome = "L"
+					troop_loss_min = 0.2
 					troop_loss_max = 0.4
 				5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 		elif chance <= 1.5:
 			match result:
 				0,1,2:
 					outcome = "L"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 				3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.3
 					troop_loss_max = 0.7
 		elif chance <= 2:
 			match result:
 				0,1:
 					outcome = "L"
+					troop_loss_min = 0.5
 					troop_loss_max = 0.8
 				2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0.2
 					troop_loss_max = 0.5
-		elif chance <3:
+		elif chance <2.5:
 			match result:
 				0:
 					outcome = "L"
+					troop_loss_min = 0.7
 					troop_loss_max = 0.9
 				1,2,3,4,5,6,7,8,9:
 					outcome = "W"
+					troop_loss_min = 0
 					troop_loss_max = 0.25
 		elif chance >= 3:
 			outcome = "W"
 			troop_loss_max = 0.1
+			troop_loss_min = 0
 			if chance > 3.5:
 				troop_loss_max = 0
-		var troop_loss = rng.randf_range(0, troop_loss_max)
-		print(troop_loss)
+		var troop_loss = rng.randf_range(troop_loss_min, troop_loss_max)
 		match outcome:
 			"W":
 				defense_node.Troops = attack_node.Troops - 1
