@@ -266,6 +266,7 @@ func load_regions(): #Function to load the regions at the start of the game
 		region.Income = region_info[1]
 		region.Manpower = region_info[2]
 		region.Troops = region_info[3]
+		region.Region = region_info[4]
 		get_node("Regions").add_child(region)
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
