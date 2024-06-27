@@ -101,7 +101,6 @@ func fortify(attack, defense, attack_label, defense_label):
 	attack.Troops = 1
 	attack_label.set_text(str(attack.Troops))
 	defense_label.set_text(str(defense.Troops))
-	
 
 func attack(attack, defense): #Calculates the outcome of an attack
 	var troop_loss_max
