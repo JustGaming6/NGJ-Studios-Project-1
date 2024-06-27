@@ -266,7 +266,6 @@ func load_regions(): #Function to load the regions at the start of the game
 		region.Income = region_info[1]
 		region.Manpower = region_info[2]
 		region.Troops = region_info[3]
-		region.Region = region_info[4]
 		get_node("Regions").add_child(region)
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
@@ -777,7 +776,7 @@ func _on_button_pressed():
 func _on_turnbutton_pressed(): #Changing Turns
 	match 55:
 		Global.p1_territories, Global.p2_territories, Global.p3_territories, Global.p4_territories:
-			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+			get_tree().change_scene_to_file("res://Scenes/end.tscn")
 	Global.turn += 1
 	if Global.turn > Global.players:
 		Global.turn = 1

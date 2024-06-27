@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6jt8cjl8jgj5"]
+
+[ext_resource type="Script" path="res://Scenes/end.gd" id="1_nm4m5"]
+[ext_resource type="Texture2D" uid="uid://brtahp5f7b2kd" path="res://Assets/Images/Map/Regions Map V2.png" id="1_uwlrc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nm4m5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 44.0
+offset_bottom = 64.0
+scale = Vector2(26.2659, 10.0552)
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="RegionsMapV2" type="Sprite2D" parent="CanvasLayer/ColorRect"]
+position = Vector2(15.715, 32.3808)
+scale = Vector2(0.0631572, 0.132019)
+texture = ExtResource("1_uwlrc")
+
+[node name="winner" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_right = 594.0
+offset_bottom = 84.0
+scale = Vector2(0.0737856, 0.147462)
+theme_override_font_sizes/font_size = 50
+text = "!WINNER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player" type="Label" parent="CanvasLayer/ColorRect"]
+offset_left = 8.14744
+offset_top = 11.1385
+offset_right = 605.147
+offset_bottom = 177.138
+scale = Vector2(0.0439319, 0.115169)
+theme_override_font_sizes/font_size = 80
+text = "P4"
+horizontal_alignment = 1
