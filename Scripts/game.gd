@@ -42,9 +42,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("unlimited_power"):
 		Global.p1_bal = 10000000000
 		Global.p1_manpower = 100000000
-		Global.p2_income = 0
-		Global.p3_income = 0
-		Global.p4_income = 0
 	if loading_screen == false: # If not on the loading screen run the camera movement functions
 		zoom()
 		camera_move()
@@ -99,6 +96,13 @@ func _process(delta):
 		Global.defense_region = "blank"
 		Global.attack_region = "blank"
 
+func fortify(attack, defense, attack_label, defense_label):
+	defense.Troops += attack.Troops - 2
+	attack.Troops = 1
+	attack_label.set_text(str(attack.Troops))
+	defense_label.set_text(str(defense.Troops))
+	
+
 func attack(attack, defense): #Calculates the outcome of an attack
 	var troop_loss_max
 	var troop_loss_min
@@ -107,6 +111,9 @@ func attack(attack, defense): #Calculates the outcome of an attack
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
 	var defense_label = get_node("Regions").get_node(defense).get_node("label")
 	attack_check(attack, defense, attack_node.Owner)
+	if valid_attack == true and defense_node.Owner == attack_node.Owner:
+		fortify(attack_node, defense_node, attack_label, defense_label)
+		valid_attack = false
 	if attack_node.Troops > 1 and valid_attack == true:
 		var chance = int(attack_node.Troops) / int(defense_node.Troops)
 		var rng = RandomNumberGenerator.new()
@@ -776,6 +783,7 @@ func _on_button_pressed():
 func _on_turnbutton_pressed(): #Changing Turns
 	match 55:
 		Global.p1_territories, Global.p2_territories, Global.p3_territories, Global.p4_territories:
+			Global.winner = Global.turn
 			get_tree().change_scene_to_file("res://Scenes/end.tscn")
 	Global.turn += 1
 	if Global.turn > Global.players:

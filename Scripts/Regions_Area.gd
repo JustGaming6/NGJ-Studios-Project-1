@@ -13,7 +13,7 @@ var p4_col = Color(1,1,0,1) #Yellow
 var bot1_col = Color(1, 0.980392, 0.941176, 0.5)
 var bot2_col = Color(0.5,0.25,0,1)
 var bot3_col = Color(0,1,0,0.7)
-var bot4_col = Color (1,0,0,0.7)
+var bot4_col = Color (0.5,0,0,0.7)
 var bot5_col = Color(0,1,1,1)
 var bot6_col = Color(0,1,1,0.7)
 var bot7_col = Color(1,1,0,0.7)
@@ -22,8 +22,6 @@ var bot9_col = Color(0.541176, 0.168627, 0.886275, 1)
 var bot10_col = Color(0, 0, 0.545098, 1)
 var bot11_col = Color(0.545098, 0, 0.545098, 1)
 var bot12_Col = Color(1, 0.54902, 0, 1)
-
-signal troops_added(region)
 
 func _ready():
 	await timer()

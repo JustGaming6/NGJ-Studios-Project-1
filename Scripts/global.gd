@@ -41,5 +41,7 @@ var troops_region_name
 var attack_region = "blank"
 var defense_region = "blank"
 
+var winner 
+
 func _onready():
 	Global.players = 0
