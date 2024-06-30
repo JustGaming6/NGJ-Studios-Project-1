@@ -125,4 +125,4 @@ text = "Description:
 "
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="menu2" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="menu2" to="." method="_on_tutorial_pressed"]
