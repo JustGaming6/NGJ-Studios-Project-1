@@ -351,3 +351,7 @@ func _on_maximise_pressed():
 func _on_button_pressed():
 	Global.deployment_phase = false
 	$TroopSelection.hide()
+
+func _on_endturn_button_pressed():
+	if tutorial_stage == 17:
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

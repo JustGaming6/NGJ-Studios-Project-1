@@ -263,6 +263,7 @@ text = "+"
 [connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/BuildMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="CanvasLayer/TroopsMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_endturn_button_pressed"]
 [connection signal="pressed" from="tutorial/ColorRect/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="tutorial/ColorRect/minimise" to="." method="_on_minimise_pressed"]
 [connection signal="pressed" from="tutorial/maximise" to="." method="_on_maximise_pressed"]
