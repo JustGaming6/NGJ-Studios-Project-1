@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=31 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -58,6 +58,12 @@ size = Vector2(784.036, 743.265)
 size = Vector2(401.662, 384.474)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6dq7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16il0"]
+bg_color = Color(0.454868, 0.0360744, 0.0950487, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onhvl"]
+bg_color = Color(0.172353, 0.313016, 0.0986362, 1)
 
 [sub_resource type="Animation" id="Animation_bhcsv"]
 length = 0.001
@@ -280,7 +286,7 @@ offset_right = 64.0
 offset_bottom = 39.0
 text = "Back to Menu"
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Menu"]
+[node name="LeaveGame" type="ColorRect" parent="CanvasLayer/Menu"]
 layout_mode = 0
 offset_left = 421.0
 offset_top = 242.0
@@ -288,12 +294,30 @@ offset_right = 748.0
 offset_bottom = 354.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/Menu/ColorRect"]
+[node name="Label" type="Label" parent="CanvasLayer/Menu/LeaveGame"]
 layout_mode = 0
 offset_top = 6.0
 offset_right = 326.0
 offset_bottom = 51.0
-text = "Are you sure you want to leave this game?"
+text = "Are you sure you want to leave this game?
+        All of your progess will be gone."
+
+[node name="Yes" type="Button" parent="CanvasLayer/Menu/LeaveGame"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 73.0
+offset_right = 97.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_16il0")
+text = "Yes"
+
+[node name="No" type="Button" parent="CanvasLayer/Menu/LeaveGame"]
+offset_left = 224.0
+offset_top = 73.0
+offset_right = 303.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_onhvl")
+text = "No"
 
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
@@ -402,4 +426,6 @@ text = "Start Turn"
 [connection signal="input_event" from="CanvasLayer/TroopsMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_turnbutton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]

@@ -18,6 +18,7 @@ func _ready():
 	#Set the loading screen
 	$BlankScreens/p1Screen.hide()
 	$BlankScreens/Button.hide()
+	$CanvasLayer/Menu/LeaveGame.hide()
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
@@ -814,7 +815,10 @@ func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	$TroopSelection.hide()
 
 func _on_menu_pressed():
+	$CanvasLayer/Menu/LeaveGame.show()
+	
+func _on_yes_pressed():
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
-
-
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+func _on_no_pressed():
+	$CanvasLayer/Menu/LeaveGame.hide()
