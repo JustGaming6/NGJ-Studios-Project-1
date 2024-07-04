@@ -312,6 +312,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_16il0")
 text = "Yes"
 
 [node name="No" type="Button" parent="CanvasLayer/Menu/LeaveGame"]
+layout_mode = 0
 offset_left = 224.0
 offset_top = 73.0
 offset_right = 303.0

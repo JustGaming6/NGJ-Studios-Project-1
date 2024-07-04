@@ -111,7 +111,7 @@ func attack(attack, defense): #Calculates the outcome of an attack
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
 	var defense_label = get_node("Regions").get_node(defense).get_node("label")
 	attack_check(attack, defense, attack_node.Owner)
-	if valid_attack == true and defense_node.Owner == attack_node.Owner:
+	if valid_attack == true and defense_node.Owner == attack_node.Owner and attack_node.Troops >= 2:
 		fortify(attack_node, defense_node, attack_label, defense_label)
 		valid_attack = false
 	if attack_node.Troops > 1 and valid_attack == true:
