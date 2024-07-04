@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://drjk6rqphhk6i"]
+[gd_scene load_steps=19 format=3 uid="uid://drjk6rqphhk6i"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_5e7gg"]
 [ext_resource type="Texture2D" uid="uid://bimtn0n7yekn2" path="res://Assets/Images/Map/tutorial_map-1.png.png" id="2_eym8r"]
 [ext_resource type="Script" path="res://Scripts/tutorial_camera.gd" id="3_yqec7"]
-[ext_resource type="PackedScene" uid="uid://g2puo2hmfa0h" path="res://Scenes/UI.tscn" id="4_c1hm6"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="5_3xoye"]
 [ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="5_updnn"]
+[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="6_wu78y"]
+[ext_resource type="Texture2D" uid="uid://bl6tqbw0lnlp2" path="res://Assets/Images/Icons/Money.png" id="7_bl36q"]
+[ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="8_2cv5v"]
+[ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="9_vfnlv"]
+[ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="10_5ow6w"]
+[ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="11_hxj3u"]
+[ext_resource type="Texture2D" uid="uid://ckr4rrel0xdoa" path="res://Assets/Images/Icons/Army Buy.png" id="12_8uuwq"]
+[ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="13_msp5s"]
 
 [sub_resource type="GDScript" id="GDScript_u1q8s"]
 script/source = "extends CanvasLayer
@@ -15,6 +23,28 @@ script/source = "extends CanvasLayer
 func _process(delta):
 	pass
 "
+
+[sub_resource type="GDScript" id="GDScript_88coe"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y5ax"]
+size = Vector2(784.036, 743.265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7csa"]
+size = Vector2(401.662, 384.474)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tmh4k"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5e7gg")
@@ -31,8 +61,6 @@ texture = ExtResource("2_eym8r")
 position = Vector2(577, 322)
 script = ExtResource("3_yqec7")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_c1hm6")]
-
 [node name="TroopSelection" type="CanvasLayer" parent="."]
 script = SubResource("GDScript_u1q8s")
 
@@ -43,6 +71,141 @@ offset_right = 1149.0
 offset_bottom = 170.0
 theme_override_fonts/font = ExtResource("5_updnn")
 text = "Exit Deployment"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_3xoye")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 51.0
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="balance" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = -9.0
+offset_right = 536.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("6_wu78y")
+theme_override_font_sizes/font_size = 30
+text = "000000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_88coe")
+
+[node name="bal" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
+position = Vector2(117.375, 30.375)
+scale = Vector2(0.0758102, 0.0499132)
+texture = ExtResource("7_bl36q")
+
+[node name="bal_change" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
+position = Vector2(261, 32)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("8_2cv5v")
+hframes = 3
+frame = 2
+
+[node name="moral" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = -12.0
+offset_right = 766.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("6_wu78y")
+theme_override_font_sizes/font_size = 30
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="moral" type="Sprite2D" parent="CanvasLayer/ColorRect/moral"]
+position = Vector2(121, 32)
+scale = Vector2(0.189583, 0.139583)
+texture = ExtResource("9_vfnlv")
+hframes = 5
+frame = 2
+
+[node name="moral_change" type="Sprite2D" parent="CanvasLayer/ColorRect/moral"]
+position = Vector2(249, 33)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("8_2cv5v")
+hframes = 3
+
+[node name="manpower" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = -9.0
+offset_right = 965.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("6_wu78y")
+theme_override_font_sizes/font_size = 30
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="manpower_change" type="Sprite2D" parent="CanvasLayer/ColorRect/manpower"]
+position = Vector2(247, 34)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("8_2cv5v")
+hframes = 3
+
+[node name="manpower" type="Sprite2D" parent="CanvasLayer/ColorRect/manpower"]
+position = Vector2(116, 106)
+scale = Vector2(0.059184, 0.0512671)
+texture = ExtResource("10_5ow6w")
+offset = Vector2(225.633, -1490.67)
+
+[node name="SubMenu" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 51.0
+offset_right = 1154.0
+offset_bottom = 123.0
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="BuildMenu" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1096, 511)
+scale = Vector2(0.108494, 0.0957321)
+texture = ExtResource("11_hxj3u")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/BuildMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BuildMenu/Area2D"]
+position = Vector2(2.01855, 1.1333)
+shape = SubResource("RectangleShape2D_5y5ax")
+
+[node name="TroopsMenu" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1095, 592)
+scale = Vector2(0.2125, 0.186842)
+texture = ExtResource("12_8uuwq")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/TroopsMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/TroopsMenu/Area2D"]
+position = Vector2(-0.830078, 2.23633)
+shape = SubResource("RectangleShape2D_f7csa")
+
+[node name="player" type="Label" parent="CanvasLayer"]
+offset_left = 1102.0
+offset_top = 10.0
+offset_right = 1146.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("5_updnn")
+theme_override_font_sizes/font_size = 30
+text = "P2"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_tmh4k")
+offset_left = 934.0
+offset_top = 10.0
+offset_right = 1083.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("13_msp5s")
+theme_override_font_sizes/font_size = 22
+text = "End Turn"
 
 [node name="tutorial" type="CanvasLayer" parent="."]
 
@@ -88,12 +251,18 @@ text_overrun_behavior = 1
 
 [node name="maximise" type="Button" parent="tutorial"]
 offset_left = 1115.0
-offset_top = 215.0
+offset_top = 177.0
 offset_right = 1149.0
-offset_bottom = 245.0
+offset_bottom = 208.0
 text = "+"
 
 [connection signal="pressed" from="TroopSelection/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ColorRect" to="CanvasLayer" method="_on_color_rect_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/ColorRect/balance" to="CanvasLayer" method="_on_balance_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/SubMenu" to="CanvasLayer" method="_on_sub_menu_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/BuildMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="CanvasLayer/TroopsMenu/Area2D" to="CanvasLayer" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="tutorial/ColorRect/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="tutorial/ColorRect/minimise" to="." method="_on_minimise_pressed"]
 [connection signal="pressed" from="tutorial/maximise" to="." method="_on_maximise_pressed"]

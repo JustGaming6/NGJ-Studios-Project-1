@@ -812,3 +812,9 @@ func _on_turnbutton_pressed(): #Changing Turns
 func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	Global.deployment_phase = false
 	$TroopSelection.hide()
+
+func _on_menu_pressed():
+
+
+
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
