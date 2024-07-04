@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://drjk6rqphhk6i"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_5e7gg"]
-[ext_resource type="Texture2D" uid="uid://bimtn0n7yekn2" path="res://Assets/Images/Map/tutorial_map-1.png.png" id="2_eym8r"]
+[ext_resource type="Texture2D" uid="uid://b0eo8nqgkr0in" path="res://Assets/Images/Map/Tutorial_Map_Updated-2.png" id="2_ap567"]
 [ext_resource type="Script" path="res://Scripts/tutorial_camera.gd" id="3_yqec7"]
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="5_3xoye"]
 [ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="5_updnn"]
@@ -51,9 +51,9 @@ script = ExtResource("1_5e7gg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(572, 285)
-scale = Vector2(18.75, 16.9375)
-texture = ExtResource("2_eym8r")
+position = Vector2(536, 311)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ap567")
 
 [node name="Regions" type="Node2D" parent="."]
 
