@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=3 uid="uid://g2puo2hmfa0h"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_gg8k7"]
+[ext_resource type="FontFile" uid="uid://dctpjyh7kmln5" path="res://Assets/Fonts/lunchds.ttf" id="2_8fvoh"]
+[ext_resource type="Texture2D" uid="uid://bl6tqbw0lnlp2" path="res://Assets/Images/Icons/Money.png" id="3_yo3ae"]
+[ext_resource type="Texture2D" uid="uid://d2te2gttbrvc1" path="res://Assets/Images/Icons/Income.png" id="4_2tqnh"]
+[ext_resource type="Texture2D" uid="uid://i3gbbsih5eti" path="res://Assets/Images/Icons/Morality.png" id="5_puxks"]
+[ext_resource type="Texture2D" uid="uid://rgebm81k0e3a" path="res://Assets/Images/Icons/Man Power.png" id="6_k72km"]
+[ext_resource type="Texture2D" uid="uid://dvrddlcrnvde3" path="res://Assets/Images/Icons/Build menu.png" id="7_vtdiw"]
+[ext_resource type="Texture2D" uid="uid://ckr4rrel0xdoa" path="res://Assets/Images/Icons/Army Buy.png" id="8_2vaeh"]
+[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="9_3125u"]
+[ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="10_v1l4q"]
+
+[sub_resource type="GDScript" id="GDScript_1trf3"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16ge1"]
+size = Vector2(784.036, 743.265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pogif"]
+size = Vector2(401.662, 384.474)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6dq7f"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_gg8k7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 51.0
+color = Color(0.129412, 0.129412, 0.129412, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="balance" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = -9.0
+offset_right = 536.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_8fvoh")
+theme_override_font_sizes/font_size = 30
+text = "000000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_1trf3")
+
+[node name="bal" type="Sprite2D" parent="ColorRect/balance"]
+position = Vector2(117.375, 30.375)
+scale = Vector2(0.0758102, 0.0499132)
+texture = ExtResource("3_yo3ae")
+
+[node name="bal_change" type="Sprite2D" parent="ColorRect/balance"]
+position = Vector2(261, 32)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("4_2tqnh")
+hframes = 3
+frame = 2
+
+[node name="moral" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = -12.0
+offset_right = 766.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("2_8fvoh")
+theme_override_font_sizes/font_size = 30
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="moral" type="Sprite2D" parent="ColorRect/moral"]
+position = Vector2(121, 32)
+scale = Vector2(0.189583, 0.139583)
+texture = ExtResource("5_puxks")
+hframes = 5
+frame = 2
+
+[node name="moral_change" type="Sprite2D" parent="ColorRect/moral"]
+position = Vector2(249, 33)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("4_2tqnh")
+hframes = 3
+
+[node name="manpower" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = -9.0
+offset_right = 965.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("2_8fvoh")
+theme_override_font_sizes/font_size = 30
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="manpower_change" type="Sprite2D" parent="ColorRect/manpower"]
+position = Vector2(247, 34)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("4_2tqnh")
+hframes = 3
+
+[node name="manpower" type="Sprite2D" parent="ColorRect/manpower"]
+position = Vector2(116, 106)
+scale = Vector2(0.059184, 0.0512671)
+texture = ExtResource("6_k72km")
+offset = Vector2(225.633, -1490.67)
+
+[node name="SubMenu" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = 51.0
+offset_right = 1154.0
+offset_bottom = 123.0
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="BuildMenu" type="Sprite2D" parent="."]
+position = Vector2(1096, 511)
+scale = Vector2(0.108494, 0.0957321)
+texture = ExtResource("7_vtdiw")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="BuildMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildMenu/Area2D"]
+position = Vector2(2.01855, 1.1333)
+shape = SubResource("RectangleShape2D_16ge1")
+
+[node name="TroopsMenu" type="Sprite2D" parent="."]
+position = Vector2(1095, 594)
+scale = Vector2(0.2125, 0.186842)
+texture = ExtResource("8_2vaeh")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="TroopsMenu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TroopsMenu/Area2D"]
+position = Vector2(-0.830078, 2.23633)
+shape = SubResource("RectangleShape2D_pogif")
+
+[node name="player" type="Label" parent="."]
+offset_left = 1102.0
+offset_top = 10.0
+offset_right = 1146.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("9_3125u")
+theme_override_font_sizes/font_size = 30
+text = "P2"
+
+[node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_6dq7f")
+offset_left = 934.0
+offset_top = 10.0
+offset_right = 1083.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("10_v1l4q")
+theme_override_font_sizes/font_size = 22
+text = "End Turn"
+
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
+[connection signal="mouse_entered" from="ColorRect/balance" to="." method="_on_balance_mouse_entered"]
+[connection signal="mouse_exited" from="SubMenu" to="." method="_on_sub_menu_mouse_exited"]
+[connection signal="input_event" from="BuildMenu/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="TroopsMenu/Area2D" to="." method="_on_area_2d_input_event"]

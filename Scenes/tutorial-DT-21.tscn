@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://drjk6rqphhk6i"]
+
+[ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_5e7gg"]
+[ext_resource type="Texture2D" uid="uid://dd76q63wscjtq" path="res://Assets/Images/Map/tutorial_map.png" id="2_lx7r8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5e7gg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 312)
+scale = Vector2(12.4063, 10.4688)
+texture = ExtResource("2_lx7r8")
+
+[node name="Regions" type="Node2D" parent="."]

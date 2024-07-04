@@ -1,14 +1,99 @@
-[gd_scene load_steps=3 format=3 uid="uid://drjk6rqphhk6i"]
+[gd_scene load_steps=7 format=3 uid="uid://drjk6rqphhk6i"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_5e7gg"]
-[ext_resource type="Texture2D" uid="uid://dd76q63wscjtq" path="res://Assets/Images/Map/tutorial_map.png" id="2_lx7r8"]
+[ext_resource type="Texture2D" uid="uid://bimtn0n7yekn2" path="res://Assets/Images/Map/tutorial_map-1.png.png" id="2_eym8r"]
+[ext_resource type="Script" path="res://Scripts/tutorial_camera.gd" id="3_yqec7"]
+[ext_resource type="PackedScene" uid="uid://g2puo2hmfa0h" path="res://Scenes/UI.tscn" id="4_c1hm6"]
+[ext_resource type="FontFile" uid="uid://5xp1he0qf153" path="res://Assets/Fonts/SUBWT___.ttf" id="5_updnn"]
+
+[sub_resource type="GDScript" id="GDScript_u1q8s"]
+script/source = "extends CanvasLayer
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5e7gg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(573, 312)
-scale = Vector2(12.4063, 10.4688)
-texture = ExtResource("2_lx7r8")
+visible = false
+position = Vector2(572, 285)
+scale = Vector2(18.75, 16.9375)
+texture = ExtResource("2_eym8r")
 
 [node name="Regions" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Regions"]
+position = Vector2(577, 322)
+script = ExtResource("3_yqec7")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_c1hm6")]
+
+[node name="TroopSelection" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_u1q8s")
+
+[node name="Button" type="Button" parent="TroopSelection"]
+offset_left = 988.0
+offset_top = 130.0
+offset_right = 1149.0
+offset_bottom = 170.0
+theme_override_fonts/font = ExtResource("5_updnn")
+text = "Exit Deployment"
+
+[node name="tutorial" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="tutorial"]
+offset_left = 773.0
+offset_top = 173.0
+offset_right = 1149.0
+offset_bottom = 427.0
+color = Color(0.345098, 0.345098, 0.345098, 1)
+
+[node name="title" type="Label" parent="tutorial/ColorRect"]
+layout_mode = 0
+offset_right = 378.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "a"
+horizontal_alignment = 1
+
+[node name="text" type="Label" parent="tutorial/ColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 57.0
+offset_right = 374.0
+offset_bottom = 206.0
+
+[node name="next" type="Button" parent="tutorial/ColorRect"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 216.0
+offset_right = 368.0
+offset_bottom = 242.0
+text = "NEXT"
+
+[node name="minimise" type="Button" parent="tutorial/ColorRect"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 3.0
+offset_right = 377.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 18
+text = "-"
+text_overrun_behavior = 1
+
+[node name="maximise" type="Button" parent="tutorial"]
+offset_left = 1115.0
+offset_top = 215.0
+offset_right = 1149.0
+offset_bottom = 245.0
+text = "+"
+
+[connection signal="pressed" from="TroopSelection/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="tutorial/ColorRect/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="tutorial/ColorRect/minimise" to="." method="_on_minimise_pressed"]
+[connection signal="pressed" from="tutorial/maximise" to="." method="_on_maximise_pressed"]
