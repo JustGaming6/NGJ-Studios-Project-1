@@ -77,10 +77,10 @@ func _physics_process(delta):
 func _process(delta):
 	match tutorial_stage:
 		2:
-			$tutorial/ColorRect/title.set_text("Minimise")
+			$tutorial/ColorRect/title.set_text("Minimise/ Maximise")
 			$tutorial/ColorRect/text.set_text("Throughout the tutorial if the 
 			tutorial box is getting annoying you 
-			can press the mimise button (- button) to 
+			can press the minimise button (-) to 
 			remove the box. You can press the maximise 
 			button (+) to show the tutorial box again.")
 		3:
@@ -91,7 +91,7 @@ func _process(delta):
 			want to move on")
 		4:
 			$tutorial/ColorRect/title.set_text("ZOOM")
-			$tutorial/ColorRect/text.set_text("To zoom in out use your scroll 
+			$tutorial/ColorRect/text.set_text("To zoom in and out use your scroll 
 			wheel on your mouse. Click 'NEXT' 
 			when you wish to continue")
 		5:
@@ -129,6 +129,7 @@ func _process(delta):
 			if once == false:
 				Global.p1_bal += 1000
 				once = true
+				$CanvasLayer/ColorRect/balance.set_text(str(Global.p1_bal))
 		9:
 			$tutorial/ColorRect/title.set_text("Exit Deployment")
 			$tutorial/ColorRect/text.set_text("Now you exit deployment by 
@@ -157,21 +158,24 @@ func _process(delta):
 			the left of it.")
 			Global.tutorial = false
 		13:
-			$tutorial/ColorRect/title.set_text("Movement")
+			$tutorial/ColorRect/title.set_text("Troop Movement")
 			$tutorial/ColorRect/text.set_text("You can move troops through your 
-			own territory my attacking it. 
+			own territory by attacking it. 
 			This process costs 1 Troop per 
 			territory though")
+			Global.tutorial = true
 		14:
-			$tutorial/ColorRect/title.set_text("Movement")
+			$tutorial/ColorRect/title.set_text("Troop Movement")
 			$tutorial/ColorRect/text.set_text("Now you try it. Left the click 
 			the left Territory then right 
 			click the middle region to move
 			the troops from the left 
 			territory to the right.")
+			Global.tutorial = false
 		15:
 			$tutorial/ColorRect/title.set_text("Winning")
-			$tutorial/ColorRect/text.set_text("To win the game you must own all Territories")
+			$tutorial/ColorRect/text.set_text("To win the game you must 
+			own all Territories")
 		16:
 			$tutorial/ColorRect/title.set_text("Income")
 			$tutorial/ColorRect/text.set_text("Every Territory has different Income, Capture 
@@ -180,16 +184,18 @@ func _process(delta):
 			Territories you own the higher 
 			Income you have")
 		17:
-			$tutorial/ColorRect/title.set_text("Finsih the Game")
+			$tutorial/ColorRect/title.set_text("Finish the Game")
 			$tutorial/ColorRect/text.set_text("Now take the last Territory 
 			and click the end turn button 
 			to win the game.")
+			Global.tutorial = true
 
 func purchase(cost, turn): #Checking if a troop purchase is valid (e.g. has enough money)
 	purchase_valid = false
 	if Global.p1_bal >= cost:
 		purchase_valid = true
 		Global.p1_bal -= cost
+		$CanvasLayer/ColorRect/balance.set_text(str(Global.p1_bal))
 
 func zoom(): #Function for zoom
 	if $Regions/Camera2D.zoom.x > 5:
