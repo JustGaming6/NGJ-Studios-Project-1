@@ -274,7 +274,7 @@ offset_right = 233.0
 offset_bottom = 270.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 22
-text = "Infantry"
+text = "Veteran"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 62.0
@@ -282,6 +282,14 @@ offset_top = 190.0
 offset_right = 302.0
 offset_bottom = 239.0
 text = "Costs: $200 and 150 mp
+"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 62.0
+offset_top = 301.0
+offset_right = 302.0
+offset_bottom = 350.0
+text = "Costs: $300 and 250 mp
 "
 
 [node name="Button2" type="Button" parent="."]
@@ -294,9 +302,9 @@ text = "Select"
 
 [node name="Button3" type="Button" parent="."]
 offset_left = 151.0
-offset_top = 150.0
+offset_top = 271.0
 offset_right = 231.0
-offset_bottom = 181.0
+offset_bottom = 302.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_grctt")
 text = "Select"
 

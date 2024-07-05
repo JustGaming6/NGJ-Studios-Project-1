@@ -77,52 +77,53 @@ func _physics_process(delta):
 func _process(delta):
 	match tutorial_stage:
 		2:
-			$tutorial/ColorRect/title.set_text("Minimise/ Maximise")
+			$tutorial/ColorRect/title.set_text("Minimise / Maximise")
 			$tutorial/ColorRect/text.set_text("Throughout the tutorial if the 
-			tutorial box is getting annoying you 
+			tutorial box is getting annoying, you 
 			can press the minimise button (-) to 
-			remove the box. You can press the maximise 
-			button (+) to show the tutorial box again.")
+			remove the box. As well as this, you can press the maximise 
+			button (+) to show the tutorial box again. Click 'NEXT' to 
+			continue the tutorial.")
 		3:
 			$tutorial/ColorRect/title.set_text("Movement")
-			$tutorial/ColorRect/text.set_text("To move you can either use the 
-			W,A,S,D keys or point and drag with 
-			your mouse. Click 'NEXT' when you 
-			want to move on")
+			$tutorial/ColorRect/text.set_text("You can move the camera either by 
+			using the W,A,S,D keys, or left click with your mouse and drag. 
+			Click 'NEXT' to continue the tutorial.")
 		4:
 			$tutorial/ColorRect/title.set_text("ZOOM")
-			$tutorial/ColorRect/text.set_text("To zoom in and out use your scroll 
-			wheel on your mouse. Click 'NEXT' 
-			when you wish to continue")
+			$tutorial/ColorRect/text.set_text("To zoom in and out use the scroll 
+			wheel on your mouse. Click 'NEXT' to 
+			continue the tutorial.")
 		5:
 			$tutorial/ColorRect/title.set_text("UI")
-			$tutorial/ColorRect/text.set_text("The Header at the top of your 
+			$tutorial/ColorRect/text.set_text("The header at the top of your 
 			screen shows you (from left to right) 
-			your 'BALANCE', 'Moral', and 'Manpower'.
+			your 'BALANCE', 'MORAL', and 'MANPOWER'.
 			The only one currently important
-			one is your balance.")
+			one is your balance. Click 'NEXT' to 
+			continue the tutorial.")
 		6:
 			$tutorial/ColorRect/title.set_text("UI")
-			$tutorial/ColorRect/text.set_text("To the right of the Header 
+			$tutorial/ColorRect/text.set_text("On the right side of the Header 
 			there is the players turn follow 
-			my the 'End Turn'. In games you 
-			will click this button when you 
-			wish to finish your turn")
+			by the 'End Turn' button. When playing with others
+			prerssing this button will progress the turn order (It will make it
+			go to the next players turn). Click 'NEXT' to 
+			continue the tutorial.")
 		7:
 			$tutorial/ColorRect/title.set_text("Deployment")
 			$tutorial/ColorRect/text.set_text("At the start of each turn 
-			you enter deployment phase. 
-			During this phase you can left
-			 click territories that you 
-			own to place a troop there. 
-			Each troop costs $200.")
+			you enter deployment phase. During this phase you can left
+			click territories that you own to place a troop there. 
+			Each troop you place will cost $200. Click 'NEXT' to 
+			continue the tutorial.")
 		8:
 			$tutorial/ColorRect/title.set_text("Deployment")
-			$tutorial/ColorRect/text.set_text("Now try deploying. 
-			You are the blue player in 
-			the middle territory. Add
-			troops until you no longer 
-			have enough money.")
+			$tutorial/ColorRect/text.set_text("Now try deploying for
+			yourself! You are the blue player (middle teritory). Add
+			troops to your territory until you can no longer 
+			place any (You should be out of money). Click 'NEXT' to 
+			continue the tutorial.")
 			Global.tutorial = false
 			Global.deployment_phase = true
 			$TroopSelection.show()
@@ -132,24 +133,25 @@ func _process(delta):
 				$CanvasLayer/ColorRect/balance.set_text(str(Global.p1_bal))
 		9:
 			$tutorial/ColorRect/title.set_text("Exit Deployment")
-			$tutorial/ColorRect/text.set_text("Now you exit deployment by 
-			clicking 'Exit Deployment' 
-			button above this box.")
+			$tutorial/ColorRect/text.set_text("Now, you exit the 'Deployment 
+			Phase' by clicking the 'Exit Deployment' button above this box. This 
+			will move you onto the 'Attack Phase'. Click 'NEXT' to 
+			continue the tutorial.")
 			Global.tutorial = true
 		10:
 			$tutorial/ColorRect/title.set_text("Attack Phase")
-			$tutorial/ColorRect/text.set_text("Now you are in the attack 
-			phase. In this phase you move 
-			troops around to take other 
-			Territories")
+			$tutorial/ColorRect/text.set_text("Now you are in the 'Attack 
+			Phase'. This phase is used to move units through already 
+			claimed territories and attack other territories. Click 'NEXT' to 
+			continue the tutorial.")
 		11:
 			$tutorial/ColorRect/title.set_text("Attacking")
-			$tutorial/ColorRect/text.set_text("To attack left on click on your 
-			own territory that you want to 
-			attack from then right click the 
-			territory you want to attack. 
-			The Territories must be next
-			 to each other.")
+			$tutorial/ColorRect/text.set_text("Now, to attack other territories, 
+			left click on a territory you own and then right click onto the territory
+			you want to attack. The territories MUST be next to each other or you
+			can't attack. Its better to atack a territory with at least 
+			double the ammount of troops, if you can. 
+			Click 'NEXT' to continue the tutorial.")
 		12:
 			$tutorial/ColorRect/title.set_text("Attack")
 			$tutorial/ColorRect/text.set_text("Now you try it. Left click on your 
