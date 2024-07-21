@@ -335,20 +335,36 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 	if region != null:
 		match region.Owner: #Removing the regions Income and Manpiwer from the current regions owner
 			"p1":
-				Global.p1_income -= region.Income
-				Global.p1_manpower -= region.Manpower
+				if Global.balance_mode == false:
+					Global.p1_income -= region.Income
+					Global.p1_manpower -= region.Manpower
+				else:
+					Global.p1_income -= 100
+					Global.p1_manpower -= 50
 				Global.p1_territories -= 1
 			"p2":
-				Global.p2_income -= region.Income
-				Global.p2_manpower -= region.Manpower
+				if Global.balance_mode == false:
+					Global.p2_income -= region.Income
+					Global.p2_manpower -= region.Manpower
+				else:
+					Global.p2_income -= 100
+					Global.p2_manpower -= 50
 				Global.p2_territories -= 1
 			"p3":
-				Global.p3_income -= region.Income
-				Global.p3_manpower -= region.Manpower
+				if Global.balance_mode == false:
+					Global.p3_income -= region.Income
+					Global.p3_manpower -= region.Manpower
+				else:
+					Global.p3_income -= 100
+					Global.p3_manpower -= 50
 				Global.p3_territories -= 1
 			"p4":
-				Global.p4_income -= region.Income
-				Global.p4_manpower-= region.Manpower
+				if Global.balance_mode == false:
+					Global.p4_income -= region.Income
+					Global.p4_manpower-= region.Manpower
+				else:
+					Global.p4_income -= 100
+					Global.p4_manpower -= 50
 				Global.territories -= 1
 		
 		region.Owner = new_owner
@@ -371,20 +387,36 @@ func change_owner(region_name: String, new_owner : String): #Change the owner of
 		
 		match new_owner: #Add the Regions Income and Manpower to the new region owner
 			"p1":
-				Global.p1_income += region.Income
-				Global.p1_manpower += region.Manpower
+				if Global.balance_mode == false:
+					Global.p1_income += region.Income
+					Global.p1_manpower += region.Manpower
+				else:
+					Global.p1_income += 100
+					Global.p1_manpower += 50
 				Global.p1_territories += 1
 			"p2":
-				Global.p2_income += region.Income
-				Global.p2_manpower += region.Manpower
+				if Global.balance_mode == false:
+					Global.p2_income += region.Income
+					Global.p2_manpower += region.Manpower
+				else:
+					Global.p2_income += 100
+					Global.p2_manpower += 50
 				Global.p2_territories += 1
 			"p3":
-				Global.p3_income += region.Income
-				Global.p3_manpower += region.Manpower
+				if Global.balance_mode == false:
+					Global.p3_income += region.Income
+					Global.p3_manpower += region.Manpower
+				else:
+					Global.p3_income += 100
+					Global.p3_manpower += 50
 				Global.p3_territories += 1
 			"p4":
-				Global.p4_income += region.Income
-				Global.p4_manpower += region.Manpower
+				if Global.balance_mode == false:
+					Global.p4_income += region.Income
+					Global.p4_manpower += region.Manpower
+				else:
+					Global.p4_income += 100
+					Global.p4_manpower += 50
 				Global.p4_territories += 1
 	else:
 		print("Region not found: " + region_name)

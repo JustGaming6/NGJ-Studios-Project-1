@@ -36,6 +36,7 @@ var p4_territories = 0
 
 var deployment_phase = false
 var tutorial = false
+var balance_mode = false
 var region_clicked = false
 var troops_region_name
 

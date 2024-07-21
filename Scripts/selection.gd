@@ -12,6 +12,8 @@ func _ready():
 	add_items($ColorRect/select/Label2/menu_2)
 	add_items($ColorRect/select/Label3/menu_3)
 	add_items($ColorRect/select/Label4/menu_4)
+	Global.balance_mode == false
+	$ColorRect/select/Button.set_text("Balance Mode: Disabled")
 
 func _on_2p_pressed():
 	Global.players = 2
@@ -106,3 +108,13 @@ func _on_done_2p_pressed():
 
 func _on_menu_pressed():
 		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+
+func _on_button_pressed():
+	match Global.balance_mode:
+		true:
+			Global.balance_mode = false
+			$ColorRect/select/Button.set_text("Balance Mode: Disabled")
+		false:
+			Global.balance_mode = true
+			$ColorRect/select/Button.set_text("Balance Mode: Enabled")

@@ -187,6 +187,15 @@ theme_override_font_sizes/font_size = 17
 alignment = 1
 text_overrun_behavior = 1
 
+[node name="Button" type="Button" parent="ColorRect/select"]
+layout_mode = 0
+offset_left = 0.859199
+offset_top = 33.5146
+offset_right = 193.859
+offset_bottom = 64.5146
+scale = Vector2(0.0771094, 0.116804)
+text = "Balance Mode: Disabled"
+
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 27.4825
@@ -217,4 +226,5 @@ scale = Vector2(0.945711, 0.959137)
 [connection signal="pressed" from="ColorRect/3p" to="." method="_on_3p_pressed"]
 [connection signal="pressed" from="ColorRect/4p" to="." method="_on_4p_pressed"]
 [connection signal="pressed" from="ColorRect/select/done_2p" to="." method="_on_done_2p_pressed"]
+[connection signal="pressed" from="ColorRect/select/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="ColorRect/Menu" to="." method="_on_menu_pressed"]
