@@ -101,13 +101,6 @@ position = Vector2(117.375, 30.375)
 scale = Vector2(0.0758102, 0.0499132)
 texture = ExtResource("7_bl36q")
 
-[node name="bal_change" type="Sprite2D" parent="CanvasLayer/ColorRect/balance"]
-position = Vector2(261, 32)
-scale = Vector2(0.199107, 0.22625)
-texture = ExtResource("8_2cv5v")
-hframes = 3
-frame = 2
-
 [node name="moral" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0
 offset_left = 384.0
@@ -132,6 +125,13 @@ position = Vector2(249, 33)
 scale = Vector2(0.199107, 0.22625)
 texture = ExtResource("8_2cv5v")
 hframes = 3
+
+[node name="bal_change" type="Sprite2D" parent="CanvasLayer/ColorRect/moral"]
+position = Vector2(31, 35)
+scale = Vector2(0.199107, 0.22625)
+texture = ExtResource("8_2cv5v")
+hframes = 3
+frame = 2
 
 [node name="manpower" type="Label" parent="CanvasLayer/ColorRect"]
 layout_mode = 0

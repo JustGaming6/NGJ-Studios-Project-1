@@ -19,6 +19,7 @@ func _ready():
 	$BlankScreens/p1Screen.hide()
 	$BlankScreens/Button.hide()
 	$CanvasLayer/Menu/LeaveGame.hide()
+	$CanvasLayer/Button.hide()
 	loading_screen = true
 	load_screen("loading")
 	load_regions()
@@ -220,7 +221,7 @@ func attack(attack, defense): #Calculates the outcome of an attack
 					defense_node.Troops = 1
 		attack_label.set_text(str(attack_node.Troops))
 		defense_label.set_text(str(defense_node.Troops))
-
+		
 func zoom(): #Function for zoom
 	if $Regions/Camera2D.zoom.x > 5:
 		zoom_speed = 1
@@ -433,6 +434,7 @@ func turn(player):
 		"p4":
 			Global.p4_bal += Global.p4_income
 	Global.deployment_phase = true
+	$CanvasLayer/Button.hide()
 	$TroopSelection.show()
 	load_screen("game")
 	load_screen(player)
@@ -845,6 +847,7 @@ func _on_turnbutton_pressed(): #Changing Turns
 func _on_troopselection_button_pressed(): #Exiting Deployment phase
 	Global.deployment_phase = false
 	$TroopSelection.hide()
+	$CanvasLayer/Button.show()
 
 func _on_menu_pressed():
 	$CanvasLayer/Menu/LeaveGame.show()

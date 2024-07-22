@@ -83,9 +83,9 @@ text = "4 Players"
 [node name="select" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = 11.2776
-offset_top = 6.66202
+offset_top = 7.34056
 offset_right = 51.2775
-offset_bottom = 46.6621
+offset_bottom = 47.3406
 scale = Vector2(0.726908, 0.634991)
 color = Color(0.147672, 0.147672, 0.147672, 1)
 
@@ -196,6 +196,59 @@ offset_bottom = 64.5146
 scale = Vector2(0.0771094, 0.116804)
 text = "Balance Mode: Disabled"
 
+[node name="info_button" type="Button" parent="ColorRect/select/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.08
+anchor_top = -9.387
+anchor_right = 2.583
+anchor_bottom = 1.429
+offset_left = 194.973
+offset_top = 271.036
+offset_right = -292.986
+offset_bottom = -33.2596
+text = "!"
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/select/Button/info_button"]
+visible = false
+layout_mode = 0
+offset_left = -32.0
+offset_top = -176.0
+offset_right = 157.0
+offset_bottom = -54.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Label" type="Label" parent="ColorRect/select/Button/info_button/ColorRect"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 312.0
+offset_bottom = 48.0
+scale = Vector2(0.603442, 0.729408)
+theme_override_font_sizes/font_size = 12
+text = "Balance mode makes all the territories 
+income equal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dont_care" type="Button" parent="ColorRect/select/Button/info_button/ColorRect"]
+offset_left = 140.339
+offset_top = 95.3269
+offset_right = 235.339
+offset_bottom = 126.327
+scale = Vector2(0.38834, 0.56926)
+text = "I Dont Care
+"
+
+[node name="interesting" type="Button" parent="ColorRect/select/Button/info_button/ColorRect"]
+layout_mode = 0
+offset_left = 6.61782
+offset_top = 97.822
+offset_right = 99.6178
+offset_bottom = 128.822
+scale = Vector2(0.38834, 0.56926)
+text = "Interesting"
+
 [node name="Invalid" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 27.4825
@@ -227,4 +280,7 @@ scale = Vector2(0.945711, 0.959137)
 [connection signal="pressed" from="ColorRect/4p" to="." method="_on_4p_pressed"]
 [connection signal="pressed" from="ColorRect/select/done_2p" to="." method="_on_done_2p_pressed"]
 [connection signal="pressed" from="ColorRect/select/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/select/Button/info_button" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="ColorRect/select/Button/info_button/ColorRect/dont_care" to="." method="_on_dont_care_pressed"]
+[connection signal="pressed" from="ColorRect/select/Button/info_button/ColorRect/interesting" to="." method="_on_interesting_pressed"]
 [connection signal="pressed" from="ColorRect/Menu" to="." method="_on_menu_pressed"]

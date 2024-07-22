@@ -118,3 +118,13 @@ func _on_button_pressed():
 		false:
 			Global.balance_mode = true
 			$ColorRect/select/Button.set_text("Balance Mode: Enabled")
+
+
+func _on_info_button_pressed():
+	$ColorRect/select/Button/info_button/ColorRect.show()
+
+func _on_dont_care_pressed():
+	get_tree().quit()
+
+func _on_interesting_pressed():
+	$ColorRect/select/Button/info_button/ColorRect.hide()
