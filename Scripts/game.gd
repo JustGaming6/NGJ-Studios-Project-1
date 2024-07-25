@@ -273,7 +273,10 @@ func load_regions(): #Function to load the regions at the start of the game
 		region.Owner =  "region_owner"
 		region.Income = region_info[1]
 		region.Manpower = region_info[2]
-		region.Troops = region_info[3]
+		if Global.balance_mode == false:
+			region.Troops = region_info[3]
+		else:
+			region.Troops = str(3)
 		get_node("Regions").add_child(region)
 		
 		var polygons = get_polygons(image, region_color, pixel_color_dict)
