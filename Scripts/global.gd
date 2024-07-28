@@ -39,6 +39,7 @@ var tutorial = false
 var balance_mode = false
 var region_clicked = false
 var troops_region_name
+var nuke_deployment = false
 
 var attack_region = "blank"
 var defense_region = "blank"

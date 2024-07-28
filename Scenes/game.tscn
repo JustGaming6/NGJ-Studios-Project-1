@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=33 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ckr4rrel0xdoa" path="res://Assets/Images/Icons/Army Buy.png" id="12_dwqjq"]
 [ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="14_lckv4"]
 [ext_resource type="Texture2D" uid="uid://cx6yhqjb440bt" path="res://Assets/Images/Misc/Loading Anim (SpriteSheet (Fixed)).png" id="16_didjj"]
+[ext_resource type="Texture2D" uid="uid://b22frwrn5kogc" path="res://Assets/Images/Icons/nuuuuuuuuuuukkke.png" id="17_6g7b8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryian"]
 texture = ExtResource("2_ovug1")
@@ -64,6 +65,9 @@ bg_color = Color(0.454868, 0.0360744, 0.0950487, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onhvl"]
 bg_color = Color(0.172353, 0.313016, 0.0986362, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ydae"]
+size = Vector2(223.784, 223.668)
 
 [sub_resource type="Animation" id="Animation_bhcsv"]
 length = 0.001
@@ -353,6 +357,29 @@ text = "P
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Nuke" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1021.13, 602.125)
+scale = Vector2(0.205555, 0.187778)
+texture = ExtResource("17_6g7b8")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Nuke"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Nuke/Area2D"]
+position = Vector2(-0.608398, -0.665283)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2ydae")
+
+[node name="Label" type="Label" parent="CanvasLayer/Nuke"]
+offset_left = -58.9864
+offset_top = -27.2929
+offset_right = 61.0136
+offset_bottom = 22.7071
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "$5000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
 [node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
@@ -462,4 +489,5 @@ text = "Start Turn"
 [connection signal="pressed" from="CanvasLayer/Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/No" to="." method="_on_no_pressed"]
+[connection signal="input_event" from="CanvasLayer/Nuke/Area2D" to="CanvasLayer" method="_on_nuke_input_event"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]

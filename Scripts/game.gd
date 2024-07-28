@@ -111,116 +111,132 @@ func attack(attack, defense): #Calculates the outcome of an attack
 	var defense_node = get_node("Regions").get_node(defense)
 	var attack_label = get_node("Regions").get_node(attack).get_node("label")
 	var defense_label = get_node("Regions").get_node(defense).get_node("label")
-	attack_check(attack, defense, attack_node.Owner)
-	if valid_attack == true and defense_node.Owner == attack_node.Owner and attack_node.Troops >= 2:
-		fortify(attack_node, defense_node, attack_label, defense_label)
-		valid_attack = false
-	if attack_node.Troops > 1 and valid_attack == true:
-		var chance = int(attack_node.Troops) / int(defense_node.Troops)
-		var rng = RandomNumberGenerator.new()
-		var result = int(rng.randf_range(0,9))
-		var outcome
-		print(chance)
-		if chance <= 0.25:
-			outcome = "L"
-			troop_loss_max = 0.1
-			troop_loss_min = 0
-		elif chance <= 0.5:
-			match result:
-				0,1,2,3,4,5,6,7,8:
-					outcome = "L"
-					troop_loss_max = 0.1
-					troop_loss_min = 0
-				9:
-					outcome = "W"
-					troop_loss_min = 0.5
-					troop_loss_max = 0.9
-		elif chance <= 0.6:
-			match result:
-				0,1,2,3,4,5,6,7:
-					outcome = "L"
-					troop_loss_max = 0.2
-					troop_loss_min = 0
-				8,9:
-					outcome = "W"
-					troop_loss_min = 0.5
-					troop_loss_max = 0.9
-		elif chance <= 1:
-			match result:
-				0,1,2,3,4,5,6:
-					outcome = "L"
-					troop_loss_min = 0
-					troop_loss_max = 0.3
-				7,8,9:
-					outcome = "W"
-					troop_loss_min = 0.4
-					troop_loss_max = 0.8
-		elif chance <= 1.25:
-			match result:
-				0,1,2,3,4:
-					outcome = "L"
-					troop_loss_min = 0.2
-					troop_loss_max = 0.4
-				5,6,7,8,9:
-					outcome = "W"
-					troop_loss_min = 0.3
-					troop_loss_max = 0.7
-		elif chance <= 1.5:
-			match result:
-				0,1,2:
-					outcome = "L"
-					troop_loss_min = 0.3
-					troop_loss_max = 0.7
-				3,4,5,6,7,8,9:
-					outcome = "W"
-					troop_loss_min = 0.3
-					troop_loss_max = 0.7
-		elif chance <= 2:
-			match result:
-				0,1:
-					outcome = "L"
-					troop_loss_min = 0.5
-					troop_loss_max = 0.8
-				2,3,4,5,6,7,8,9:
-					outcome = "W"
-					troop_loss_min = 0.2
-					troop_loss_max = 0.5
-		elif chance <2.5:
-			match result:
-				0:
-					outcome = "L"
-					troop_loss_min = 0.7
-					troop_loss_max = 0.9
-				1,2,3,4,5,6,7,8,9:
-					outcome = "W"
-					troop_loss_min = 0
-					troop_loss_max = 0.25
-		elif chance >= 3:
-			outcome = "W"
-			troop_loss_max = 0.1
-			troop_loss_min = 0
-			if chance > 3.5:
-				troop_loss_max = 0
-		var troop_loss = rng.randf_range(troop_loss_min, troop_loss_max)
-		match outcome:
-			"W":
-				defense_node.Troops = attack_node.Troops - 1
-				attack_node.Troops = 1
-				troop_loss = defense_node.Troops * troop_loss
-				defense_node.Troops -= troop_loss
-				defense_node.Troops = round(int(defense_node.Troops))
-				if int(defense_node.Troops) < 1:
-					defense_node.Troops = 1
-				change_owner(str(defense), str(attack_node.Owner))
-			"L":
-				attack_node.Troops = 1
-				troop_loss = defense_node.Troops * troop_loss
-				defense_node.Troops -= troop_loss
-				defense_node.Troops = round(int(defense_node.Troops))
-				if int(defense_node.Troops) < 1:
-					defense_node.Troops = 1
-		attack_label.set_text(str(attack_node.Troops))
-		defense_label.set_text(str(defense_node.Troops))
+	if Global.nuke_deployment == true:
+		print(attack_node)
+		attack_node.Troops = 1
+		attack_label = str(attack_node.Troops)
+		attack_node.Nuke = true
+		Global.nuke_deployment == false
+		match Global.turn:
+			1:
+				Global.p1_bal -= 5000
+			2:
+				Global.p2_bal -= 5000
+			3:
+				Global.p3_bal -= 5000
+			4:
+				Global.p4_bal -= 5000
+	else:
+		attack_check(attack, defense, attack_node.Owner)
+		if valid_attack == true and defense_node.Owner == attack_node.Owner and attack_node.Troops >= 2:
+			fortify(attack_node, defense_node, attack_label, defense_label)
+			valid_attack = false
+		if attack_node.Troops > 1 and valid_attack == true:
+			var chance = int(attack_node.Troops) / int(defense_node.Troops)
+			var rng = RandomNumberGenerator.new()
+			var result = int(rng.randf_range(0,9))
+			var outcome
+			print(chance)
+			if chance <= 0.25:
+				outcome = "L"
+				troop_loss_max = 0.1
+				troop_loss_min = 0
+			elif chance <= 0.5:
+				match result:
+					0,1,2,3,4,5,6,7,8:
+						outcome = "L"
+						troop_loss_max = 0.1
+						troop_loss_min = 0
+					9:
+						outcome = "W"
+						troop_loss_min = 0.5
+						troop_loss_max = 0.9
+			elif chance <= 0.6:
+				match result:
+					0,1,2,3,4,5,6,7:
+						outcome = "L"
+						troop_loss_max = 0.2
+						troop_loss_min = 0
+					8,9:
+						outcome = "W"
+						troop_loss_min = 0.5
+						troop_loss_max = 0.9
+			elif chance <= 1:
+				match result:
+					0,1,2,3,4,5,6:
+						outcome = "L"
+						troop_loss_min = 0
+						troop_loss_max = 0.3
+					7,8,9:
+						outcome = "W"
+						troop_loss_min = 0.4
+						troop_loss_max = 0.8
+			elif chance <= 1.25:
+				match result:
+					0,1,2,3,4:
+						outcome = "L"
+						troop_loss_min = 0.2
+						troop_loss_max = 0.4
+					5,6,7,8,9:
+						outcome = "W"
+						troop_loss_min = 0.3
+						troop_loss_max = 0.7
+			elif chance <= 1.5:
+				match result:
+					0,1,2:
+						outcome = "L"
+						troop_loss_min = 0.3
+						troop_loss_max = 0.7
+					3,4,5,6,7,8,9:
+						outcome = "W"
+						troop_loss_min = 0.3
+						troop_loss_max = 0.7
+			elif chance <= 2:
+				match result:
+					0,1:
+						outcome = "L"
+						troop_loss_min = 0.5
+						troop_loss_max = 0.8
+					2,3,4,5,6,7,8,9:
+						outcome = "W"
+						troop_loss_min = 0.2
+						troop_loss_max = 0.5
+			elif chance <2.5:
+				match result:
+					0:
+						outcome = "L"
+						troop_loss_min = 0.7
+						troop_loss_max = 0.9
+					1,2,3,4,5,6,7,8,9:
+						outcome = "W"
+						troop_loss_min = 0
+						troop_loss_max = 0.25
+			elif chance >= 3:
+				outcome = "W"
+				troop_loss_max = 0.1
+				troop_loss_min = 0
+				if chance > 3.5:
+					troop_loss_max = 0
+			var troop_loss = rng.randf_range(troop_loss_min, troop_loss_max)
+			match outcome:
+				"W":
+					defense_node.Troops = attack_node.Troops - 1
+					attack_node.Troops = 1
+					troop_loss = defense_node.Troops * troop_loss
+					defense_node.Troops -= troop_loss
+					defense_node.Troops = round(int(defense_node.Troops))
+					if int(defense_node.Troops) < 1:
+						defense_node.Troops = 1
+					change_owner(str(defense), str(attack_node.Owner))
+				"L":
+					attack_node.Troops = 1
+					troop_loss = defense_node.Troops * troop_loss
+					defense_node.Troops -= troop_loss
+					defense_node.Troops = round(int(defense_node.Troops))
+					if int(defense_node.Troops) < 1:
+						defense_node.Troops = 1
+			attack_label.set_text(str(attack_node.Troops))
+			defense_label.set_text(str(defense_node.Troops))
 		
 func zoom(): #Function for zoom
 	if $Regions/Camera2D.zoom.x > 5:
@@ -273,6 +289,7 @@ func load_regions(): #Function to load the regions at the start of the game
 		region.Owner =  "region_owner"
 		region.Income = region_info[1]
 		region.Manpower = region_info[2]
+		region.Nuke = false
 		if Global.balance_mode == false:
 			region.Troops = region_info[3]
 		else:

@@ -6,6 +6,7 @@ var Income = 0
 var Manpower = 0
 var Troops = 0
 var intial_font = ""
+var Nuke
 var p1_col = Color(0,0,1,1) #Blue
 var p2_col = Color(1,0,0,1) #Red
 var p3_col = Color(0,1,0,1) #Green
@@ -84,13 +85,16 @@ func _on_input_event(viewport, event, shape_idx):
 		if Global.deployment_phase == true:
 			Global.region_clicked = true
 			Global.troops_region_name = region_name
+		elif Global.nuke_deployment == true:
+			Global.attack_region = region_name
+			Global.defense_region = region_name
 		else:
 			print("Attacking from: " + str(region_name))
 			Global.attack_region = region_name
 			if Global.attack_region == "blank":
 				print("error")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
-		if Global.deployment_phase == false:
+		if Global.deployment_phase == false and Global.nuke_deployment == false:
 			print("To: " + str(region_name))
 			Global.defense_region = region_name
 

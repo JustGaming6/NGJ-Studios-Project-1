@@ -72,3 +72,23 @@ func _on_color_rect_mouse_entered():
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		print("build")
+
+
+func _on_nuke_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		var valid = false
+		match Global.turn:
+			1:
+				if Global.p1_bal >= 5000:
+					valid = true
+			2:
+				if Global.p2_bal >= 5000:
+					valid = true
+			3:
+				if Global.p3_bal >= 5000:
+					valid = true
+			4:
+				if Global.p4_bal >= 5000:
+					valid = true
+		if valid == true:
+			Global.nuke_deployment = true
