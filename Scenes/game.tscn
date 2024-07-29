@@ -366,7 +366,6 @@ texture = ExtResource("17_6g7b8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Nuke/Area2D"]
 position = Vector2(-0.608398, -0.665283)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2ydae")
 
 [node name="Label" type="Label" parent="CanvasLayer/Nuke"]
