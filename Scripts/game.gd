@@ -99,8 +99,19 @@ func _process(delta):
 		Global.attack_region = "blank"
 
 func fortify(attack, defense, attack_label, defense_label):
-	defense.Troops += attack.Troops - 2
-	attack.Troops = 1
+	if defense.Nuke == true:
+		print("hi")
+		attack.Troops = attack.Troops / 2
+		attack.Troops = round(attack.Troops)
+		if attack.Troops > 2:
+			var transport_troops = attack.Troops - 2
+			attack.Troops = 1
+			transport_troops = transport_troops / 2
+			transport_troops = round(transport_troops)
+			defense.Troops += transport_troops
+	else:
+		defense.Troops += attack.Troops - 2
+		attack.Troops = 1
 	attack_label.set_text(str(attack.Troops))
 	defense_label.set_text(str(defense.Troops))
 
@@ -114,9 +125,17 @@ func attack(attack, defense): #Calculates the outcome of an attack
 	if Global.nuke_deployment == true:
 		print(attack_node)
 		attack_node.Troops = 1
-		attack_label = str(attack_node.Troops)
+		attack_label.set_text(str(attack_node.Troops))
+		if attack_node.Nuke == false:
+			var nuke_sprite = Sprite2D.new()
+			nuke_sprite.position = attack_label.position
+			nuke_sprite.scale = Vector2(0.05, 0.05)
+			nuke_sprite.position.x += 10
+			nuke_sprite.position.y += 10
+			nuke_sprite.texture = load("res://Assets/Images/Icons/nuuuuuuuuuuukkke.png")
+			attack_node.add_child(nuke_sprite)
 		attack_node.Nuke = true
-		Global.nuke_deployment == false
+		Global.nuke_deployment = false
 		match Global.turn:
 			1:
 				Global.p1_bal -= 5000
