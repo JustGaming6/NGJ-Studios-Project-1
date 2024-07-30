@@ -130,7 +130,7 @@ func attack(attack, defense): #Calculates the outcome of an attack
 			var nuke_sprite = Sprite2D.new()
 			nuke_sprite.position = attack_label.position
 			nuke_sprite.scale = Vector2(0.05, 0.05)
-			nuke_sprite.position.x += 10
+			nuke_sprite.position.x += 15
 			nuke_sprite.position.y += 10
 			nuke_sprite.texture = load("res://Assets/Images/Icons/nuuuuuuuuuuukkke.png")
 			attack_node.add_child(nuke_sprite)
@@ -151,6 +151,8 @@ func attack(attack, defense): #Calculates the outcome of an attack
 			fortify(attack_node, defense_node, attack_label, defense_label)
 			valid_attack = false
 		if attack_node.Troops > 1 and valid_attack == true:
+			if defense_node.Nuke == true:
+				attack_node.Troops = attack_node.Troops / 2
 			var chance = int(attack_node.Troops) / int(defense_node.Troops)
 			var rng = RandomNumberGenerator.new()
 			var result = int(rng.randf_range(0,9))
