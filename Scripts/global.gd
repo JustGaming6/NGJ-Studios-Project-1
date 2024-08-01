@@ -43,6 +43,7 @@ var nuke_deployment = false
 
 var attack_region = "blank"
 var defense_region = "blank"
+var region_info_clicked = "blank"
 
 var winner 
 

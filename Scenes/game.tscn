@@ -379,6 +379,54 @@ text = "$5000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="region_info" type="ColorRect" parent="CanvasLayer"]
+offset_left = -7.0
+offset_top = 51.0
+offset_right = 218.0
+offset_bottom = 648.0
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="region_name" type="Label" parent="CanvasLayer/region_info"]
+layout_mode = 0
+offset_right = 224.0
+offset_bottom = 30.0
+text = "Region Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="region_income" type="Label" parent="CanvasLayer/region_info"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 37.0
+offset_right = 52.0
+offset_bottom = 60.0
+text = "Region Income: $0000
+"
+
+[node name="region_manpower" type="Label" parent="CanvasLayer/region_info"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 59.0
+offset_right = 153.0
+offset_bottom = 82.0
+text = "Region Manpower: 0000
+"
+
+[node name="radioactivity" type="Label" parent="CanvasLayer/region_info"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 99.0
+offset_right = 225.0
+offset_bottom = 129.0
+text = "Radioactivity: LOW"
+
+[node name="info_back" type="Button" parent="CanvasLayer/region_info"]
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 222.0
+offset_bottom = 32.0
+text = "<<<"
+
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
 [node name="LoadingScreen" type="ColorRect" parent="BlankScreens"]
@@ -489,4 +537,5 @@ text = "Start Turn"
 [connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/No" to="." method="_on_no_pressed"]
 [connection signal="input_event" from="CanvasLayer/Nuke/Area2D" to="CanvasLayer" method="_on_nuke_input_event"]
+[connection signal="pressed" from="CanvasLayer/region_info/info_back" to="CanvasLayer" method="_on_info_back_pressed"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]
