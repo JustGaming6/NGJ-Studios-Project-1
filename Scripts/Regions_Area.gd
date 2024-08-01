@@ -81,7 +81,9 @@ func _on_mouse_entered():
 			node.color = lighten_color
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if Input.is_action_pressed("region_info"):
+		Global.region_info_clicked = region_name
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		if Global.deployment_phase == true:
 			Global.region_clicked = true
 			Global.troops_region_name = region_name
@@ -93,7 +95,7 @@ func _on_input_event(viewport, event, shape_idx):
 			Global.attack_region = region_name
 			if Global.attack_region == "blank":
 				print("error")
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		if Global.deployment_phase == false and Global.nuke_deployment == false:
 			print("To: " + str(region_name))
 			Global.defense_region = region_name

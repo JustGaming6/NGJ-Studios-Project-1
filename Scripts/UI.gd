@@ -3,6 +3,22 @@ extends CanvasLayer
 
 func _ready():
 	SubMenu("hide")
+	$region_info.hide()
+
+func _process(delta):
+	if Global.region_info_clicked != "blank":
+		var region_node = get_node("../Regions").get_node(Global.region_info_clicked)
+		$region_info/region_name.set_text(Global.region_info_clicked)
+		$region_info/region_income.set_text("Income: $" + str(region_node.Income))
+		$region_info/region_manpower.set_text("Manpower: $" + str(region_node.Manpower))
+		match region_node.Nuke:
+			true:
+				$region_info/radioactivity.set_text("Radioactivity: DEADLY")
+			false:
+				$region_info/radioactivity.set_text("Radioactivity: LOW")
+				
+		
+		$region_info.show()
 
 func _physics_process(delta):
 	if Global.turn == 1:
@@ -92,3 +108,8 @@ func _on_nuke_input_event(viewport, event, shape_idx):
 					valid = true
 		if valid == true:
 			Global.nuke_deployment = true
+
+func _on_info_back_pressed():
+	Global.region_info_clicked = "blank"
+	$region_info.hide()
+	print("hi")
