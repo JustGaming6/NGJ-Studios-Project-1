@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmbbs41ci5e6l"]
+[gd_scene load_steps=10 format=3 uid="uid://dmbbs41ci5e6l"]
 
 [ext_resource type="Texture2D" uid="uid://qn0sxb8ykyrp" path="res://Assets/Images/Tile Set/THE Water Tile Set.png" id="1_rpsrc"]
 [ext_resource type="Texture2D" uid="uid://d276vy76eippy" path="res://Assets/Images/Map/Tutorial_Map_Updated.png" id="2_61lop"]
+[ext_resource type="Texture2D" uid="uid://clnkhwj483bf2" path="res://Assets/Images/Buildings/Prototype/Bank (Prototype 1).png" id="3_12rwn"]
+[ext_resource type="Texture2D" uid="uid://bebw1dqa4w6eq" path="res://Assets/Images/Buildings/Bank (Upgrades).png" id="4_kexi6"]
+[ext_resource type="Texture2D" uid="uid://ch18olo6hl1jy" path="res://Assets/Images/Buildings/Watchtower (Upgrades).png" id="5_45c4b"]
+[ext_resource type="Texture2D" uid="uid://ipxpq7dhklgs" path="res://Assets/Images/Buildings/Prototype/Watchtower (Prototype 1).png" id="6_wrdr0"]
+[ext_resource type="Texture2D" uid="uid://dqt6ugo30n353" path="res://Assets/Images/Buildings/Prototype/Recruitment_Centre-(Upgrades)-export.png" id="7_qv676"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rjx8"]
 texture = ExtResource("1_rpsrc")
@@ -23,3 +28,25 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536
 position = Vector2(755, 382)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_61lop")
+
+[node name="Bank(prototype1)" type="Sprite2D" parent="."]
+position = Vector2(-444, -78)
+scale = Vector2(25, 25)
+texture = ExtResource("3_12rwn")
+
+[node name="Bank(upgrades)" type="Sprite2D" parent="."]
+position = Vector2(1425, 371)
+texture = ExtResource("4_kexi6")
+
+[node name="Watchtower(upgrades)" type="Sprite2D" parent="."]
+position = Vector2(-920, 4495)
+texture = ExtResource("5_45c4b")
+
+[node name="Watchtower(prototype1)" type="Sprite2D" parent="."]
+position = Vector2(992, 3590)
+scale = Vector2(25, 25)
+texture = ExtResource("6_wrdr0")
+
+[node name="RecruitmentCentre-(upgrades)-export" type="Sprite2D" parent="."]
+position = Vector2(3536, 4004)
+texture = ExtResource("7_qv676")
