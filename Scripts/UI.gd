@@ -27,11 +27,12 @@ func _process(delta):
 			1:
 				if region_node.Owner == "p1":
 					if Global.p1_bal >= factory_cost:
-						if factory_level <= 5:
+						if factory_level < 5:
 							factory_cost_valid = true
 							$region_info/region_factory/upgrade.set_text("Upgrade: $" + str(factory_cost))
 						else:
 							$region_info/region_factory/upgrade.set_text("MAX")
+							factory_cost_valid = false
 					else:
 						factory_cost_valid = false
 					if factory_level != 1:
@@ -41,11 +42,56 @@ func _process(delta):
 						factory_sell_valid = false
 						$region_info/region_factory/sell.set_text("TOO LOW")
 			2:
-				pass
+				if region_node.Owner == "p2":
+					if Global.p2_bal >= factory_cost:
+						if factory_level < 5:
+							factory_cost_valid = true
+							$region_info/region_factory/upgrade.set_text("Upgrade: $" + str(factory_cost))
+						else:
+							$region_info/region_factory/upgrade.set_text("MAX")
+							factory_cost_valid = false
+					else:
+						factory_cost_valid = false
+					if factory_level != 1:
+						factory_sell_valid = true
+						$region_info/region_factory/sell.set_text("Sell: $" + str(factory_sell) )
+					else:
+						factory_sell_valid = false
+						$region_info/region_factory/sell.set_text("TOO LOW")
 			3:
-				pass
+				if region_node.Owner == "p3":
+					if Global.p3_bal >= factory_cost:
+						if factory_level < 5:
+							factory_cost_valid = true
+							$region_info/region_factory/upgrade.set_text("Upgrade: $" + str(factory_cost))
+						else:
+							$region_info/region_factory/upgrade.set_text("MAX")
+							factory_cost_valid = false
+					else:
+						factory_cost_valid = false
+					if factory_level != 1:
+						factory_sell_valid = true
+						$region_info/region_factory/sell.set_text("Sell: $" + str(factory_sell) )
+					else:
+						factory_sell_valid = false
+						$region_info/region_factory/sell.set_text("TOO LOW")
 			4:
-				pass
+				if region_node.Owner == "p4":
+					if Global.p4_bal >= factory_cost:
+						if factory_level < 5:
+							factory_cost_valid = true
+							$region_info/region_factory/upgrade.set_text("Upgrade: $" + str(factory_cost))
+						else:
+							$region_info/region_factory/upgrade.set_text("MAX")
+							factory_cost_valid = false
+					else:
+						factory_cost_valid = false
+					if factory_level != 1:
+						factory_sell_valid = true
+						$region_info/region_factory/sell.set_text("Sell: $" + str(factory_sell) )
+					else:
+						factory_sell_valid = false
+						$region_info/region_factory/sell.set_text("TOO LOW")
 			
 		match factory_level:
 			1:
@@ -157,9 +203,29 @@ func _on_sell_pressed():
 		var region_node = get_node("../Regions").get_node(Global.region_info_clicked)
 		factory_level -= 1
 		region_node.Income = region_node.Income / 1.2
+		region_node.Income = round(region_node.Income)
+		match Global.turn:
+			1:
+				Global.p1_bal += factory_sell
+			2:
+				Global.p2_bal += factory_sell
+			3:
+				Global.p3_bal += factory_sell
+			4:
+				Global.p4_bal += factory_sell
 
 func _on_upgrade_pressed():
 	if factory_cost_valid == true:
 		var region_node = get_node("../Regions").get_node(Global.region_info_clicked)
 		factory_level += 1
 		region_node.Income = region_node.Income * 1.2
+		region_node.Income = round(region_node.Income)
+		match Global.turn:
+			1:
+				Global.p1_bal -= factory_cost
+			2:
+				Global.p2_bal -= factory_cost
+			3:
+				Global.p3_bal -= factory_cost
+			4:
+				Global.p4_bal -= factory_cost
