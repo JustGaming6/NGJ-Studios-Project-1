@@ -1,5 +1,10 @@
 extends CanvasLayer
 
+var factory_level = 1
+var factory_cost = 1000
+var factory_cost_valid = false
+var factory_sell = 0
+var factory_sell_valid = false
 
 func _ready():
 	SubMenu("hide")
@@ -16,9 +21,39 @@ func _process(delta):
 				$region_info/radioactivity.set_text("Radioactivity: DEADLY")
 			false:
 				$region_info/radioactivity.set_text("Radioactivity: LOW")
-				
-		
 		$region_info.show()
+	match Global.turn:
+		1:
+			if Global.p1_bal >= factory_cost:
+				if factory_level <= 5:
+					factory_cost_valid = true
+					$region_info/region_factory/upgrade.set_text("Upgrade: $" + str(factory_cost))
+				else:
+					$region_info/region_factory/upgrade.set_text("MAX")
+			else:
+				factory_cost_valid = false
+			if factory_level != 1:
+				factory_sell_valid = true
+				$region_info/region_factory/sell.set_text("Sell: $" + str(factory_sell) )
+			else:
+				factory_sell_valid = false
+				$region_info/region_factory/sell.set_text("TOO LOW")
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
+		
+	match factory_level:
+		1:
+			factory_cost = 1000
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
 
 func _physics_process(delta):
 	if Global.turn == 1:
@@ -113,3 +148,10 @@ func _on_info_back_pressed():
 	Global.region_info_clicked = "blank"
 	$region_info.hide()
 	print("hi")
+
+func _on_sell_pressed():
+	if factory_sell_valid == true:
+		var region_node = get_node("../Regions").get_node(Global.region_info_clicked)
+		factory_level -= 1
+		region_node.Income = region_node.Income / 1.2
+		$region_info/region_income.set_text("Income: $" + str(region_node.Income))

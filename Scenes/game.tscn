@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://fk5f8uapiaqv"]
+[gd_scene load_steps=34 format=3 uid="uid://fk5f8uapiaqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_e67rb"]
 [ext_resource type="Texture2D" uid="uid://c3xppi5nwq6o" path="res://Assets/Images/Map/Terretories Map V2.png" id="2_of3w0"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://4tcfdreedvj7" path="res://Assets/Fonts/origa___.ttf" id="14_lckv4"]
 [ext_resource type="Texture2D" uid="uid://cx6yhqjb440bt" path="res://Assets/Images/Misc/Loading Anim (SpriteSheet (Fixed)).png" id="16_didjj"]
 [ext_resource type="Texture2D" uid="uid://b22frwrn5kogc" path="res://Assets/Images/Icons/nuuuuuuuuuuukkke.png" id="17_6g7b8"]
+[ext_resource type="Texture2D" uid="uid://cvypco3r50u21" path="res://Assets/Images/Buildings/Animation Factory.png" id="18_rtm77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryian"]
 texture = ExtResource("2_ovug1")
@@ -421,11 +422,46 @@ offset_bottom = 129.0
 text = "Radioactivity: LOW"
 
 [node name="info_back" type="Button" parent="CanvasLayer/region_info"]
+layout_mode = 0
 offset_left = 172.0
 offset_top = 1.0
 offset_right = 222.0
 offset_bottom = 32.0
 text = "<<<"
+
+[node name="region_factory" type="Sprite2D" parent="CanvasLayer/region_info"]
+position = Vector2(101, 187)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("18_rtm77")
+hframes = 4
+vframes = 5
+metadata/_edit_group_ = true
+
+[node name="level" type="Label" parent="CanvasLayer/region_info/region_factory"]
+offset_left = -510.0
+offset_top = -460.0
+offset_right = 560.0
+offset_bottom = -180.0
+theme_override_font_sizes/font_size = 80
+text = "Factory Level: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sell" type="Button" parent="CanvasLayer/region_info/region_factory"]
+offset_left = -740.0
+offset_top = 20.0
+offset_right = -270.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "Sell: $100000"
+
+[node name="upgrade" type="Button" parent="CanvasLayer/region_info/region_factory"]
+offset_left = 260.0
+offset_top = 20.0
+offset_right = 730.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "Upgrade: $100000"
 
 [node name="BlankScreens" type="CanvasLayer" parent="."]
 
@@ -538,4 +574,5 @@ text = "Start Turn"
 [connection signal="pressed" from="CanvasLayer/Menu/LeaveGame/No" to="." method="_on_no_pressed"]
 [connection signal="input_event" from="CanvasLayer/Nuke/Area2D" to="CanvasLayer" method="_on_nuke_input_event"]
 [connection signal="pressed" from="CanvasLayer/region_info/info_back" to="CanvasLayer" method="_on_info_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/region_info/region_factory/sell" to="CanvasLayer" method="_on_sell_pressed"]
 [connection signal="pressed" from="BlankScreens/Button" to="." method="_on_button_pressed"]
