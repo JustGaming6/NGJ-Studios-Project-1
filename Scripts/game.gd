@@ -20,6 +20,7 @@ func _ready():
 	$BlankScreens/Button.hide()
 	$CanvasLayer/Menu/LeaveGame.hide()
 	$CanvasLayer/Button.hide()
+	$CanvasLayer/region_info.hide()
 	loading_screen = true
 	load_screen("loading")
 	load_regions()

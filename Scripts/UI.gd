@@ -8,7 +8,6 @@ var factory_sell_valid = false
 
 func _ready():
 	SubMenu("hide")
-	$region_info.hide()
 
 func _process(delta):
 	if Global.region_info_clicked != "blank":
