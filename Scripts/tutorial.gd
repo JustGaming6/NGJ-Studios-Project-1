@@ -240,7 +240,7 @@ func camera_move(): #Function for camera movement (Both wasd and mouse)
 func load_regions(): #Function to load the regions at the start of the game
 	var image = mapImage.get_texture().get_image()
 	var pixel_color_dict = get_pixel_color_dict(image)
-	var regions_dict = import_file("res://tutorial.txt")
+	var regions_dict = import_file("res://Scripts/tutorial_regions.gd")
 	for region_color in regions_dict:
 		region = load("res://Scenes/tutorial_area.tscn").instantiate()
 		region_info = regions_dict[region_color]
