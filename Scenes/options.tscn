@@ -54,7 +54,7 @@ offset_right = 807.0
 offset_bottom = 85.0
 theme_override_fonts/font = ExtResource("3_skg4y")
 theme_override_font_sizes/font_size = 52
-text = "New Zeland Conquest"
+text = "New Zealand Conquest"
 
 [node name="main text" type="Label" parent="."]
 offset_left = 19.0
@@ -123,11 +123,6 @@ offset_bottom = 128.0
 theme_override_font_sizes/font_size = 40
 text = "Description:
 "
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "F*CK"
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="menu2" to="." method="_on_tutorial_pressed"]
